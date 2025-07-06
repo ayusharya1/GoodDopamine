@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { useTheme } from './theme-provider';
-import { Navigation } from './Navigation';
-import { FooterSection } from './footer-section';
+import { useTheme } from '../components/theme-provider';
+import { Navigation } from '../components/Navigation';
+import { FooterSection } from '../components/footer-section';
 
 const NUM_STARS = 32;
 

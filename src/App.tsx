@@ -6,9 +6,9 @@ import AboutUs from "./pages/AboutUs"
 import "./index.css"
 import ContactUs from "./pages/ContactUs"
 import Logbook from "./pages/Logbook"
-import Terms from "./components/Terms"
-import Privacy from "./components/Privacy"
-import MediaAssets from "./components/MediaAssets"
+import Terms from "./pages/Terms"
+import Privacy from "./pages/Privacy"
+import MediaAssets from "./pages/MediaAssets"
 
 export default function App() {
   return (

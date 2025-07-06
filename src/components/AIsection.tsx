@@ -37,7 +37,7 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
         {/* <div className="font-mono font-normal text-[14px] mt-4 text-[#1E3A8A] text-center" style={{fontWeight: 400, fontSize: 14, marginTop: 8, letterSpacing: 0}}>
           ANCIENT RITES TO<br />CHANNEL, DIVIDE AND FORM
         </div> */}
-        <div className="flex flex-col items-end mt-[12rem] md:mt-[12rem] sm:mt-[2rem] font-extrabold leading-none text-[16vw] md:text-[10vw] sm:text-[6vw]" style={{fontFamily: 'Impact, Roobert, Arial Black, sans-serif', letterSpacing: '-0.01em', color: mainTextColor, opacity: 1}}>
+        <div className="flex flex-col px-[2] items-end mt-[12rem] md:mt-[12rem] sm:mt-[2rem] font-extrabold leading-none text-[16vw] md:text-[10vw] sm:text-[6vw]" style={{fontFamily: 'Impact, Roobert, Arial Black, sans-serif', letterSpacing: '-0.01em', color: mainTextColor, opacity: 1}}>
           <span className='lg:text-[16rem]'>ALIGNMENT</span>
         </div>
       </div>
