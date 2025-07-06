@@ -1,37 +1,13 @@
-import React, { useMemo } from "react";
+import  { useMemo } from "react";
 import { useTheme } from "./theme-provider";
 import Video from "./Video";
 
-const storyData = [
-  {
-    date: "October 2021",
-    title: "Things, inc. is born",
-    img: "/images/things-logo-night.png",
-    description: "Things, inc. is born",
-    type: "image",
-  },
-  {
-    date: "September 2022",
-    title: "The first rooms prototype is born",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    description: "The first rooms prototype is born",
-    type: "video",
-    thumb: "/images/673c030a4e3b890efff94ee2_videoThumb-1.png"
-  },
-  {
-    date: "May 2023",
-    title: "Rooms Beta launches on web",
-    video: "https://www.w3schools.com/html/movie.mp4",
-    description: "Rooms Beta launches on web",
-    type: "video",
-    thumb: "/images/person1.avif"
-  },
-];
+
 
 export default function OurStory() {
   const { theme } = useTheme();
   const numStars = 7;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

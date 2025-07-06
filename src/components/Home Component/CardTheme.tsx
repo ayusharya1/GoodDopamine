@@ -1,46 +1,32 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import AnimatedCard from '../AnimatedCard';
+import { useRef,useEffect, useMemo } from 'react';
+
 
 import AIsection from '../AIsection';
 import { OurThingsSection } from '../our-things-section';
 
 // Placeholder images (replace with actual images if available)
-const towerImg = 'https://images.unsplash.com/photo-1586011978320-228b9817faf1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; // Use a similar grayscale/transparent image
-const avatarImg = 'https://randomuser.me/api/portraits/men/32.jpg'; // Replace with actual avatar if available
 
 
 
-const CardTheme = ({ id, theme }: { id?: string, theme?: 'light' | 'dark' }) => {
+const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const totalCards = 3;
+
 
   // Scroll to card by index with proper positioning
-  const scrollToCard = (idx: number) => {
-    if (scrollRef.current) {
-      const cardWidth = 1300; // Width of each card
-      const gap = 64; // Gap between cards (gap-16 = 4rem = 64px)
-      // Calculate scroll position to center the card
-      const scrollPosition = idx * (cardWidth + gap);
-      scrollRef.current.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth',
-      });
-      setCurrentIdx(idx);
-    }
-  };
+  // const scrollToCard = (idx: number) => {
+  //   if (scrollRef.current) {
+  //     const cardWidth = 1300; // Width of each card
+  //     const gap = 64; // Gap between cards (gap-16 = 4rem = 64px)
+  //     // Calculate scroll position to center the card
+  //     const scrollPosition = idx * (cardWidth + gap);
+  //     scrollRef.current.scrollTo({
+  //       left: scrollPosition,
+  //       behavior: 'smooth',
+  //     });
+  //     setCurrentIdx(idx);
+  //   }
+  // };
 
-  const handleLeft = () => {
-    if (currentIdx > 0) {
-      scrollToCard(currentIdx - 1);
-    }
-  };
-  const handleRight = () => {
-    if (currentIdx < totalCards - 1) {
-      scrollToCard(currentIdx + 1);
-    }
-  };
 
   // Initialize scroll position on mount
   useEffect(() => {
@@ -49,22 +35,11 @@ const CardTheme = ({ id, theme }: { id?: string, theme?: 'light' | 'dark' }) => 
     }
   }, []);
 
-  // Handle scroll events to update current index
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const scrollLeft = scrollRef.current.scrollLeft;
-      const cardWidth = 1000;
-      const gap = 64;
-      const newIdx = Math.round(scrollLeft / (cardWidth + gap));
-      if (newIdx !== currentIdx && newIdx >= 0 && newIdx < totalCards) {
-        setCurrentIdx(newIdx);
-      }
-    }
-  };
+
 
   // Generate random stars for dark mode (copied from log-book-section)
-  const numStars = 32;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const numStars = 10;
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

@@ -8,8 +8,8 @@ interface HeroSectionProps {
 export function HeroSection({ theme }: HeroSectionProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showScrollBtn, setShowScrollBtn] = useState(true)
+  // const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // const [showScrollBtn, setShowScrollBtn] = useState(true)
   const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -26,14 +26,14 @@ export function HeroSection({ theme }: HeroSectionProps) {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setShowScrollBtn(entry.isIntersecting),
-      { threshold: 0.2 }
-    )
-    if (heroRef.current) observer.observe(heroRef.current)
-    return () => observer.disconnect()
-  }, [])
+  // useEffect(() => {
+  //   const observer = new window.IntersectionObserver(
+  //     ([entry]) => setShowScrollBtn(entry.isIntersecting),
+  //     { threshold: 0.2 }
+  //   )
+  //   if (heroRef.current) observer.observe(heroRef.current)
+  //   return () => observer.disconnect()
+  // }, [])
 
   return (
     <section

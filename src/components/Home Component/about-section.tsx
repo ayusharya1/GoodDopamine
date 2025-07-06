@@ -1,34 +1,25 @@
-import { useEffect, useState, useMemo } from "react"
+import { useMemo } from "react"
 
 export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: (e.clientY / window.innerHeight) * 2 - 1,
-      })
-    }
+  // useEffect(() => {
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     setMousePosition({
+  //       x: (e.clientX / window.innerWidth) * 2 - 1,
+  //       y: (e.clientY / window.innerHeight) * 2 - 1,
+  //     })
+  //   }
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+  //   window.addEventListener("mousemove", handleMouseMove)
+  //   return () => window.removeEventListener("mousemove", handleMouseMove)
+  // }, [])
 
-  const floatingElements = [
-    { emoji: "🧱", color: "bg-orange-500", size: "w-16 h-12", rotation: "rotate-12" },
-    { emoji: "👶", color: "bg-red-500", size: "w-12 h-12", rotation: "rotate-0" },
-    { emoji: "🎮", color: "bg-yellow-500", size: "w-20 h-8", rotation: "-rotate-6" },
-    { emoji: "🚀", color: "bg-green-500", size: "w-14 h-14", rotation: "rotate-45" },
-    { emoji: "⚡", color: "bg-purple-500", size: "w-18 h-10", rotation: "rotate-12" },
-    { emoji: "🎨", color: "bg-pink-500", size: "w-10 h-16", rotation: "-rotate-12" },
-    { emoji: "🔮", color: "bg-blue-500", size: "w-12 h-12", rotation: "rotate-30" },
-    { emoji: "🌟", color: "bg-indigo-500", size: "w-8 h-8", rotation: "-rotate-45" },
-  ]
+ 
 
   // Generate random stars for dark mode
   const numStars = 7;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

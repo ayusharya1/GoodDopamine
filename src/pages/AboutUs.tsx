@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import  { useMemo } from 'react';
 import { Navigation } from '../components/Navigation';
 
 import { useTheme } from '../components/theme-provider';
 import { FooterSection } from '../components/footer-section';
-import Teams from '../components/Teams';
+
 import OurStory from '../components/OurStory';
-import MentionSection from '../components/Mentionsection';
+
 import CommunitySection from '../components/CommunitySection';
 
 export default function AboutUs() {
@@ -13,7 +13,7 @@ export default function AboutUs() {
   
   // Generate random stars for dark mode
   const numStars = 25;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;
@@ -153,10 +153,10 @@ Come get the cheat codes for your brain.
           </div>
         </div>
       </div>
-      {/* <Teams/> */}
+      
      
       <OurStory/>
-      {/* <MentionSection/> */}
+      
       {/* AI today Misalligned */}
       <div
         className={`w-full flex flex-col items-center justify-center mt-20 mb-20 relative px-4 sm:px-8 md:px-16 lg:px-32 ${theme === 'dark' ? 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]' : ''}`}

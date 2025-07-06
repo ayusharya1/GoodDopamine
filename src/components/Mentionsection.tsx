@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import  { useMemo } from "react";
 import { useTheme } from "./theme-provider";
 
 const mentions = [
@@ -43,7 +43,7 @@ const mentions = [
 export default function MentionSection() {
   const { theme } = useTheme();
   const numStars = 45;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

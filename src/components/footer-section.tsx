@@ -67,7 +67,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
     return () => window.removeEventListener('resize', updateStarCount);
   }, []);
 
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;
@@ -154,13 +154,14 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
           <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-1 flex gap-2 h-full shadow-xl w-full md:w-[60%] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#e3f0ff]'}`} style={{minHeight: '365px'}}>
             {/* Navigation Links */}
             <div className={`flex flex-col gap-1 w-[100%] p-2 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
-              {['Home', 'About us', 'Log book', 'Contact'].map((item) => (
-                <button
+              {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
+                <a
+                href={item=="Home"?"/":`/${item}`}
                   key={item}
-                  className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-lg border-2 transition-all duration-200 shadow mb-2 ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-white' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!bg-opacity-100'}`}
+                  className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-lg border-2 transition-all duration-200 shadow mb-2 ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-white' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!bg-opacity-100 cursor-pointer'}`}
                 >
                   • {item}
-                </button>
+                </a>
               ))}
             </div>
             {/* Rooms/Things */}

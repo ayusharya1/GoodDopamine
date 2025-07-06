@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import  { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 const logs = [
   {
@@ -36,8 +36,8 @@ const logs = [
 
 export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   // Generate random stars for dark mode
-  const numStars = 32;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const numStars = 7;
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

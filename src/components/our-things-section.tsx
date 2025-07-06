@@ -1,5 +1,5 @@
 import { useEffect, useRef, useMemo, useState } from "react"
-import { motion, useInView, useAnimation } from "framer-motion"
+import { useInView, useAnimation } from "framer-motion"
 import img1 from "../../public/images/Ridan1.png";
 import img2 from "../../public/images/Ridan2.png";
 import img3 from "../../public/images/Ridan3.png";
@@ -22,10 +22,7 @@ import img9 from "../../public/images/Ridan2-right.png";
 // ]
 const septImages=[img1,img2,img3,img4,img5,img6,img7];
 
-const rightCardImages = [
-  "https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/67292fe38b6f7b6e51b4069f_bot_mobile.png",
-  "https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/6724172ce52e4a1a1546bf7f_Worlds_project.png"
-]
+
 
 export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' | 'dark' }) {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -51,7 +48,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
 
   // Generate random stars for dark mode
   const numStars = 7;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;

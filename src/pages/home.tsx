@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { HeroSection } from '../components/Home Component/hero-section';
-import { OurThingsSection } from '../components/our-things-section';
+
 import LogBookSection from '../components/Home Component/log-book-section';
 import { FooterSection } from '../components/footer-section';
 import { Navigation } from '../components/Navigation';

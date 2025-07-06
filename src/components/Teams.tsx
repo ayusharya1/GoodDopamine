@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import  { useMemo } from "react";
 import { useTheme } from "./theme-provider";
 
 const founders = [
@@ -22,31 +22,12 @@ const founders = [
   // },
 ];
 
-const team = [
-  {
-    name: "Matt Fogarty",
-    role: "Content Lead",
-    img: "/images/673cf60777490761ff95e2e7_matt_avatar.avif",
-    bg: "#D2E4FF"
-  },
-  // {
-  //   name: "Camy Decembly",
-  //   role: "Content & Community",
-  //   img: "/images/673cf60fce3b5afbfa587d9f_camy_avatar (1).avif",
-  //   bg: "#D2E4FF"
-  // },
-  // {
-  //   name: "Melissa Burd",
-  //   role: "Content & Community",
-  //   img: "/images/673cf6163542971e55441cc0_mel_avatar (1).avif",
-  //   bg: "#D2E4FF"
-  // },
-];
+
 
 export default function Teams() {
   const { theme } = useTheme();
   const numStars = 10;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;
@@ -111,7 +92,7 @@ export default function Teams() {
           <div>
             <h2 className={"font-normal mb-4 pl-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]') + " text-xl sm:text-2xl md:text-3xl"}>Founders</h2>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 ml-0 sm:ml-[2rem] md:ml-[8rem] lg:ml-[20rem] items-center">
-              {founders.map((f, i) => (
+              {founders.map((f) => (
                 <div key={f.name} className="rounded-3xl p-4 pb-2 flex flex-col items-center w-full sm:w-[320px] md:w-[380px] lg:w-[460px] shadow-lg mb-4 sm:mb-0" style={{ background: theme === 'dark' ? '#23244a' : f.bg, backgroundClip: 'padding-box', boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}>
                   <img src={f.img} alt={f.name} className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 object-contain mb-2 rounded-xl" />
                   <div className=" w-full  p-2">

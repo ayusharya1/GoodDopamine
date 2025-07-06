@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTheme } from './theme-provider';
 import { Navigation } from './Navigation';
 import { FooterSection } from './footer-section';
-import img1 from "../../public/images/img3.png"
+
 const NUM_STARS = 32;
 
 
@@ -10,7 +10,7 @@ const NUM_STARS = 32;
 const Privacy: React.FC = () => {
     const { theme } = useTheme();
     // Generate random stars for dark mode
-    const stars = useMemo(() => Array.from({ length: NUM_STARS }, (_, i) => {
+    const stars = useMemo(() => Array.from({ length: NUM_STARS }, (_) => {
         const left = Math.random() * 100;
         const top = Math.random() * 70;
         const size = 2 + Math.random() * 5;

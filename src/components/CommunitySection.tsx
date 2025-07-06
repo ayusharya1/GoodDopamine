@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import  { useMemo } from "react";
 import { useTheme } from "./theme-provider";
 
 const socials = [
@@ -12,7 +12,7 @@ const socials = [
 export default function CommunitySection() {
   const { theme } = useTheme();
   const numStars = 7;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;
@@ -73,7 +73,7 @@ export default function CommunitySection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 px-12">
         <h1 className={"font-medium mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]') + " text-3xl sm:text-4xl md:text-6xl lg:text-7xl"}>Community</h1>
         <div className="w-full sm:w-[70vw] max-w-6xl bg-[#053C66] rounded-[2.5rem] border-[6px] border-[#054D85] flex flex-col sm:flex-row items-center justify-center px-2 sm:px-4 py-4 ml-0 sm:ml-8" style={{minHeight: 180}}>
-          {socials.map((s, i) => (
+          {socials.map((s) => (
             <div key={s.name} className="flex flex-col items-center justify-between bg-[#D2E4FF] rounded-[1.5rem] hover:bg-[#F177A4] border-2 border-[#054D85] relative w-full sm:min-w-[120px] sm:max-w-[200px] h-[120px] sm:h-[180px] mx-1 sm:mx-2 mb-2 sm:mb-0 group">
               {/* Dot/Arrow in top-right */}
               <div className="absolute top-3 right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-300 ease-in-out flex items-center justify-center">

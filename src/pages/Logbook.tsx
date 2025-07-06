@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTheme } from '../components/theme-provider';
 import { Navigation } from '../components/Navigation';
 import { FooterSection } from '../components/footer-section';
-import img1 from "../../public/images/img3.png"
+
 const NUM_STARS = 32;
 
 type BlogPost = {
@@ -41,7 +41,7 @@ const Badge: React.FC<{ variant?: string; className?: string; children: React.Re
 const Logbook: React.FC = () => {
     const { theme } = useTheme();
     // Generate random stars for dark mode
-    const stars = useMemo(() => Array.from({ length: NUM_STARS }, (_, i) => {
+    const stars = useMemo(() => Array.from({ length: NUM_STARS }, (_) => {
         const left = Math.random() * 100;
         const top = Math.random() * 70;
         const size = 2 + Math.random() * 5;
@@ -238,7 +238,7 @@ const Logbook: React.FC = () => {
               <div className="absolute top-20 left-0 right-0 h-0.5 bg-gray-300"></div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {blogPosts.map((post, index) => (
+                {blogPosts.map((post) => (
                   <div key={post.id} className="relative">
                     {/* Timeline dot */}
                     <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>

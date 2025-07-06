@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import  { useState, useMemo } from 'react';
 import { FooterSection } from '../components/footer-section';
 import { Navigation } from '../components/Navigation';
 import { useTheme } from '../components/theme-provider';
@@ -23,7 +23,7 @@ const ContactUs = () => {
 
   // Generate random stars for dark mode (matching log-book section)
   const numStars = 38;
-  const stars = useMemo(() => Array.from({ length: numStars }, (_, i) => {
+  const stars = useMemo(() => Array.from({ length: numStars }, () => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
     const size = 2 + Math.random() * 5;
