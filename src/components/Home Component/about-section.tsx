@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { useTheme } from '../theme-provider';
+
 
 export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -16,7 +16,6 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
   //   return () => window.removeEventListener("mousemove", handleMouseMove)
   // }, [])
 
-  const { theme: contextTheme } = useTheme();
 
   // Generate random stars for dark mode
   const numStars = 7;

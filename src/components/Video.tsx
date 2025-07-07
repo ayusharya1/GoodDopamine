@@ -60,12 +60,7 @@ const Video: React.FC = () => {
     }
   };
 
-  const handleVideoEnded = () => {
-    setIsPlaying(false);
-    setShowPreview(true);
-    setBtnScale(1);
-    animateBtnTo(ORIGINAL_BTN_TOP, ORIGINAL_BTN_LEFT);
-  };
+ 
 
   return (
     <div
