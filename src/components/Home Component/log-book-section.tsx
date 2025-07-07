@@ -102,17 +102,26 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
           ))}
         </div>
       )}
-      <div className="log-header w-full max-w-7xl mx-auto flex items-center justify-between mb-8">
+      <div className="log-header w-full max-w-7xl mx-auto flex items-center justify-between mb-14">
         <h2
           className={"log-title text-5xl md:text-6xl tracking-tight " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}
         >
           Log Book
         </h2>
-        <button className="log-button bg-[#e3f0ff] text-[#054D85] px-8 py-4 rounded-2xl text-lg font-medium shadow-md border border-[#b7d4ff] hover:bg-[#F2689B] hover:text-black transition-all duration-200 group">
-          View all logs
-          <span className="inline-block ml-3 align-middle w-2 h-2 bg-[#054D85] rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-50"></span>
-          <span className="inline-block ml-1 align-middle text-2xl place-self-center transition-all duration-200 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5">→</span>
-        </button>
+        <button
+            className={`about-button px-5 py-4 rounded-xl text-md font-medium flex items-center justify-center gap-3 transition-all duration-300 group ${theme === 'dark' ? 'bg-[#CACEFE] text-[#030303]' : 'bg-[#0a5485] text-white'}`}
+            style={{ fontFamily: 'Roobert' }}
+          >
+            View all Logs
+            <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                <span className={`inline-block w-[4px] h-[4px] rounded-full ${theme === 'dark' ? 'bg-[#030303]' : 'bg-white'}`}></span>
+              </span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                <span className="text-black text-xl">→</span>
+              </span>
+            </span>
+          </button>
       </div>
       <div className="log-cards w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
         {logs.map((log, idx) => (
@@ -141,9 +150,12 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
                   style={{ borderRadius: 24 }}
                 />
                 {/* Top right dot */}
-                <div className="top-dot absolute top-4 right-4 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center z-10 border-2 border-[#e3f0ff]">
-                  <svg width="24" height="24" fill="none" stroke="#8a3a5a" strokeWidth="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                </div>
+                <div className={`floating-badge absolute top-2 right-2 w-12 h-12 group-hover:bg-[#FFEBF2] rounded-[1.2rem] flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
+              <span className={`block w-1 h-1 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
+              <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 20L20 8M12 8h8v8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
                 {/* Overlay for heading/content */}
                 <div className="featured-overlay absolute left-8 bottom-8 bg-[#e3f0ff] bg-opacity-90 rounded-2xl px-8 py-6 shadow-lg min-w-[220px] max-w-[80%] z-20">
                   <div className={`featured-title text-3xl md:text-4xl font-medium ${log.text} mb-2`}>{log.title}</div>
@@ -163,13 +175,16 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
                     style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }}
                   />
                   {/* Top right dot */}
-                  <div className="top-dot absolute top-4 right-4 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center z-10 border-2 border-[#e3f0ff]">
-                    <svg width="24" height="24" fill="none" stroke="#8a3a5a" strokeWidth="2" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                  </div>
+                  <div className={`floating-badge absolute top-2 right-2 w-12 h-12 group-hover:bg-[#FFEBF2] rounded-[1.2rem] flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
+              <span className={`block w-1 h-1 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
+              <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 20L20 8M12 8h8v8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
                 </div>
                 <div className={`card-content flex flex-col flex-1 justify-end p-2 transition-colors duration-300 group-hover:text-[#9D2F55] ${idx !== 0 ? 'group-hover:text-[#9D2F55]' : log.text}`}>
-                  <div className={`card-title text-xl font-medium mb-2 ${log.text} ${idx !== 0 ? 'group-hover:text-[#9D2F55]' : ''}`}>{log.title}</div>
-                  <div className={`card-meta text-base font-medium mt-2 ${idx !== 0 ? 'group-hover:text-[#9D2F55]' : 'text-[#7ca6d6]'}`}>{log.logId}  /  {log.date}</div>
+                  <div className={`card-title text-xl  font-medium mb-2 ${log.text} ${idx !== 0 ? 'group-hover:text-[#9D2F55]' : log.text}`}>{log.title}</div>
+                  <div className={`card-meta text-base text-[#054D85] font-medium mt-2 ${idx !== 0 ? 'group-hover:text-[#9D2F55]' : ''}`}>{log.logId}  /  {log.date}</div>
                 </div>
               </>
             )}

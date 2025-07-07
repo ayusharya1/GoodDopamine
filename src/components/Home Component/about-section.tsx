@@ -1,4 +1,5 @@
 import { useMemo } from "react"
+import { useTheme } from '../theme-provider';
 
 export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -15,7 +16,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
   //   return () => window.removeEventListener("mousemove", handleMouseMove)
   // }, [])
 
- 
+  const { theme: contextTheme } = useTheme();
 
   // Generate random stars for dark mode
   const numStars = 7;
@@ -119,11 +120,13 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
       {/* Main content with improved arrangement */}
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center justify-center px-6 min-h-[60vh] about-content">
         <p
-          className={`about-text text-center text-2xl md:text-3xl lg:text-5xl font-medium leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
-          style={{ letterSpacing: '-0.03em', lineHeight: 1.2 }}
+          className={`about-text text-center text-2xl md:text-3xl lg:px-[2rem] lg:text-5xl font-normal leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
+          style={{ letterSpacing: '-0.03em', lineHeight: 1.2 ,fontFamily:'Roobert'}}
         >
           We make the software 
-          
+          <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
+            <span role="img" aria-label="Globe">💻</span>
+          </span>
           we wish someone built for us 
           <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
             <span role="img" aria-label="DNA">🧬</span>
@@ -133,21 +136,23 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
             <span role="img" aria-label="Spark">⚡</span>
           </span>
            dreams while
-          <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
-            <span role="img" aria-label="Globe">💻</span>
-          </span>
           we're at it
         </p>
         
         {/* Enhanced button */}
         <div className="flex justify-center mt-10 about-button-container">
           <button
-            className="about-button bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-full text-lg font-medium shadow-lg transition-all duration-200 flex items-center gap-3"
-            style={{fontFamily:'Roobert'}}
+            className={`about-button px-5 py-4 rounded-xl text-lg font-medium flex items-center justify-center gap-3 transition-all duration-300 group ${theme === 'dark' ? 'bg-[#CACEFE] text-[#030303]' : 'bg-[#0a5485] text-white'}`}
+            style={{ fontFamily: 'Roobert' }}
           >
-            Learn more about Good Dopamine
-            <span className="inline-block w-5 h-5 bg-white rounded-full flex items-center justify-center ml-2">
-              <span className="block w-2 h-2 bg-blue-900 rounded-full"></span>
+            Learn more about us
+            <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                <span className={`inline-block w-[4px] h-[4px] rounded-full ${theme === 'dark' ? 'bg-[#030303]' : 'bg-white'}`}></span>
+              </span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                <span className="text-black text-xl">→</span>
+              </span>
             </span>
           </button>
         </div>
@@ -361,6 +366,11 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
             margin-right: 0.25rem !important;
             scale: 0.9 !important;
           }
+        }
+        
+        .about-button:hover {
+          background: #F177A4 !important;
+          color: #030303 !important;
         }
       `}</style>
     </section>

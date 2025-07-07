@@ -139,7 +139,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           {/* Left big card: isometric hex collage */}
           <a href="https://www.ridan.ai/" 
           target="_blank"
-            className={`main-card relative rounded-[2.5rem] border-[7px] border-[#053C66] group transition-all duration-300 overflow-hidden flex flex-col max-h-[800px] max-w-[800px] h-full shadow-2xl lg:col-span-2 p-0 m-0 ${theme === 'dark' ? '' : 'bg-[#8fd0ff]'} ${isDesktop ? 'hover:border-[5px] hover:border-[#F47CA8] group-hover:border-[5px] group-hover:border-[#F47CA8] ' : ''} ${isDesktop && theme !== 'dark' ? 'hover:bg-[#F47CA8]' : ''}`} 
+            className={`main-card relative rounded-[2rem] border-[7px] border-[#053C66] group transition-all duration-300 overflow-hidden flex flex-col max-h-[800px] max-w-[800px] h-full shadow-2xl lg:col-span-2 p-0 m-0 ${theme === 'dark' ? '' : 'bg-[#8fd0ff]'} ${isDesktop ? 'hover:border-[5px] hover:border-[#F47CA8] group-hover:border-[5px] group-hover:border-[#F47CA8] ' : ''} ${isDesktop && theme !== 'dark' ? 'hover:bg-[#F47CA8]' : ''}`} 
             style={{
               boxShadow: '0 8px 32px 0 rgba(37,99,235,0.10)', 
               width: '90%',
@@ -244,7 +244,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             {/* Floating overlay for Rooms */}
             <div className={`floating-overlay absolute bottom-6 left-6 z-10 rounded-2xl shadow-xl px-10 group-hover:bg-[#FFEBF2]  py-8 max-w-[420px] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(6px)'}}>
               <h3 className={`text-5xl group-hover:text-[#9D2F55] font-medium mb-2 ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Ridan</h3>
-              <p className={`text-base group-hover:text-[#9D2F55] ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Stop Scroll-md . Start Doing.</p>
+              <p className={`text-base group-hover:text-[#9D2F55] ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Stop Scrolling . Start Doing.</p>
             </div>     {/* Floating badge (top right) */}
             <div className={`floating-badge absolute top-5 right-5 w-20 h-20 group-hover:bg-[#FFEBF2] rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
               <span className={`block w-2 h-2 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
@@ -257,9 +257,9 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           <div className="right-cards-container flex flex-col gap-3 h-full p-0 m-0" style={{marginLeft: '-4rem'}}>
             {/* Top right card: A Bunch of Things (fixed size, wider) */}
             <a
-            href="https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+Researcher.I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0"
             target="_blank"
-            className="right-card right-card-top relative rounded-2xl border-[6px] border-[#053C66] group transition-all duration-300 overflow-hidden shadow-2xl flex flex-col items-stretch justify-end p-0 m-0" style={{
+            className="right-card right-card-top relative rounded-[2rem] border-[6px] border-[#053C66] group transition-all duration-300 overflow-hidden shadow-2xl flex flex-col items-stretch justify-end p-0 m-0" style={{
                 boxShadow: '0 8px 32px 0 rgba(37,99,235,0.10)',
                 minHeight: 340,
                 height: '250px',
@@ -274,7 +274,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
               <div style={{width: '100%', height: '100%', position: 'absolute', inset: 0, zIndex: 1}} >
                 <img src="https://plus.unsplash.com/premium_photo-1682124758854-e6e372888b85?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A Bunch of Things" className="transition-opacity duration-500 group-hover:opacity-0" style={{objectFit:'cover',objectPosition:'center',zIndex:1, width: '100%', height: '100%'}}/>
                 {/* Overlays for four cards, shown side by side on hover */}
-                <div className="absolute inset-0 flex items-start justify-center transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-hover:bg-[#F47CA8] pt-2" style={{zIndex: 2}}>
+                <div className="absolute inset-0 flex items-start justify-center transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-hover:bg-[#F47CA8] pt-4" style={{zIndex: 2}}>
                   <div className="grid grid-cols-2 grid-rows-2 gap-4">
                     <div className={`rounded-xl flex flex-col items-center justify-center text-center px-2 transition-opacity duration-2000 ease-out opacity-0 group-hover:opacity-100 ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '0ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '0ms'}}>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-3xl font-semibold w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>Wharton</span>
@@ -303,13 +303,13 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                 </svg>
               </div>
               {/* Floating overlay for text (smaller, horizontally stretched) */}
-              <div className={`right-card-overlay absolute left-[38%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-30 group-hover:bg-[#FEEBF2] transition-colors duration-300 rounded-xl shadow-2xl py-1 max-w-[380px] min-w-[350px] min-h-[20px] border border-blue-100 flex flex-col items-start pl-[1rem] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'} group-hover:opacity-0 transition-opacity`} style={{backdropFilter:'blur(8px)'}}>
-                <h3 className={`text-lg md:text-2xl font-medium group-hover:text-[#9D2F55] transition-colors duration-300 mb-1 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Ridan for Research</h3>
+              <div className={`right-card-overlay absolute left-[38%] top-[72%] -translate-x-1/2 -translate-y-1/2 z-30 group-hover:bg-[#FEEBF2] transition-colors duration-300 rounded-2xl shadow-2xl py-6 max-w-[380px] min-w-[350px] min-h-[20px] border border-blue-100 flex flex-col items-start pl-[1.2rem] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'} group-hover:opacity-0 transition-opacity`} style={{backdropFilter:'blur(8px)'}}>
+                <h3 className={`text-lg md:text-3xl font-medium group-hover:text-[#9D2F55] transition-colors duration-300 mb-1 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Ridan for Research</h3>
                 <p className={`text-sm font-normal group-hover:text-[#9D2F55] transition-colors duration-300 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif'}}>A standalone track where we partner with top researchers in the world to study and solve the attention crisis at its core.</p>
               </div>
             </a>
             {/* Bottom right card: Worlds (fixed size, wider) */}
-            <div className="right-card relative rounded-xl border-[6px] border-[#053C66] group bg-white overflow-hidden flex-1 shadow-2xl flex flex-col items-stretch justify-end p-0 m-0" style={{boxShadow:'0 8px 32px 0 rgba(37,99,235,0.10)',
+            <div className="right-card relative rounded-[2rem] border-[6px] border-[#053C66] group bg-white overflow-hidden flex-1 shadow-2xl flex flex-col items-stretch justify-end p-0 m-0" style={{boxShadow:'0 8px 32px 0 rgba(37,99,235,0.10)',
          height: '200px',
          width: '500px', aspectRatio: '2.9/1', background: '#e6f0fa', position: 'relative', overflow: 'hidden'}}>
               
@@ -317,9 +317,9 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                 <img src={'https://plus.unsplash.com/premium_photo-1682124772474-fe01d6647543?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="Worlds" className="transition-transform duration-500 group-hover:scale-[1.18]" style={{objectFit:'cover',zIndex:1, width: '100%', height: '100%'}}/>
               </div>
               
-              <div className={`right-card-overlay absolute left-[32%] top-[70%] -translate-x-1/2 -translate-y-1/2 z-30 rounded-xl shadow-2xl px-8 pl-[1rem] py-2 max-w-[380px] min-w-[280px] min-h-[40px] border border-blue-100 flex flex-col items-start ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(8px)'}}>
-                <h3 className={`text-lg md:text-2xl font-bold mb-1 text-center ${theme === 'dark' ? 'text-[#07002f]' : 'text-blue-900'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Cognitive Tests</h3>
-                <p className={`text-sm font-normal text-center ${theme === 'dark' ? 'text-[#07002f]' : 'text-blue-700'}`} style={{fontFamily:'Roobert, sans-serif'}}>Comming Soon</p>
+              <div className={`right-card-overlay absolute left-[32%] top-[66%] -translate-x-1/2 -translate-y-1/2 z-30 rounded-2xl shadow-2xl px-8 pl-[1rem] py-4 max-w-[380px] min-w-[280px] min-h-[40px] border border-blue-100 flex flex-col items-start ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(8px)'}}>
+                <h3 className={`text-lg md:text-3xl font-bold mb-1 text-center ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Cognitive Tests</h3>
+                <p className={`text-sm font-normal text-center ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif'}}>Comming Soon</p>
               </div>
             </div>
           </div>

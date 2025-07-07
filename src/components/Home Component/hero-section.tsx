@@ -137,15 +137,15 @@ export function HeroSection({ theme }: HeroSectionProps) {
         >
           <h1
             className={
-              `text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-light mt-5 leading-tight ` +
+              `text-3xl sm:text-3xl md:text-3xl lg:text-5xl font-light mt-5 leading-tight ` +
               (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]')
             }
           >
-            <span className="inline-block animate-fade-in-up absolute left-[25%] sm:left-[30%] md:left-[35%]" style={{ animationDelay: "0.2s" }}>
+            <span className="inline-block animate-fade-in-up absolute left-[25%] sm:left-[30%] md:left-[30%]" style={{ animationDelay: "0.2s" }}>
               Hello!
             </span>
             <br />
-            <span className="inline-block animate-fade-in-up absolute left-[40%] sm:left-[45%] md:left-[50%]" style={{ animationDelay: "0.4s" }}>
+            <span className="inline-block animate-fade-in-up absolute left-[40%] sm:left-[45%] md:left-[48%]" style={{ animationDelay: "0.4s" }}>
               We are
             </span>
           </h1>
@@ -171,7 +171,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
               <p
                 className={
                   `absolute inset-0 flex flex-col items-center justify-center text-center text-md sm:text-sm md:text-lg lg:text-lg max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
-                  (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-800')
+                  (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]')
                 }
                 style={{ 
                   animationDelay: "0.8s", 

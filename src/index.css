@@ -429,3 +429,16 @@ html.dark body, body.dark, .dark body {
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Add smooth transition for theme switching */
+html, body {
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Universal smooth transition for theme switching */
+[class*="bg-"] {
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[class*="text-"] {
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

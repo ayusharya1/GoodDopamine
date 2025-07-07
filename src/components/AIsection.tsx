@@ -16,7 +16,7 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
       style={{
         position: 'relative',
         minHeight: '510vh',
-        width: '99vw',
+        width: '100vw',
         backgroundImage: 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")',
         backgroundSize: '200px',
         backgroundPosition: 'center',

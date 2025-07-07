@@ -70,13 +70,13 @@ export default function CommunitySection() {
           ))}
         </div>
       )}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 px-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16">
         <h1 className={"font-medium mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]') + " text-3xl sm:text-4xl md:text-6xl lg:text-7xl"}>Community</h1>
-        <div className="w-full sm:w-[70vw] max-w-6xl bg-[#053C66] rounded-[2.5rem] border-[6px] border-[#054D85] flex flex-col sm:flex-row items-center justify-center px-2 sm:px-4 py-4 ml-0 sm:ml-8" style={{minHeight: 180}}>
+        <div className="w-full sm:w-[70vw] max-w-6xl bg-[#053C66] rounded-[2.5rem] border-[6px] border-[#054D85] flex flex-col sm:flex-row items-center justify-center px-2 sm:px-4 py-4 mx-auto" style={{minHeight: 180}}>
           {socials.map((s) => (
             <div key={s.name} className="flex flex-col items-center justify-between bg-[#D2E4FF] rounded-[1.5rem] hover:bg-[#F177A4] border-2 border-[#054D85] relative w-full sm:min-w-[120px] sm:max-w-[200px] h-[120px] sm:h-[180px] mx-1 sm:mx-2 mb-2 sm:mb-0 group">
               {/* Dot/Arrow in top-right */}
-              <div className="absolute top-3 right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-300 ease-in-out flex items-center justify-center">
+              <div className="absolute top-3 right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-200 ease-in-out flex items-center justify-center">
                 <span className="block w-3 h-3 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] bg-[#054D85]"></span>
                 <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 20L20 8M12 8h8v8" stroke="#054D85" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

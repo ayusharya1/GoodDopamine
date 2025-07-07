@@ -1,12 +1,15 @@
 import React, { useRef, useState } from 'react';
+import { useTheme } from './theme-provider';
+import nature from "../assets/nature.mp4"
 
 const VIDEO_PREVIEW = 'https://plus.unsplash.com/premium_photo-1731439886498-d09d6472dfb3?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-const VIDEO_SRC = 'https://videos.pexels.com/video-files/4909470/4909470-hd_1920_1080_25fps.mp4';
+const VIDEO_SRC = nature;
 
 const ORIGINAL_BTN_TOP = '1.8%';
 const ORIGINAL_BTN_LEFT = '88%';
 
 const Video: React.FC = () => {
+  const { theme } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -101,11 +104,16 @@ const Video: React.FC = () => {
         ref={videoRef}
         loop
         src={VIDEO_SRC}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${showPreview ? 'opacity-0' : 'opacity-100'}`}
-        onEnded={handleVideoEnded}
-        onClick={handlePlayPause}
+        className="w-full h-full object-cover transition-opacity duration-500 opacity-100"
+        autoPlay
+        muted
         style={{ pointerEvents: 'auto' }}
       />
+      {isPlaying && !showPreview && (
+        <div className={`absolute top-4 left-1/2 capitalize -translate-x-1/2 z-20 text-xl font-medium bg-black/60 px-6 py-4 rounded-full shadow-lg select-none pointer-events-none ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`} style={{fontFamily: 'Roobert'}}>
+          we will reveal when hit 10k downloads
+        </div>
+      )}
     </div>
   );
 };

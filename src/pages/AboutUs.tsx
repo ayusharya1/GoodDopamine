@@ -146,9 +146,8 @@ export default function AboutUs() {
                 ' text-base sm:text-lg md:text-xl'
               }
             >
-              Good Dopamine was born in April 2025 — to mess with your brain, in the best way.
-We’re a dopamine factory disguised as a software studio, building behavioral AI tools that trick your brain into doing hard things — and actually love it.
-Come get the cheat codes for your brain.
+              
+Good Dopamine was born in April 2025 — to give you cheat codes for your brain. We’re a dopamine factory disguised as a software studio, building behavioral AI tools that trick your brain into doing hard things — and actually enjoying it.
             </p>
           </div>
         </div>
@@ -174,7 +173,7 @@ Come get the cheat codes for your brain.
           <h1 className={`font-semibold mt-12 mb-4 text-center ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-2xl sm:text-3xl md:text-4xl lg:text-5xl capitalize`}>Most AI today are misaligned.</h1>
           <p className={` mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>For example, social media algorithms are brilliant at understanding your short-term cravings — but they pull you away from your long-term goals.<br/>We're reversing that.</p>
           <p className={` mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>We are building a <span className='capitalize font-bold'>cognitive alignment engine</span>.<br/>AI that helps you act on what you truly want over time — not what distracts you in the moment.</p>
-          <p className={`mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>You could call it a new kind of productivity.<br/>While OpenAI builds assistants to help you do more,<br/>we build aligned AI to help you do less — but better.<br/>By keeping the noise out and your mind clear.</p>
+          <p className={`mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>You could call it a new kind of productivity.<br/>While OpenAI builds assistants to help you do more,<br/><span className='capitalize font-semibold'>we build aligned AI to help you do less — but better.</span><br/>By keeping the noise out and your mind clear.</p>
           <div className={`flex flex-col sm:flex-col gap-8 mt-8 w-full items-start ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>
             <div className="flex-1 flex items-center justify-center gap-[1rem]">
               <div className="flex items-center ">

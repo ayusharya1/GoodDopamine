@@ -4,11 +4,10 @@ import { Navigation } from '../components/Navigation';
 import { useTheme } from '../components/theme-provider';
 
 const faqs = [
-  'How can I support Things?',
-  'How do I delete my account on Rooms?',
-  'How does Things make money?',
+  'How does Good Dopamine help?',
+  'How can I install the Ridan extension?',
+  'Is Ridan free to use?',
   "What's the catch?",
-  'When will Rooms be on Android?'
 ];
 
 const ContactUs = () => {
@@ -22,7 +21,7 @@ const ContactUs = () => {
   });
 
   // Generate random stars for dark mode (matching log-book section)
-  const numStars = 38;
+  const numStars = 12;
   const stars = useMemo(() => Array.from({ length: numStars }, () => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
@@ -180,7 +179,7 @@ const ContactUs = () => {
           <h1 className={"text-[6rem] font-medium leading-none mb-6 mt-[5rem] contact-title " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Contact</h1>
           <p className={"text-xl mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#2563eb]')}>We read every email. Really.</p>
           <div className="flex flex-row gap-4 mb-8">
-            <div className={"rounded-xl px-6 py-3 text-lg font-medium min-w-[220px] flex items-center border-none " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF]' : 'bg-[#D2E4FF] text-[#054D85]')}>hi@things.inc</div>
+            <div className={"rounded-xl px-6 py-3 text-lg font-medium min-w-[220px] flex items-center border-none " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF]' : 'bg-[#D2E4FF] text-[#054D85]')}>Good Dopamine@gmail.com          </div>
             <button
               className={"rounded-xl px-6 py-3 text-lg font-medium flex items-center gap-2 border-none transition " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF] hover:bg-[#2a2b5a]' : 'bg-[#D2E4FF] text-[#054D85] hover:bg-[#b7d4ff]')}
               onClick={handleCopy}
@@ -244,20 +243,20 @@ const ContactUs = () => {
               <div className="flex flex-row gap-4">
                 <div className="flex flex-col w-1/2">
                   <label className={"text-lg mb-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Your name</label>
-                  <input type="text" placeholder="john smith" className={"rounded-xl px-4 py-3 text-lg border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.name} onChange={e => setForm(f => ({...f, name: e.target.value}))} />
+                  <input type="text" placeholder="john smith" className={"rounded-xl px-4 py-3 text-md border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.name} onChange={e => setForm(f => ({...f, name: e.target.value}))} />
                 </div>
                 <div className="flex flex-col w-1/2">
                   <label className={"text-lg mb-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Your email address</label>
-                  <input type="email" placeholder="hi@things.inc" className={"rounded-xl px-4 py-3 text-lg border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
+                  <input type="email" placeholder="Good Dopamine@gmail.com" className={"rounded-xl px-2 py-3 text-md border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
                 </div>
               </div>
               <div className="flex flex-col">
                 <label className={"text-lg mb-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Subject</label>
-                <input type="text" placeholder="About a certain thing.." className={"rounded-xl px-4 py-3 text-lg border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.subject} onChange={e => setForm(f => ({...f, subject: e.target.value}))} />
+                <input type="text" placeholder="About a certain thing.." className={"rounded-xl px-4 py-3 text-md border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.subject} onChange={e => setForm(f => ({...f, subject: e.target.value}))} />
               </div>
               <div className="flex flex-col">
                 <label className={"text-lg mb-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Message</label>
-                <textarea placeholder="Write something here..." className={"rounded-xl px-4 py-3 text-lg border-2 focus:outline-none min-h-[120px] " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.message} onChange={e => setForm(f => ({...f, message: e.target.value}))} />
+                <textarea placeholder="Write something here..." className={"rounded-xl px-4 py-3 text-md border-2 focus:outline-none min-h-[120px] " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.message} onChange={e => setForm(f => ({...f, message: e.target.value}))} />
               </div>
               <div className="flex justify-end mt-2">
                 <button type="submit" className={"text-xl font-medium flex items-center gap-2 shadow-lg transition relative rounded-xl px-8 py-3 " + (theme === 'dark' ? 'bg-[#F5699C] text-[#CBCFFF] hover:bg-[#ff8bb0]' : 'bg-[#F5699C] text-[#054D85] hover:bg-[#ff8bb0]')}>

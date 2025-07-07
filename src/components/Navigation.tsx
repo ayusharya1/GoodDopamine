@@ -41,15 +41,15 @@ export function Navigation() {
         </nav>
       )}
       {/* Top right theme/counter */}
-      <div className="fixed top-4 sm:top-6 right-4 sm:right-6 z-50 flex items-center gap-2 sm:gap-4">
+      <div className={`fixed top-4 sm:top-6 right-4 sm:right-6 z-50 flex items-center gap-2 sm:gap-4 `}>
         <div
-          className={`flex items-center rounded-full shadow-md border border-blue-200 transition-colors duration-300 ${theme === 'dark' ? 'bg-[#393a6b]' : 'bg-[#dbeafe]'}`}
-          style={{height: 'clamp(40px, 6vh, 48px)', minWidth: 'clamp(100px, 7vw, 220px)', padding: '0 0.25rem'}}
+          className={`flex items-center justify-center rounded-full shadow-md border border-blue-200 transition-colors duration-300 ${theme === 'dark' ? 'bg-[#393a6b]' : 'bg-gradient-to-br from-[#7ecbff] to-[#b4e0ff]'}`}
+          style={{height: 'clamp(40px, 6vh, 48px)', minWidth: 'clamp(100px, 7vw, 220px)'}}
         >
           <button
             aria-label="Toggle theme"
             onClick={handleThemeToggle}
-            className={`flex items-center justify-between rounded-full ml-1 my-1 pl-2 pr-2 focus:outline-none transition-colors duration-300 relative overflow-hidden ${theme === 'dark' ? 'bg-[#393a6b]' : 'bg-gradient-to-br from-[#7ecbff] to-[#b4e0ff]'}`}
+            className={`flex items-center justify-center rounded-full focus:outline-none transition-colors duration-500 relative overflow-hidden theme-toggle-btn ${theme === 'dark' ? 'bg-[#393a6b]' : 'bg-gradient-to-br from-[#7ecbff] to-[#b4e0ff]'}`}
             style={{
               width: 'clamp(70px, 10vw, 90px)',
               height: 'clamp(32px, 5vh, 40px)',
@@ -57,61 +57,54 @@ export function Navigation() {
               transition: 'background-color 0.5s 0.3s, color 0.5s 0.3s',
             }}
           >
-            {theme === 'dark' ? (
-              <>
-                <span className="text-base sm:text-lg relative z-10">🌙</span>
-                {/* Glowing stars inside toggle for dark mode */}
-                {showStars && (
-                  <>
-                    {/* Star 1 */}
-                    <div 
-                      className="absolute w-2 h-2 text-yellow-300"
-                      style={{
-                        top: '4px',
-                        left: '32px',
-                        filter: 'drop-shadow(0 0 4px #fbbf24)',
-                        zIndex: 5,
-                        scale: '0.5'
-                      }}
-                    >
-                      ⭐
-                    </div>
-                    {/* Star 2 */}
-                    <div 
-                      className="absolute w-2 h-2 text-yellow-300"
-                      style={{
-                        top: '20px',
-                        right: '25px',
-                        filter: 'drop-shadow(0 0 4px #fbbf24)',
-                        zIndex: 5,
-                        scale: '0.3'
-                      }}
-                    >
-                      ⭐
-                    </div>
-                    {/* Star 3 */}
-                    <div 
-                      className="absolute w-2 h-2 text-yellow-300"
-                      style={{
-                        top: '8px',
-                        right: '12px',
-                        filter: 'drop-shadow(0 0 4px #fbbf24)',
-                        zIndex: 5,
-                        scale: '0.35'
-                      }}
-                    >
-                      ⭐
-                    </div>
-                  </>
-                )}
-              </>
-            ) : (
-              <>
-                <span className="text-base sm:text-lg">☁️</span>
-                <span className="text-base sm:text-lg ml-[-8px] sm:ml-[-10px] mt-1 sm:mt-2">☁️</span>
-                <span className="text-base sm:text-lg">☀️</span>
-              </>
-            )}
+            {/* Moon icon (night) */}
+            <span
+              className={`theme-toggle-icon transition-al duration-700 ease-in-out absolute left-3 top-1/2 -translate-y-1/2 z-10
+                ${theme === 'dark' ? 'opacity-100 translate-x-0 delay-200 scale-100' : 'opacity-0 -translate-x-6 delay-0 scale-75'}`}
+              style={{ pointerEvents: 'none' }}
+            >
+              🌙
+              {/* Glowing stars inside toggle for dark mode, now inside the moon span for synchronized transition */}
+              {showStars && theme === 'dark' && (
+                <>
+                  <div 
+                    className="absolute  text-yellow-300 text-[7px] theme-toggle-star transition-all duration-700 ease-in-out opacity-100 scale-100 delay-200"
+                    style={{
+                      top: '-2px',
+                      left: '30px',
+                      filter: 'drop-shadow(0 0 4px #fbbf24)',
+                      zIndex: 5,
+                    }}
+                  >⭐</div>
+                  <div 
+                    className="absolute text-yellow-300 text-[5px] theme-toggle-star transition-all duration-700 ease-in-out opacity-100 scale-100 delay-300"
+                    style={{
+                      top: '15px',
+                      left: '28px',
+                      filter: 'drop-shadow(0 0 4px #fbbf24)',
+                      zIndex: 5,
+                    }}
+                  >⭐</div>
+                  <div 
+                    className="absolute  text-yellow-300 text-[5px] theme-toggle-star transition-all duration-700 ease-in-out opacity-100 scale-100 delay-400"
+                    style={{
+                      top: '6px',
+                      left: '52px',
+                      filter: 'drop-shadow(0 0 4px #fbbf24)',
+                      zIndex: 5,
+                    }}
+                  >⭐</div>
+                </>
+              )}
+            </span>
+            {/* Cloud/sun icons (day) */}
+            <span
+              className={`theme-toggle-icon transition-all duration-700 ease-in-out flex items-center gap-1.5 relative z-10
+                ${theme === 'dark' ? 'opacity-0 translate-x-6 delay-0 scale-75' : 'opacity-100 translate-x-0 delay-200 scale-100'}`}
+              style={{ pointerEvents: 'none' }}
+            >
+              ☁️<span className="ml-[-8px] sm:ml-[-10px] mt-1 sm:mt-2">☁️</span>☀️
+            </span>
           </button>
           {/* <div className={`flex items-center gap-1 sm:gap-2 rounded-full ml-1 sm:ml-2 pr-2 sm:pr-4 pl-2 sm:pl-4 h-[clamp(32px, 5vh, 40px)] transition-colors duration-300 ${theme === 'dark' ? 'bg-[#4d4e8a]' : 'bg-[#e0edfd]'}`} style={{marginRight: 'clamp(2px, 0.5vw, 4px)'}}>
             <span className="text-[#0a2540] text-sm sm:text-base font-medium">0 / 6</span>
@@ -170,7 +163,7 @@ export function Navigation() {
                 <div className="space-y-3 sm:space-y-4 w-full sm:w-[60%] md:w-[50%]">
                   {[
                     { label: 'Ridan', url: 'https://www.ridan.ai/' },
-                    { label: 'Ridan For Research', url: 'https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+Researcher.I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0' }
+                    { label: 'Ridan For Research', url: 'https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0' }
                   ].map(({ label, url }) => (
                     <a
                       href={url}
@@ -310,6 +303,30 @@ export function Navigation() {
           font-weight: bold;
           position: relative;
           top: 1px;
+        }
+        .theme-toggle-btn {
+          transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .theme-toggle-icon {
+          transition: opacity 0.7s, transform 0.7s;
+        }
+        .theme-toggle-star {
+          transition: opacity 0.7s, transform 0.7s;
+        }
+        .theme-toggle-icon.delay-200 {
+          transition-delay: 0.2s;
+        }
+        .theme-toggle-icon.delay-0 {
+          transition-delay: 0s;
+        }
+        .theme-toggle-star.delay-300 {
+          transition-delay: 0.3s;
+        }
+        .theme-toggle-star.delay-400 {
+          transition-delay: 0.4s;
+        }
+        .theme-toggle-star.delay-500 {
+          transition-delay: 0.5s;
         }
       `}</style>
     </>

@@ -132,7 +132,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
               <div className="flex w-full items-center bg-[#D2E4FF] rounded-2xl border-4 border-[#b7d4ff] p-2">
                 <input
                   type="email"
-                  placeholder="Good@Dopamine.stuff"
+                  placeholder="Good@stuff"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className="footer-input flex-1 bg-transparent text-[#000] placeholder-[#85A9D6] text-lg px-4 py-3 rounded-2xl focus:outline-none border-none"
@@ -182,7 +182,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
           {/* Social Media */}
           <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: '365px'}}>
             <h4 className={`footer-social-title font-medium mb-2 md:mb-2 mt-8 md:mt-[6rem] text-base md:text-lg w-full text-left pl-2 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>Follow us</h4>
-            <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
+            <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
               <div className="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-1 w-full h-full place-items-center">
                 {[
                   { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord' },
@@ -193,7 +193,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
                   { icon: () => <span className='footer-social-icon text-2xl'>#</span>, name: 'Threads' },
                 ].map((social, idx) => (
                   <div key={idx} className="footer-social-item bg-[#D2E4FF] rounded-2xl flex flex-col items-center justify-center aspect-square w-10 h-10 md:w-[5.5rem] md:h-[5.5rem] shadow-sm border-2 border-[#e3f0ff] relative transition-all duration-200 cursor-pointer hover:scale-105">
-                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-1 h-1 md:w-2 md:h-2 bg-[#e3f0ff] rounded-full"></div>
+                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-1 h-1 md:w-2 md:h-2 bg-[#085494] rounded-full"></div>
                     <social.icon />
                     <span className="footer-social-name text-xs mt-1 md:mt-2 text-[#054D85] text-center w-full font-medium">{social.name}</span>
                   </div>
