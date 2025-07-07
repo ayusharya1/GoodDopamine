@@ -105,7 +105,7 @@ const Video: React.FC = () => {
         style={{ pointerEvents: 'auto' }}
       />
       {isPlaying && !showPreview && (
-        <div className={`absolute top-4 left-1/2 capitalize -translate-x-1/2 z-20 text-xl font-medium bg-black/60 px-6 py-4 rounded-full shadow-lg select-none pointer-events-none ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`} style={{fontFamily: 'Roobert'}}>
+        <div className={`absolute top-4 left-1/2 capitalize -translate-x-1/2 z-20 text-xl font-medium bg-black/60 px-6 py-4 rounded-full shadow-lg select-none pointer-events-none ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-white'}`} style={{fontFamily: 'Roobert'}}>
           we will reveal when hit 10k downloads
         </div>
       )}
