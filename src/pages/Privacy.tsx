@@ -75,7 +75,8 @@ const Privacy: React.FC = () => {
             // backgroundColor: theme === 'dark' ? '#0F0E16' : '#0066FD',
           }}
         >
-          <h1 className={`text-[80px] font-normal  text-center absolute bottom-[10%] ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>Privacy</h1>
+          <h1 className={`text-[90px] font-normal  text-center absolute bottom-[23%] ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>Privacy</h1>
+          <p className={`text-lg ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'} pl-3 mt-8 absolute bottom-[7%] text-center`} style={{fontFamily: 'Roobert, sans-serif'}}>You're not the product. <span className="block">But your behavior might help make the product better — for you and everyone else.</span></p>
           {/* <p className="text-lg mt-6 text-[#185B8C] text-center" style={{fontFamily: 'Roobert, sans-serif'}}>Stuff our lawyers told us to tell you.</p> */}
         </div>
         {/* --- LOG GRID SECTION START --- */}
@@ -129,8 +130,8 @@ const Privacy: React.FC = () => {
           {/* Logs Heading and Filter Bar */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1 mt-[2rem]">
             <div className={`w-full max-w-3xl mx-auto flex flex-col gap-6 items-start text-left ${theme === 'dark' ? 'text-[#CBCFFF]' : ''}`}>
-              <p className={`text-lg pl-3 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>You're not the product. But your behavior might help make the product better — for you and everyone else.</p>
-              <p className={`text-base mt-2 pl-3 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>We're building something big: a Behavioral AI that helps you act on what you truly want, not what distracts you.<br/>To do that, we study patterns. Quietly. Respectfully. And only the ones that matter.</p>
+              {/* <p className={`text-lg pl-3 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>You're not the product. But your behavior might help make the product better — for you and everyone else.</p> */}
+              <p className={`text-base  pl-3 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>We're building something big: a Behavioral AI that helps you act on what you truly want, not what distracts you.<br/>To do that, we study patterns. Quietly. Respectfully. And only the ones that matter.</p>
               <div className={`flex flex-col gap-4 text-left max-w-2xl items-start ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`}>
                 <div className={`${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`}>
                   <span className="text-2xl mr-2">✨</span>

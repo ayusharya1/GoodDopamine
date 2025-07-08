@@ -123,9 +123,9 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute left-0 bottom-[35%] w-[300px] h-auto z-10 transition-transform duration-300" style={{...cloudLeftMid, willChange: 'transform'}} />
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute left-[80%] top-[16%] w-[350px] h-auto z-30 transition-transform duration-300" style={{...cloudRightTop, willChange: 'transform'}} />
       <div className="footer-content max-w-7xl mx-auto relative z-20">
-        <div className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 gap-x-4 md:gap-x-8 mb-4 px-2 md:px-4 w-full">
+        <div className="flex flex-col xl:flex-row gap-y-6 xl:gap-y-0 gap-x-0 xl:gap-x-8 mb-4 px-2 md:px-4 w-full md:gap-y-8 md:gap-x-0 md:flex-col lg:flex-col xl:gap-y-0 xl:gap-x-8">
           {/* Newsletter Signup */}
-          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-4 md:p-10 flex flex-col h-full shadow-xl w-full md:w-[60%] justify-between ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`} style={{minHeight: '365px'}}>
+          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-4 md:p-10 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[60%] justify-between ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h3 className="footer-title text-4xl font-medium text-[#D2E4FF] mb-4 leading-tight">Stay up to date with Good Dopamines</h3>
             <p className="footer-description mb-8 text-lg font-medium leading-relaxed text-[#A6C8F5]">Join our mailing list to be the first to know about new features and releases.</p>
             <form className="w-full flex justify-start items-center" onSubmit={handleSubmit}>
@@ -140,18 +140,24 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
                 />
                 <button
                   type="submit"
-                  className="footer-button text-[#000] font-medium text-sm px-6 py-3 rounded-2xl  flex items-center justify-center transition-all duration-200 shadow group"
+                  className="footer-button text-[#000] font-medium text-sm px-6 py-3 rounded-2xl flex items-center justify-center transition-all duration-200 shadow group"
                   style={{ minWidth: '145px', background: 'linear-gradient(135deg, #f59abc, #f56197)' }}
                 >
                   Sign up
-                  <span className="w-2 h-2 ml-2 bg-black rounded-full inline-block ml-2 transition-all duration-200 group-hover:opacity-0 group-hover:scale-50"></span>
-                  <span className="inline-block ml-2 align-middle text-xl transition-all duration-200 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5">→</span>
+                  <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                      <span className="inline-block w-[4px] h-[4px] rounded-full bg-black"></span>
+                    </span>
+                    <span className="absolute left-0 top-[-2px] -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                      <span className="text-black text-xl">→</span>
+                    </span>
+                  </span>
                 </button>
               </div>
             </form>
           </div>
           {/* Navigation Links + Rooms/Things Combined */}
-          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-1 flex gap-2 h-full shadow-xl w-full md:w-[60%] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#e3f0ff]'}`} style={{minHeight: '365px'}}>
+          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-1 flex gap-2 h-full shadow-xl w-full md:w-full xl:w-[60%] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#e3f0ff]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             {/* Navigation Links */}
             <div className={`flex flex-col gap-1 w-[100%] p-2 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
               {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
@@ -180,7 +186,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
             </div> */}
           </div>
           {/* Social Media */}
-          <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: '365px'}}>
+          <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h4 className={`footer-social-title font-medium mb-2 md:mb-2 mt-8 md:mt-[6rem] text-base md:text-lg w-full text-left pl-2 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>Follow us</h4>
             <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
               <div className="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-1 w-full h-full place-items-center">
@@ -228,7 +234,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
         
         @media (max-width: 1024px) {
           .footer-section {
-            padding-top: 2rem !important;
+            padding-top: 1rem !important;
             padding-bottom: 1rem !important;
             min-height: auto !important;
           }

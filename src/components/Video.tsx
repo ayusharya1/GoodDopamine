@@ -65,7 +65,7 @@ const Video: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="video-container relative overflow-hidden rounded-[1.5rem] rounded-r-[0.5rem] h-[66vh] w-[70vw] left-[18vw]"
+      className="video-container relative overflow-hidden rounded-[1.5rem] h-[40vh] xs:h-[48vh] sm:h-[55vh] md:h-[66vh] w-full xs:w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[70vw] left-0 md:left-[4vw] lg:left-[18vw] max-w-full md:max-w-[900px] xl:max-w-none xl:w-[70vw]"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -73,7 +73,7 @@ const Video: React.FC = () => {
       {/* Play/Pause Button Overlay */}
       <div
         id="video-crsr"
-        className="bg-[#F47CA8] w-[8.4vw] h-[8.4vw] rounded-full flex justify-center items-center absolute z-[999] cursor-pointer shadow-lg transition-transform duration-200"
+        className="bg-[#F47CA8] w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-[8.4vw] md:h-[8.4vw] rounded-full flex justify-center items-center absolute z-[999] cursor-pointer shadow-lg transition-transform duration-200"
         style={{
           top: btnPos.top,
           left: btnPos.left,
@@ -84,7 +84,7 @@ const Video: React.FC = () => {
         }}
         onClick={handlePlayPause}
       >
-        <i className={`ri-${isPlaying ? 'pause-mini-fill' : 'play-mini-fill'} text-[2vw] text-[#B7D4FF]`}></i>
+        <i className={`ri-${isPlaying ? 'pause-mini-fill' : 'play-mini-fill'} text-lg xs:text-xl sm:text-2xl md:text-[2vw] text-[#B7D4FF]`}></i>
       </div>
       {/* Preview Image */}
       <img

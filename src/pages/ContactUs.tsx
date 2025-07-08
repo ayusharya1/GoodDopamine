@@ -259,9 +259,16 @@ const ContactUs = () => {
                 <textarea placeholder="Write something here..." className={"rounded-xl px-4 py-3 text-md border-2 focus:outline-none min-h-[120px] " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.message} onChange={e => setForm(f => ({...f, message: e.target.value}))} />
               </div>
               <div className="flex justify-end mt-2">
-                <button type="submit" className={"text-xl font-medium flex items-center gap-2 shadow-lg transition relative rounded-xl px-8 py-3 " + (theme === 'dark' ? 'bg-[#F5699C] text-[#CBCFFF] hover:bg-[#ff8bb0]' : 'bg-[#F5699C] text-[#054D85] hover:bg-[#ff8bb0]')}>
+                <button type="submit" className={"text-xl hover:text-black font-medium flex items-center gap-2 shadow-lg transition relative rounded-xl px-8 py-3 group " + (theme === 'dark' ? 'bg-[#F5699C] text-[#CBCFFF] hover:bg-[#ff8bb0]' : 'bg-[#F5699C] text-[#054D85] hover:bg-[#ff8bb0]')}> 
                   Send
-                  <span className={"w-3 h-3 rounded-full inline-block ml-2 " + (theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#054D85]')}></span>
+                  <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                      <span className={`inline-block w-[4px] h-[4px] rounded-full ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#054D85]'}`}></span>
+                    </span>
+                    <span className="absolute left-0 top-[-2px] -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                      <span className="text-black text-xl">→</span>
+                    </span>
+                  </span>
                 </button>
               </div>
             </form>

@@ -12,7 +12,7 @@ export default function AboutUs() {
   const { theme } = useTheme();
   
   // Generate random stars for dark mode
-  const numStars = 25;
+  const numStars = 15;
   const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
@@ -79,13 +79,13 @@ export default function AboutUs() {
       <Navigation />
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center relative z-10">
+      <div className="flex-1 flex items-center justify-center relative z-10 px-2 sm:px-4 md:px-8">
         <div
-          className="flex w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 gap-2 items-center flex-col lg:flex-row"
+          className="flex w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8 lg:px-12 gap-6 sm:gap-8 md:gap-12 items-center flex-col lg:flex-row"
           style={{ height: 'auto', minHeight: '100vh' }}
         >
           {/* Left: Pixel Art Images */}
-          <div className="flex flex-col items-center justify-center w-full lg:w-1/2 relative min-h-[220px] sm:min-h-[320px] md:min-h-[400px] lg:min-h-0 aboutus-mobile-images">
+          <div className="hidden lg:flex flex-col items-center justify-center w-full lg:w-1/2 relative min-h-[320px] sm:min-h-[320px] md:min-h-[400px] lg:min-h-0 aboutus-mobile-images">
             <div className="flex gap-8 mb-2">
               <img src="/images/person.png" alt="Persons" className="w-auto" />
             </div>
@@ -128,26 +128,29 @@ export default function AboutUs() {
               />
             </div>
           </div>
+          {/* Mobile/Tablet: Stacked images, no absolute positioning */}
+          <div className="flex flex-col items-center justify-center w-full relative min-h-[220px] sm:min-h-[320px] md:min-h-[400px] lg:hidden gap-2">
+            <img src="/images/person.png" alt="Persons" className="w-3/4 max-w-xs sm:max-w-sm md:max-w-md mx-auto z-10" />
+          </div>
           {/* Right: Text */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start justify-center pl-0 lg:pl-[8rem] mt-8 lg:mt-0">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center pl-0 lg:pl-[8rem] mt-8 lg:mt-0 text-center lg:text-left">
             <h1
               className={
-                'font-semibold mb-8 leading-none ' +
+                'font-semibold mb-6 sm:mb-8 leading-none ' +
                 (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054d85]') +
-                ' text-4xl sm:text-5xl md:text-6xl lg:text-[5rem]'
+                ' text-3xl sm:text-4xl md:text-5xl lg:text-[5rem]'
               }
             >
               About us
             </h1>
             <p
               className={
-                'max-w-xl ' +
+                'w-full max-w-2xl ' +
                 (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054d85]') +
-                ' text-base sm:text-lg md:text-xl'
+                ' text-base sm:text-lg md:text-xl mx-auto'
               }
             >
-              
-Good Dopamine was born in April 2025 — to give you cheat codes for your brain. We’re a dopamine factory disguised as a software studio, building behavioral AI tools that trick your brain into doing hard things — and actually enjoying it.
+              Good Dopamine was born in April 2025 — to give you cheat codes for your brain. We're a dopamine factory disguised as a software studio, building behavioral AI tools that trick your brain into doing hard things — and actually enjoying it.
             </p>
           </div>
         </div>

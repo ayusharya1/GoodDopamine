@@ -32,7 +32,7 @@ export function Navigation() {
         <nav className="fixed top-4 sm:top-6 left-4 sm:left-6 z-50 font-sans">
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base nav-menu-main-btn"
+            className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base nav-menu-main-btn ml-[7px]"
             style={{ fontFamily: 'Roobert' }}
           >
             <span className="text-lg sm:text-xl">☰</span>
@@ -116,20 +116,20 @@ export function Navigation() {
       {isMenuOpen && (
         <>
           <div className="fixed inset-0 bg-black bg-opacity-40 z-40" onClick={() => setIsMenuOpen(false)} />
-          <div className={`fixed top-0 left-0 h-full w-full sm:w-[500px] md:w-[680px] max-w-full z-50 shadow-2xl rounded-tr-3xl rounded-br-3xl flex flex-col ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#d3e5fa]'}`} style={{ borderTopRightRadius: '2.5rem', borderBottomRightRadius: '2.5rem' }}>
-            <div className="flex justify-between items-start px-4 sm:px-6 md:px-8 pt-6 sm:pt-8">
+          <div className={`fixed top-0 left-0 h-full w-full sm:w-[500px] md:w-[680px] max-w-full z-50 shadow-2xl rounded-tr-3xl rounded-br-3xl flex flex-col transition-transform transition-opacity duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'} ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#d3e5fa]'}`} style={{ borderTopRightRadius: '2.5rem', borderBottomRightRadius: '2.5rem' }}>
+            <div className="flex justify-between items-center px-4 sm:px-6 md:px-8 pt-6 sm:pt-8">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base"
+                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 mt-[-1.4rem] sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base"
                 style={{ fontFamily: 'Roobert' }}
               >
                 <span className="text-lg sm:text-xl">✕</span>
                 <span className="hidden sm:inline">Close</span>
               </button>
               <img 
-                src="/images/logo.png" 
+                src="/images/logo2.png" 
                 alt="Logo" 
-                className="select-none ml-8 sm:ml-16 md:ml-20" 
+                className="select-none ml-8 sm:ml-16 md:ml-20 mt-[-1.4rem]" 
                 style={{width: '80px', height: 'auto'}}
               />
             </div>

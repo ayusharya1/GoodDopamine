@@ -32,7 +32,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
 
   return (
     <section
-      className="about-section relative rounded-t-[5rem] w-full min-h-screen py-16 flex flex-col items-center justify-center overflow-hidden"
+      className="about-section relative rounded-t-[2rem] w-full min-h-screen py-16 flex flex-col items-center justify-center overflow-hidden"
       style={{ fontFamily: 'Roobert, sans-serif', background: '#dbeafe' }}
     >
       {/* Grid background */}
@@ -119,23 +119,22 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
       {/* Main content with improved arrangement */}
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center justify-center px-6 min-h-[60vh] about-content">
         <p
-          className={`about-text text-center text-2xl md:text-3xl lg:px-[2rem] lg:text-5xl font-normal leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
+          className={`about-text text-center text-xl md:text-2xl lg:px-[2rem] lg:text-5xl font-normal leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
           style={{ letterSpacing: '-0.03em', lineHeight: 1.2 ,fontFamily:'Roobert'}}
         >
           We make the software 
           <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
             <span role="img" aria-label="Globe">💻</span>
           </span>
-          we wish someone built for us 
+         that we wish someone built for us 
           <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
             <span role="img" aria-label="DNA">🧬</span>
           </span>
-           and trynna save 
+          and having fun seeing your
           <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
             <span role="img" aria-label="Spark">⚡</span>
           </span>
-           dreams while
-          we're at it
+          inner superhuman shine
         </p>
         
         {/* Enhanced button */}

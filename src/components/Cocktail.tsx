@@ -62,12 +62,21 @@ const Cocktail = () => {
 
   return (
     <section id="cocktails" className="relative min-h-screen w-full bg-transparent ">
-      <div className="relative w-full" style={{ minHeight: '300vh', height: '320vh' }}>
+      <div
+        className="relative w-full flex flex-col items-center lg:block"
+        style={{ minHeight: '300vh', height: '320vh' }}
+      >
         {unsplashImages.map((img, idx) => (
           <div
             key={idx}
             ref={el => { if (el) cardRefs.current[idx] = el; }}
-            className="cocktail-card rounded-2xl shadow-2xl bg-white overflow-hidden absolute"
+            className={
+              `cocktail-card rounded-2xl shadow-2xl bg-white overflow-hidden absolute
+              hidden lg:block
+              ` +
+              // Responsive: show as flex column on mobile/tablet
+              `lg:absolute lg:rounded-2xl lg:shadow-2xl lg:bg-white lg:overflow-hidden `
+            }
             style={{
               width: cardWidths[idx],
               height: cardHeights[idx],
@@ -84,87 +93,25 @@ const Cocktail = () => {
             />
           </div>
         ))}
+        {/* Responsive cards for mobile/tablet */}
+        <div className="w-full flex flex-col gap-12 items-center lg:hidden pt-8 pb-16">
+          {unsplashImages.map((img, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl shadow-lg bg-white overflow-hidden w-[95vw] h-[85vh] max-w-none flex-shrink-0"
+              style={{ minHeight: '400px', maxHeight: 'none' }}
+            >
+              <img
+                src={img}
+                alt={`Card ${idx + 1}`}
+                className="w-full h-full object-cover"
+                style={{}} // No clipPath for mobile
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      <style>{`
-        @media (max-width: 1024px) {
-          .cocktail-card {
-            width: 80vw !important;
-            height: 38vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 120vh !important;
-            height: 130vh !important;
-          }
-        }
-        @media (max-width: 768px) {
-          .cocktail-card {
-            width: 95vw !important;
-            height: 32vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 90vh !important;
-            height: 100vh !important;
-          }
-        }
-        @media (max-width: 640px) {
-          .cocktail-card {
-            width: 90vw !important;
-            height: 36vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 90vh !important;
-            height: 100vh !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .cocktail-card {
-            width: 100vw !important;
-            height: 46vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 10rem auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 394vh !important;
-            height: 72vh !important;
-          }
-        }
-        @media (max-width: 412px) {
-          .cocktail-card {
-            width: 100vw !important;
-            height: 46vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 10rem auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 394vh !important;
-            height: 72vh !important;
-          }
-        }
-        @media (max-width: 360px) {
-          .cocktail-card {
-            width: 100vw !important;
-            height: 56vh !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 10rem auto !important;
-          }
-          #cocktails > .relative.w-full {
-            min-height: 394vh !important;
-            height: 72vh !important;
-          }
-        }
-      `}</style>
+     
     </section>
   );
 };

@@ -38,7 +38,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
   return (
     <section
       ref={heroRef}
-      className={`min-h-screen relative overflow-hidden flex items-center justify-center ${theme === 'dark' ? 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]' : 'bg-gradient-to-b from-[#5BB6FF] to-[#8EC5FF]'}`}
+      className={`min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 ${theme === 'dark' ? 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]' : 'bg-gradient-to-b from-[#5BB6FF] to-[#8EC5FF]'}`}
       data-scroll-section
     >
       {/* Realistic Floating Clouds */}
@@ -55,9 +55,9 @@ export function HeroSection({ theme }: HeroSectionProps) {
             transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 10}px)`,
             filter: theme === 'dark' ? 'drop-shadow(0 0 40px #ffe9b1)' : '',
             transition: 'transform 0.2s cubic-bezier(.4,2,.6,1), filter 0.3s',
-            height: 'clamp(80px, 15vw, 160px)',
-            width: 'clamp(225px, 30vw, 450px)',
-            maxWidth: 'clamp(225px, 30vw, 450px)',
+            height: 'clamp(60px, 15vw, 160px)',
+            width: 'clamp(120px, 30vw, 450px)',
+            maxWidth: 'clamp(120px, 30vw, 450px)',
           }} 
         />
         {/* Top Right Cloud Image */}
@@ -72,9 +72,9 @@ export function HeroSection({ theme }: HeroSectionProps) {
             transform: `translate(${mousePosition.x * -15}px, ${mousePosition.y * 8}px)`,
             filter: theme === 'dark' ? 'drop-shadow(0 0 40px #ffe9b1)' : '',
             transition: 'transform 0.2s cubic-bezier(.4,2,.6,1), filter 0.3s',
-            height: 'clamp(170px, 25vw, 340px)',
-            width: 'clamp(225px, 30vw, 450px)',
-            maxWidth: 'clamp(225px, 30vw, 450px)',
+            height: 'clamp(100px, 25vw, 340px)',
+            width: 'clamp(120px, 30vw, 450px)',
+            maxWidth: 'clamp(120px, 30vw, 450px)',
           }} 
         />
         {/* Bottom Left Cloud Image */}
@@ -89,9 +89,9 @@ export function HeroSection({ theme }: HeroSectionProps) {
             transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * -10}px)`,
             filter: theme === 'dark' ? 'drop-shadow(0 0 40px #ffe9b1)' : '',
             transition: 'transform 0.2s cubic-bezier(.4,2,.6,1), filter 0.3s',
-            height: 'clamp(100px, 15vw, 200px)',
-            width: 'clamp(225px, 30vw, 450px)',
-            maxWidth: 'clamp(225px, 30vw, 450px)',
+            height: 'clamp(60px, 15vw, 200px)',
+            width: 'clamp(120px, 30vw, 450px)',
+            maxWidth: 'clamp(120px, 30vw, 450px)',
           }} 
         />
       </div>
@@ -131,13 +131,13 @@ export function HeroSection({ theme }: HeroSectionProps) {
         </div>
       )}
 
-      <div className="text-center z-10 relative mt-[3rem]" data-scroll data-scroll-speed="0.2">
+      <div className="text-center z-10 relative mt-8 sm:mt-[3rem] px-2 sm:px-0" data-scroll data-scroll-speed="0.2">
         <div
           className={`transition-all flex flex-col items-center relative justify-center duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 "}`}
         >
           <h1
             className={
-              `text-3xl sm:text-3xl md:text-3xl lg:text-5xl font-light mt-5 leading-tight ` +
+              `text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-light mt-5 leading-tight ` +
               (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]')
             }
           >
@@ -161,7 +161,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
           >
             <div className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] mx-auto px-4 relative">
               <img
-                src="/images/logo.png"
+                src="/images/logo2.png"
                 alt="Things Logo"
                 width={1200}
                 height={480}
@@ -170,22 +170,22 @@ export function HeroSection({ theme }: HeroSectionProps) {
               />
               <p
                 className={
-                  `absolute inset-0 flex flex-col items-center justify-center text-center text-md sm:text-sm md:text-lg lg:text-lg max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
-                  (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]')
+                  `flex flex-col items-center justify-center text-center text-base xs:text-lg sm:text-xl md:text-2xl lg:text-lg max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
+                  'mt-6 sm:mt-10 md:mt-16 lg:mt-[22rem] ' +
+                  (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]') +
+                  ' relative lg:absolute lg:inset-0 lg:items-center lg:justify-center lg:text-left'
                 }
-                style={{ 
-                  animationDelay: "0.8s", 
-                  zIndex: 20, 
-                  marginTop: 'clamp(15rem, 25vw, 25.5rem)',
-                  width: 'clamp(15rem, 90vw, 55rem)',
-                  marginRight: 'clamp(-2rem, -5vw, -7rem)'
+                style={{
+                  animationDelay: "0.8s",
+                  zIndex: 20,
+                  width: '100%',
+                  marginTop: undefined,
+                  marginRight: undefined
                 }}
               >
-                In a world where everyone — people, businesses, and governments
-                <br className="hidden sm:block" />
-                — is trying to keep you hooked, we're here to set you free.
+                In a world where everyone around you (people, businesses, and governments) is constantly trying to keep you hooked, we're here to set you free.
                 <br className="hidden md:block" />
-               F*ck bad dopamines: scrolls, shorts, misaligned AI.
+                F*ck bad dopamines: scrolls, shorts, misaligned AI.
                 {/* <span className="text-pink-600 font-bold">weird {">"} normal</span>. */}
               </p>
             </div>

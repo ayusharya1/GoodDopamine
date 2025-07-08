@@ -70,24 +70,27 @@ export default function CommunitySection() {
           ))}
         </div>
       )}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16">
-        <h1 className={"font-medium mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]') + " text-3xl sm:text-4xl md:text-6xl lg:text-7xl"}>Community</h1>
-        <div className="w-full sm:w-[70vw] max-w-6xl bg-[#053C66] rounded-[2.5rem] border-[6px] border-[#054D85] flex flex-col sm:flex-row items-center justify-center px-2 sm:px-4 py-4 mx-auto" style={{minHeight: 180}}>
-          {socials.map((s) => (
-            <div key={s.name} className="flex flex-col items-center justify-between bg-[#D2E4FF] rounded-[1.5rem] hover:bg-[#F177A4] border-2 border-[#054D85] relative w-full sm:min-w-[120px] sm:max-w-[200px] h-[120px] sm:h-[180px] mx-1 sm:mx-2 mb-2 sm:mb-0 group">
-              {/* Dot/Arrow in top-right */}
-              <div className="absolute top-3 right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-200 ease-in-out flex items-center justify-center">
-                <span className="block w-3 h-3 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] bg-[#054D85]"></span>
-                <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 20L20 8M12 8h8v8" stroke="#054D85" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-10 sm:pt-16 px-2">
+        <h1 className={"font-medium mb-8 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-center lg:text-left lg:ml-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Community</h1>
+        <div className="w-full max-w-[98vw] sm:w-[90vw] md:max-w-3xl lg:max-w-6xl bg-[#053C66] rounded-2xl sm:rounded-[2.5rem] border-[4px] sm:border-[6px] border-[#054D85] px-2 sm:px-6 md:px-12 py-8 md:py-12 mx-auto flex flex-col lg:flex-row items-center justify-center" style={{minHeight: 180}}>
+          {/* Responsive grid for md and below, flex-row for lg+ */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:flex lg:flex-row lg:gap-6 items-center justify-center">
+            {socials.map((s) => (
+              <div key={s.name} className="flex flex-col items-center justify-between bg-[#D2E4FF] rounded-2xl sm:rounded-[1.5rem] hover:bg-[#F177A4] border-2 border-[#054D85] shadow-md md:shadow-lg relative w-full max-w-[98vw] md:max-w-[400px] lg:max-w-[200px] h-[140px] xs:h-[160px] sm:h-[180px] md:h-[220px] lg:h-[180px] mx-auto lg:mx-2 mb-4 lg:mb-0 group transition-all duration-300 lg:scale-[1.15]">
+                {/* Dot/Arrow in top-right */}
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-200 ease-in-out flex items-center justify-center">
+                  <span className="block w-3 h-3 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] bg-[#054D85]"></span>
+                  <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 20L20 8M12 8h8v8" stroke="#054D85" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                {/* Icon */}
+                <img src={s.img} alt={s.name} className="w-[90px] h-[90px] xs:w-[100px] xs:h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] lg:w-[100px] lg:h-[100px] object-contain mt-4 sm:mt-8 mb-1 sm:mb-2" />
+                {/* Name */}
+                <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-lg font-medium text-[#054D85] mb-2 sm:mb-4">{s.name}</div>
               </div>
-              {/* Icon */}
-              <img src={s.img} alt={s.name} className="w-[100px] h-[100px] object-contain mt-8 mb-2" />
-              {/* Name */}
-              <div className="text-lg font-medium text-[#054D85] mb-4">{s.name}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Video from "./Video";
 
 export default function OurStory() {
   const { theme } = useTheme();
-  const numStars = 7;
+  const numStars = 3;
   const stars = useMemo(() => Array.from({ length: numStars }, (_) => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
@@ -22,7 +22,7 @@ export default function OurStory() {
     : 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")';
   const gridBgColor = theme === 'dark' ? '#0F0E16' : '#B7D4FF';
   return (
-    <div className="relative min-h-screen w-full flex flex-col justify-start items-start z-10 py-10 overflow-hidden" >
+    <div className="relative max-h-screen w-full flex flex-col justify-start items-start z-10 pb-10 overflow-hidden" >
       {/* Grid background: always present */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -65,9 +65,11 @@ export default function OurStory() {
           ))}
         </div>
       )}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 px-12">
-        <h1 className={"text-7xl font-medium mb-10 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Our Story</h1>
-       <Video/>
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-10 sm:pt-14 md:pt-16 px-4 sm:px-6 md:px-8 lg:px-12">
+        <h1 className={"font-medium mb-10 mt-4 lg:mt-0 text-3xl sm:text-4xl md:text-5xl lg:text-7xl " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Our Story</h1>
+        <div className="w-full max-w-full">
+          <Video/>
+        </div>
       </div>
     </div>
   );

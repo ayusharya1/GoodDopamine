@@ -156,7 +156,7 @@ const Logbook: React.FC = () => {
           <div className="absolute top-6 right-8 w-24 h-24 bg-white/80 rounded-2xl shadow-lg flex items-center justify-center z-20 border border-blue-200 transition-all duration-300 group-hover:bg-[#FEEAF1]">
             {/* Dot by default, arrow on hover */}
             <span className="w-6 h-6 flex items-center justify-center">
-              <span className="block bg-blue-400 rounded-full w-6 h-6 transition-all duration-300 group-hover:hidden" />
+              <span className="block bg-blue-400 rounded-full w-2 h-2 transition-all duration-300 group-hover:hidden" />
               <span className="hidden group-hover:block text-5xl text-[#9D2F55] transition-all duration-300">↗</span>
             </span>
           </div>

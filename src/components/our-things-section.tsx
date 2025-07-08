@@ -40,7 +40,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
   }, [isInView, controls])
 
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    const checkDesktop = () => setIsDesktop(window.innerWidth > 1024);
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
@@ -139,7 +139,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           {/* Left big card: isometric hex collage */}
           <a href="https://www.ridan.ai/" 
           target="_blank"
-            className={`main-card relative rounded-[2rem] border-[7px] border-[#053C66] group transition-all duration-300 overflow-hidden flex flex-col max-h-[800px] max-w-[800px] h-full shadow-2xl lg:col-span-2 p-0 m-0 ${theme === 'dark' ? '' : 'bg-[#8fd0ff]'} ${isDesktop ? 'hover:border-[5px] hover:border-[#F47CA8] group-hover:border-[5px] group-hover:border-[#F47CA8] ' : ''} ${isDesktop && theme !== 'dark' ? 'hover:bg-[#F47CA8]' : ''}`} 
+            className={`main-card relative rounded-[2rem] border-[7px] border-[#053C66] group transition-all duration-300 overflow-hidden flex flex-col max-h-[800px] max-w-[800px] h-full shadow-2xl lg:col-span-2 p-0 m-0 ${theme === 'dark' ? '' : 'bg-[#8fd0ff]'} ${isDesktop ? 'hover:border-[5px] hover:border-[#F47CA8] group-hover:border-[5px] group-hover:border-[#F47CA8]' : ''} ${isDesktop && theme !== 'dark' ? 'hover:bg-[#F47CA8]' : ''}`} 
             style={{
               boxShadow: '0 8px 32px 0 rgba(37,99,235,0.10)', 
               width: '90%',
@@ -197,7 +197,14 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                       : 'translate(-76%, -24%) rotate(-26deg) scale(2.9)',
                   }}
                 >
-                  <img src={isDesktop && isHovered ? septImages[0] : img8} alt="Room 1" style={{ width: 180}} />
+                  <img 
+                    src={isDesktop && isHovered ? septImages[0] : img8} 
+                    alt="Room 1" 
+                    style={{ 
+                      width: isDesktop ? 180 : window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 110 : 140,
+                      transition: 'width 0.3s',
+                    }} 
+                  />
                 </div>
                 <div
                   style={{
@@ -214,7 +221,14 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                       : 'translate(-15%, -70%) rotate(20deg) scale(3)',
                   }}
                 >
-                  <img src={isDesktop && isHovered ? septImages[1] : img9} alt="Room 2" style={{ width: 180 }} />
+                  <img 
+                    src={isDesktop && isHovered ? septImages[1] : img9} 
+                    alt="Room 2" 
+                    style={{ 
+                      width: isDesktop ? 180 : window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 110 : 140,
+                      transition: 'width 0.3s',
+                    }} 
+                  />
                 </div>
                 {/* All other images are hidden unless hovered */}
                 {spreadTransforms.slice(2).map((tr, idx) => (
@@ -237,18 +251,17 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
               </div>
             </div>
             {/* Apple award badge */}
-            <div className={`apple-badge absolute top-6 left-6 group-hover:text-[#9D2F55] z-10 flex items-center px-6 py-2 border-2 group-hover:bg-[#FFEBF2] border-[#ffe066] rounded-full shadow font-medium text-base ${theme === 'dark' ? 'bg-[#CBCFFF]/90 text-[#07002f]' : 'bg-white/90 text-blue-900'}`} style={{backdropFilter:'blur(6px)'}}>
-              {/* <svg width="22" height="22" viewBox="0 0 22 22" fill="none" className="mr-2"><ellipse cx="11" cy="11" rx="10" ry="10" fill="#222"/></svg> */}
+            <div className={`apple-badge absolute top-6 left-6 ${isDesktop ? 'group-hover:text-[#9D2F55] group-hover:bg-[#FFEBF2]' : ''} z-10 flex items-center px-6 py-2 border-2 border-[#ffe066] rounded-full shadow font-medium text-base ${theme === 'dark' ? 'bg-[#CBCFFF]/90 text-[#07002f]' : 'bg-white/90 text-blue-900'}`} style={{backdropFilter:'blur(6px)'}}>
               👮🏻‍♂ OS for digital self-control
             </div>
             {/* Floating overlay for Rooms */}
-            <div className={`floating-overlay absolute bottom-6 left-6 z-10 rounded-2xl shadow-xl px-10 group-hover:bg-[#FFEBF2]  py-8 max-w-[420px] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(6px)'}}>
-              <h3 className={`text-5xl group-hover:text-[#9D2F55] font-medium mb-2 ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Ridan</h3>
-              <p className={`text-base group-hover:text-[#9D2F55] ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Stop Scrolling . Start Doing.</p>
+            <div className={`floating-overlay absolute bottom-6 left-6 z-10 rounded-2xl shadow-xl px-10 ${isDesktop ? 'group-hover:bg-[#FFEBF2]' : ''} py-8 max-w-[420px] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(6px)'}}>
+              <h3 className={`text-5xl ${isDesktop ? 'group-hover:text-[#9D2F55]' : ''} font-medium mb-2 ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Ridan</h3>
+              <p className={`text-base ${isDesktop ? 'group-hover:text-[#9D2F55]' : ''} ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`}>Stop Scrolling <span> </span> . Start Doing.</p>
             </div>     {/* Floating badge (top right) */}
-            <div className={`floating-badge absolute top-5 right-5 w-20 h-20 group-hover:bg-[#FFEBF2] rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
-              <span className={`block w-2 h-2 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
-              <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className={`floating-badge absolute top-5 right-5 w-20 h-20 ${isDesktop ? 'group-hover:bg-[#FFEBF2]' : ''} rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
+              <span className={`block w-2 h-2 rounded-full transition-all duration-200 ${isDesktop ? 'group-hover:opacity-0 group-hover:scale-[1.8]' : ''} ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
+              <svg className={`absolute transition-all duration-200 opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''}`} width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 20L20 8M12 8h8v8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
@@ -259,7 +272,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             <a
             href="https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0"
             target="_blank"
-            className="right-card right-card-top relative rounded-[2rem] border-[6px] border-[#053C66] group transition-all duration-300 overflow-hidden shadow-2xl flex flex-col items-stretch justify-end p-0 m-0" style={{
+            className={`right-card right-card-top relative rounded-[2rem] border-[6px] border-[#053C66] group transition-all duration-300 overflow-hidden shadow-2xl flex flex-col items-stretch justify-end p-0 m-0`}
+            style={{
                 boxShadow: '0 8px 32px 0 rgba(37,99,235,0.10)',
                 minHeight: 340,
                 height: '250px',
@@ -268,27 +282,26 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                 background: '#e6f0fa',
                 position: 'relative',
                 overflow: 'hidden',
-                
               }}>
               {/* Background image (cover, fill card) */}
               <div style={{width: '100%', height: '100%', position: 'absolute', inset: 0, zIndex: 1}} >
-                <img src="https://plus.unsplash.com/premium_photo-1682124758854-e6e372888b85?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A Bunch of Things" className="transition-opacity duration-500 group-hover:opacity-0" style={{objectFit:'cover',objectPosition:'center',zIndex:1, width: '100%', height: '100%'}}/>
+                <img src="https://plus.unsplash.com/premium_photo-1682124758854-e6e372888b85?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A Bunch of Things" className={`transition-opacity duration-500 ${isDesktop ? 'group-hover:opacity-0' : ''}`} style={{objectFit:'cover',objectPosition:'center',zIndex:1, width: '100%', height: '100%'}}/>
                 {/* Overlays for four cards, shown side by side on hover */}
-                <div className="absolute inset-0 flex items-start justify-center transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-hover:bg-[#F47CA8] pt-4" style={{zIndex: 2}}>
+                <div className={`absolute inset-0 flex items-start justify-center transition-opacity duration-500 opacity-0 ${isDesktop ? 'group-hover:opacity-100 group-hover:bg-[#F47CA8]' : ''} pt-4`} style={{zIndex: 2}}>
                   <div className="grid grid-cols-2 grid-rows-2 gap-4">
-                    <div className={`rounded-xl flex flex-col items-center justify-center text-center px-2 transition-opacity duration-2000 ease-out opacity-0 group-hover:opacity-100 ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '0ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '0ms'}}>
+                    <div className={`rounded-xl flex flex-col items-center justify-center text-center px-2 transition-opacity duration-2000 ease-out opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''} ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '0ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '0ms'}}>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-3xl font-semibold w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>Wharton</span>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-md mt-2 w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>University of Pennsylvania</span>
                     </div>
-                    <div className={`rounded-xl flex flex-col items-center justify-center text-center px-2 transition-opacity duration-2000 ease-out opacity-0 group-hover:opacity-100 ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '500ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '500ms'}}>
+                    <div className={`rounded-xl flex flex-col items-center justify-center text-center px-2 transition-opacity duration-2000 ease-out opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''} ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '500ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '500ms'}}>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-3xl font-semibold w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>IITJ</span>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-md mt-2 w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>Indian Institute of Technology Jodhpur</span>
                     </div>
-                    <div className={`rounded-xl flex flex-col items-center justify-center text-center transition-opacity duration-2000 ease-out opacity-0 group-hover:opacity-100 ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '1000ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '1000ms'}}>
+                    <div className={`rounded-xl flex flex-col items-center justify-center text-center transition-opacity duration-2000 ease-out opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''} ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '1000ms'} : {width: 220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '1000ms'}}>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-3xl font-semibold w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>CMU</span>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-md mt-2 w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>Carnegie Mellon University</span>
                     </div>
-                    <div className={`rounded-xl flex flex-col items-center justify-center text-center transition-opacity duration-2000 ease-out opacity-0 group-hover:opacity-100 ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width:220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '1500ms'} : {width:220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '1500ms'}}>
+                    <div className={`rounded-xl flex flex-col items-center justify-center text-center transition-opacity duration-2000 ease-out opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''} ${theme === 'dark' ? '' : 'bg-[#95D4FF]'}`} style={theme === 'dark' ? {width:220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', background: '#BBBDE7', transitionDelay: '1500ms'} : {width:220, height: 140, boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)', transitionDelay: '1500ms'}}>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-3xl font-semibold w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>ISB</span>
                       <span className={`${theme === 'dark' ? 'text-[#07002f]' : 'text-[#07002f]'} text-md mt-2 w-full`} style={{fontFamily: 'Roobert, sans-serif'}}>Indian School of Business</span>
                     </div>
@@ -296,16 +309,16 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
                 </div>
               </div>
               {/* Floating badge */}
-              <div className={`floating-badge absolute top-1 right-1 w-20 h-20 group-hover:bg-[#FFEBF2] rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
-                <span className={`block w-2 h-2 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-50 ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
-                <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className={`floating-badge absolute top-2 right-2 w-20 h-20 ${isDesktop ? 'group-hover:bg-[#FFEBF2]' : ''} rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
+                <span className={`block w-2 h-2 rounded-full transition-all duration-200 ${isDesktop ? 'group-hover:opacity-0 group-hover:scale-50' : ''} ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
+                <svg className={`absolute transition-all duration-200 opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''}`} width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 20L20 8M12 8h8v8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               {/* Floating overlay for text (smaller, horizontally stretched) */}
-              <div className={`right-card-overlay absolute left-[38%] top-[72%] -translate-x-1/2 -translate-y-1/2 z-30 group-hover:bg-[#FEEBF2] transition-colors duration-300 rounded-2xl shadow-2xl py-6 max-w-[380px] min-w-[350px] min-h-[20px] border border-blue-100 flex flex-col items-start pl-[1.2rem] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'} group-hover:opacity-0 transition-opacity`} style={{backdropFilter:'blur(8px)'}}>
-                <h3 className={`text-lg md:text-3xl font-medium group-hover:text-[#9D2F55] transition-colors duration-300 mb-1 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Ridan for Research</h3>
-                <p className={`text-sm font-normal group-hover:text-[#9D2F55] transition-colors duration-300 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif'}}>A standalone track where we partner with top researchers in the world to study and solve the attention crisis at its core.</p>
+              <div className={`right-card-overlay absolute left-[38%] top-[72%] -translate-x-1/2 -translate-y-1/2 z-30 ${isDesktop ? 'group-hover:bg-[#FEEBF2] group-hover:opacity-0' : ''} transition-colors duration-300 rounded-2xl shadow-2xl py-6 max-w-[380px] min-w-[350px] min-h-[20px] border border-blue-100 flex flex-col items-start pl-[1.2rem] ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'} transition-opacity`} style={{backdropFilter:'blur(8px)'}}>
+                <h3 className={`text-lg md:text-3xl font-medium ${isDesktop ? 'group-hover:text-[#9D2F55]' : ''} transition-colors duration-300 mb-1 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif', fontWeight: 500}}>Ridan for Research</h3>
+                <p className={`text-sm font-normal ${isDesktop ? 'group-hover:text-[#9D2F55]' : ''} transition-colors duration-300 text-left ${theme === 'dark' ? 'text-[#07002f]' : 'text-[#054D85]'}`} style={{fontFamily:'Roobert, sans-serif'}}>A standalone track where we partner with top researchers in the world to study and solve the attention crisis at its core.</p>
               </div>
             </a>
             {/* Bottom right card: Worlds (fixed size, wider) */}
@@ -314,7 +327,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
          width: '500px', aspectRatio: '2.9/1', background: '#e6f0fa', position: 'relative', overflow: 'hidden'}}>
               
               <div style={{width: '100%', height: '100%', position: 'absolute', inset: 0}}>
-                <img src={'https://plus.unsplash.com/premium_photo-1682124772474-fe01d6647543?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="Worlds" className="transition-transform duration-500 group-hover:scale-[1.18]" style={{objectFit:'cover',zIndex:1, width: '100%', height: '100%'}}/>
+                <img src={'https://plus.unsplash.com/premium_photo-1682124772474-fe01d6647543?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="Worlds" className={`transition-transform duration-500 ${isDesktop ? 'group-hover:scale-[1.18]' : ''}`} style={{objectFit:'cover',zIndex:1, width: '100%', height: '100%'}}/>
               </div>
               
               <div className={`right-card-overlay absolute left-[32%] top-[66%] -translate-x-1/2 -translate-y-1/2 z-30 rounded-2xl shadow-2xl px-8 pl-[1rem] py-4 max-w-[380px] min-w-[280px] min-h-[40px] border border-blue-100 flex flex-col items-start ${theme === 'dark' ? 'bg-[#CBCFFF]/90' : 'bg-white/90'}`} style={{backdropFilter:'blur(8px)'}}>
@@ -379,7 +392,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           }
           
           .floating-overlay {
-            max-width: 320px !important;
+            max-width: 420px !important;
             padding: 1.5rem !important;
             bottom: 1.5rem !important;
             left: 1.5rem !important;
@@ -408,11 +421,16 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           }
           
           .right-card-overlay {
-            max-width: 280px !important;
-            padding: 1rem !important;
+            width: auto !important;
+            max-width: 98vw !important;
+            min-width: 0 !important;
+            padding: 1rem 1rem 3rem 1rem !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             top: 75% !important;
+            word-break: break-word !important;
+            white-space: normal !important;
+            overflow-wrap: anywhere !important;
           }
           
           .right-card-overlay h3 {
@@ -421,6 +439,14 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           .right-card-overlay p {
             font-size: 0.875rem !important;
+          }
+          
+          .right-card-top .right-card-overlay,
+          .right-card:last-child .right-card-overlay {
+            top: 65% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            margin-bottom: 0 !important;
           }
         }
         
@@ -526,13 +552,18 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           }
           
           .right-card-overlay {
-            max-width: 200px !important;
-            padding: 0.75rem !important;
+            width: auto !important;
+            max-width: 98vw !important;
+            min-width: 0 !important;
+            padding: 0.75rem 0.75rem 2.5rem 0.75rem !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             top: 70% !important;
             border-radius: 1rem !important;
             backdrop-filter: blur(12px) !important;
+            word-break: break-word !important;
+            white-space: normal !important;
+            overflow-wrap: anywhere !important;
           }
           
           .right-card-overlay h3 {
@@ -649,13 +680,19 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           }
           
           .right-card-overlay {
-            max-width: 160px !important;
-            padding: 0.5rem !important;
+            width: 68vw !important;
+            max-width: 98vw !important;
+            min-width: 0 !important;
+            padding: 0.5rem 0.5rem 1.5rem 0.5rem !important;
+            margin-bottom:2rem !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             top: 70% !important;
             border-radius: 0.75rem !important;
             backdrop-filter: blur(10px) !important;
+            word-break: break-word !important;
+            white-space: normal !important;
+            overflow-wrap: anywhere !important;
           }
           
           .right-card-overlay h3 {
@@ -779,6 +816,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             top: 70% !important;
             border-radius: 0.625rem !important;
             backdrop-filter: blur(8px) !important;
+            margin-bottom :1rem !important;
           }
           
           .right-card-overlay h3 {
@@ -791,6 +829,19 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             font-size: 0.5rem !important;
             line-height: 1.1 !important;
             opacity: 0.9 !important;
+          }
+        }
+        @media (min-width: 1025px) {
+          .right-card:last-child .right-card-overlay {
+            margin-bottom: 1rem !important;
+          }
+        }
+        @media (max-width: 1024px) {
+          .right-card:last-child .right-card-overlay {
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            margin-bottom: 0 !important;
           }
         }
       `}</style>

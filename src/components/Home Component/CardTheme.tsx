@@ -115,7 +115,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
       {/* Section Title */}
       <h2
         className={
-          `our-things-title  capitalize text-left w-[90%] mx-auto mt-10 px-2  sm:px-4 relative z-20 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-900'} text-[clamp(2.2rem,6vw,4.6rem)] md:text-[3.5rem] sm:text-[1.6rem] font-normal leading-[1.15]`
+          `our-things-title  capitalize text-left w-[90%] mx-auto mt-10 px-2  relative z-20 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-900'} text-[clamp(2.2rem,6vw,4.6rem)] md:text-[3.5rem] sm:text-[1.6rem] font-normal leading-[1.15]`
         }
         style={{
           fontFamily: 'Roobert, sans-serif',
@@ -127,7 +127,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
 
       <OurThingsSection theme={theme}/>
       
-      <div className="w-[100vw] lg:px-0 sm:px-4">
+      <div className="w-[100vw] lg:px-0 ">
         <AIsection theme={theme}/>
       </div>
     </div>
