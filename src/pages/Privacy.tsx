@@ -3,7 +3,7 @@ import { useTheme } from '../components/theme-provider';
 import { Navigation } from '../components/Navigation';
 import { FooterSection } from '../components/footer-section';
 
-const NUM_STARS = 32;
+const NUM_STARS = 12;
 
 
 
@@ -75,7 +75,7 @@ const Privacy: React.FC = () => {
             // backgroundColor: theme === 'dark' ? '#0F0E16' : '#0066FD',
           }}
         >
-          <h1 className={`text-[90px] font-normal  text-center absolute bottom-[23%] ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>Privacy</h1>
+          <h1 className={`text-[80px] font-normal  text-center absolute bottom-[43%] md:bottom-[43%] lg:bottom-[23%] ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>Privacy</h1>
           <p className={`text-lg ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'} pl-3 mt-8 absolute bottom-[7%] text-center`} style={{fontFamily: 'Roobert, sans-serif'}}>You're not the product. <span className="block">But your behavior might help make the product better — for you and everyone else.</span></p>
           {/* <p className="text-lg mt-6 text-[#185B8C] text-center" style={{fontFamily: 'Roobert, sans-serif'}}>Stuff our lawyers told us to tell you.</p> */}
         </div>
