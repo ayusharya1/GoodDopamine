@@ -23,6 +23,7 @@ export default function Home() {
       {/* <AnimatedCard/> */}
       <LogBookSection theme={theme} />
       <FooterSection theme={theme} />
+      
     </div>
   );
 } 

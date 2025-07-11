@@ -1,6 +1,7 @@
 import  { useMemo } from "react";
 import { Link } from "react-router-dom";
 
+
 const logs = [
   {
     featured: true,
@@ -190,6 +191,7 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
             )}
           </Link>
         ))}
+        
       </div>
       
       {/* Responsive styles */}
@@ -664,6 +666,7 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
           }
         }
       `}</style>
+      
     </section>
   );
 } 

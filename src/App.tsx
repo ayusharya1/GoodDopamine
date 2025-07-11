@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy"
 import MediaAssets from "./pages/MediaAssets"
 
 export default function App() {
+  
   return (
     <ThemeProvider>
       <BrowserRouter>

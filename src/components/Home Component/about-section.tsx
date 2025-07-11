@@ -1,6 +1,7 @@
 import { useMemo } from "react"
 
 
+
 export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -154,6 +155,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
             </span>
           </button>
         </div>
+        
       </div>
       
       {/* Responsive styles with enhanced beauty */}
@@ -262,7 +264,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
         
         @media (max-width: 480px) {
           .about-section {
-            min-height: 40vh;
+            min-height: 50vh;
             padding: 1rem 0;
           }
           
@@ -291,7 +293,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
           }
           
           .brain-image {
-            top: 40% !important;
+            top: 50% !important;
             left: 0 !important;
           }
           
@@ -302,7 +304,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
           }
           
           .heart-image {
-            top: 45% !important;
+            top: 55% !important;
             right: 0 !important;
           }
           
@@ -315,7 +317,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
         
         @media (max-width: 360px) {
           .about-section {
-            min-height: 35vh;
+            min-height: 45vh;
             padding: 0.75rem 0;
           }
           
@@ -344,7 +346,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
           }
           
           .brain-image {
-            top: 35% !important;
+            top: 45% !important;
             left: 0 !important;
           }
           
@@ -355,7 +357,7 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
           }
           
           .heart-image {
-            top: 40% !important;
+            top: 48% !important;
             right: 0 !important;
           }
           

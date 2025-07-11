@@ -809,7 +809,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           }
           
           .right-card-overlay {
-            max-width: 130px !important;
+            max-width: 230px !important;
             padding: 0.375rem !important;
             left: 50% !important;
             transform: translateX(-50%) !important;

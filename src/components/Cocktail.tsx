@@ -63,7 +63,7 @@ const Cocktail = () => {
   return (
     <section id="cocktails" className="relative min-h-screen w-full bg-transparent ">
       <div
-        className="relative w-full flex flex-col items-center lg:block"
+        className="relative w-full flex flex-col items-center lg:block min-h-[250vh] h-[320vh]"
         style={{ minHeight: '300vh', height: '320vh' }}
       >
         {unsplashImages.map((img, idx) => (
@@ -94,12 +94,15 @@ const Cocktail = () => {
           </div>
         ))}
         {/* Responsive cards for mobile/tablet */}
-        <div className="w-full flex flex-col gap-12 items-center lg:hidden pt-8 pb-16">
+        <div className="w-full flex flex-col gap-[20rem] items-center lg:hidden pt-8 pb-16">
           {unsplashImages.map((img, idx) => (
             <div
               key={idx}
-              className="rounded-xl shadow-lg bg-white overflow-hidden w-[95vw] h-[85vh] max-w-none flex-shrink-0"
-              style={{ minHeight: '400px', maxHeight: 'none' }}
+              className={
+                "rounded-xl shadow-lg bg-white overflow-hidden w-[95vw] h-[55vh] max-w-none flex-shrink-0" +
+                (idx === unsplashImages.length - 1 ? " mt-auto mb-8" : "")
+              }
+              style={{ minHeight: '200px', maxHeight: 'none' }}
             >
               <img
                 src={img}

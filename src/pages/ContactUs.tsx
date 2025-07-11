@@ -46,89 +46,6 @@ const ContactUs = () => {
         : 'linear-gradient(135deg, #57B5FF 0%, #74BDFF 30%, #82C1FF 55%, #9DC8FE 100%)',
     }}>
       {/* Responsive: global adjustments for mobile/tablet */}
-      <style>{`
-        @media (max-width: 1024px) {
-          .contact-main-content {
-            flex-direction: column !important;
-            padding-left: 0.5rem !important;
-            padding-right: 0.5rem !important;
-            min-height: 60vh !important;
-          }
-          .contact-left, .contact-right {
-            width: 100% !important;
-            margin-left: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
-          .contact-title {
-            font-size: 3rem !important;
-            margin-top: 2rem !important;
-          }
-          .contact-img-main {
-            width: 220px !important;
-            top: 2rem !important;
-            right: 2vw !important;
-          }
-        }
-        @media (max-width: 640px) {
-          .contact-main-content {
-            flex-direction: column !important;
-            padding-left: 0.25rem !important;
-            padding-right: 0.25rem !important;
-            min-height: 40vh !important;
-          }
-          .contact-left, .contact-right {
-            width: 100% !important;
-            margin-left: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
-          .contact-title {
-            font-size: 2rem !important;
-            margin-top: 1rem !important;
-          }
-          .contact-img-main {
-            width: 120px !important;
-            top: 1rem !important;
-            right: 1vw !important;
-          }
-          .contact-faq-title {
-            font-size: 1.5rem !important;
-          }
-          .contact-faq-card {
-            font-size: 1rem !important;
-            padding: 1rem !important;
-          }
-        }
-        @media (max-width: 450px) {
-          .contact-main-content {
-            padding-left: 0.1rem !important;
-            padding-right: 0.1rem !important;
-            min-height: 30vh !important;
-          }
-          .contact-title {
-            font-size: 1.2rem !important;
-            margin-top: 0.5rem !important;
-          }
-          .contact-img-main {
-            width: 70px !important;
-            top: 0.5rem !important;
-            right: 0.5vw !important;
-          }
-          .contact-faq-title {
-            font-size: 1rem !important;
-          }
-          .contact-faq-card {
-            font-size: 0.8rem !important;
-            padding: 0.5rem !important;
-            border-radius: 0.7rem !important;
-          }
-          .contact-left, .contact-right {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
-        }
-      `}</style>
       {/* Night mode background and stars - only for main content area */}
       {theme === 'dark' && (
         <>
@@ -175,10 +92,10 @@ const ContactUs = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col lg:flex-row items-start justify-between w-full max-w-[100vw] min-h-[85vh] mx-auto px-8 pt-8 pb-0 relative z-20 contact-main-content">
         {/* Left Side */}
-        <div className="flex flex-col items-start justify-start w-full lg:w-1/2 pt-16 pl-4 z-10 ml-[2rem] contact-left">
-          <h1 className={"text-[6rem] font-medium leading-none mb-6 mt-[5rem] contact-title " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Contact</h1>
+        <div className="flex flex-col items-start justify-start w-full lg:w-1/2 pt-8 sm:pt-12 md:pt-16 pl-0 sm:pl-2 md:pl-4 z-10 lg:ml-8">
+          <h1 className={"text-3xl sm:text-5xl md:text-6xl lg:text-[6rem] font-medium leading-none mb-4 sm:mb-6 mt-4 sm:mt-8 md:mt-16 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Contact</h1>
           <p className={"text-xl mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#2563eb]')}>We read every email. Really.</p>
-          <div className="flex flex-row gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">
             <div className={"rounded-xl px-6 py-3 text-lg font-medium min-w-[220px] flex items-center border-none " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF]' : 'bg-[#D2E4FF] text-[#054D85]')}>Good Dopamine@gmail.com          </div>
             <button
               className={"rounded-xl px-6 py-3 text-lg font-medium flex items-center gap-2 border-none transition " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF] hover:bg-[#2a2b5a]' : 'bg-[#D2E4FF] text-[#054D85] hover:bg-[#b7d4ff]')}
@@ -190,7 +107,7 @@ const ContactUs = () => {
           </div>
         </div>
         {/* Mailbox Image */}
-        <img src="/images/contact.png" alt="Mailbox" className="absolute right-[10vw] top-16 w-[420px] h-auto z-10 hidden lg:block contact-img-main" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.10))'}} />
+        <img src="/images/contact.png" alt="Mailbox" className="absolute right-2 top-8 w-[80px] sm:w-[120px] md:w-[220px] lg:w-[420px] h-auto z-10 hidden lg:block" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.10))'}} />
       
       </div>
       {/* Form and FAQ Section with log-book style dark theme */}
@@ -220,23 +137,23 @@ const ContactUs = () => {
           }
         />
         {/* Left: Crab and FAQ */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-start items-start pt-8 relative z-10 px-8 contact-left">
+        <div className="w-full lg:w-1/2 flex flex-col justify-start items-start pt-4 sm:pt-8 relative z-10 px-2 sm:px-4 md:px-8">
           {/* Crab image */}
-          <img src="/images/contact.png" alt="Crab" className="w-[120px] h-auto mb-8 ml-24 contact-img-main" style={{transform:'rotate(-20deg)'}} />
+          <img src="/images/contact.png" alt="Crab" className="w-[60px] sm:w-[90px] md:w-[120px] h-auto mb-4 sm:mb-8 ml-4 sm:ml-12" style={{transform:'rotate(-20deg)'}} />
           {/* FAQ */}
-          <div className="w-full h-full rounded-[4rem] p-12 pt-0 relative bg-transparent mt-[10rem] contact-faq-title" style={{minHeight: 480}}>
-            <h2 className={"text-[4rem] font-light mb-8 leading-none contact-faq-title " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Frequently<br />Asked Questions</h2>
-            <div className="flex flex-col gap-6 w-[90%] mt-4">
+          <div className="w-full h-full rounded-2xl sm:rounded-[4rem] p-4 sm:p-8 md:p-12 pt-0 relative bg-transparent mt-8 sm:mt-[6rem] md:mt-[10rem]" style={{minHeight: 320}}>
+            <h2 className={"text-xl sm:text-2xl md:text-4xl lg:text-[4rem] font-light mb-4 sm:mb-8 leading-none " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Frequently<br />Asked Questions</h2>
+            <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 w-full sm:w-[90%] mt-2 sm:mt-4">
               {faqs.map((faq, i) => (
-                <div key={i} className={"border-4 rounded-[2rem] px-8 py-6 text-2xl font-normal flex items-center gap-4 shadow-lg relative contact-faq-card " + (theme === 'dark' ? 'bg-[#23244a] border-[#CBCFFF] text-[#CBCFFF]' : 'bg-[#D2E4FF] border-[#054D85] text-[#054D85]')} style={{minHeight: '64px'}}>
-                  <span className={"text-3xl font-bold mr-4 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>•</span> {faq}
+                <div key={i} className={"border-4 rounded-xl sm:rounded-[2rem] px-4 sm:px-8 py-3 sm:py-6 text-base sm:text-xl md:text-2xl font-normal flex items-center gap-2 sm:gap-4 shadow-lg relative " + (theme === 'dark' ? 'bg-[#23244a] border-[#CBCFFF] text-[#CBCFFF]' : 'bg-[#D2E4FF] border-[#054D85] text-[#054D85]')} style={{minHeight: '48px'}}>
+                  <span className={"text-xl sm:text-2xl md:text-3xl font-bold mr-2 sm:mr-4 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>•</span> {faq}
                 </div>
               ))}
             </div>
           </div>
         </div>
         {/* Right: Form, visually overlapping grid background on left half */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-start pt-12 relative z-20 px-8 lg:mt-[-120px] contact-right">
+        <div className="w-full lg:w-1/2 flex flex-col items-center justify-start pt-8 sm:pt-12 relative z-20 px-2 sm:px-4 md:px-8 lg:mt-[-120px]">
           <div className={"w-full max-w-xl rounded-[2.5rem] p-10 shadow-xl border-none " + (theme === 'dark' ? 'bg-[#23244a]' : 'bg-[#D2E4FF]')} style={{marginTop: '1rem'}}>
             <h2 className={"text-3xl font-light mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Or, message us here</h2>
             <form className="flex flex-col gap-6">

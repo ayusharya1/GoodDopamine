@@ -12,11 +12,11 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
 
   return (
     <div
-      className={`pt-16 sm:pt-[8rem] md:pt-[18rem] pb-8 sm:pb-[4rem] md:pb-[8rem] relative ${theme === 'dark' ? darkBg : lightBg} rounded-t-[2rem] aiSection w-full min-h-[100vh] sm:min-h-[120vh] md:min-h-[300vh] lg:min-h-[510vh]`}
+      className={`pt-16 sm:pt-[8rem] md:pt-[18rem] pb-8 sm:pb-[4rem] md:pb-[8rem] relative ${theme === 'dark' ? darkBg : lightBg} rounded-t-[2rem] aiSection w-full `}
       style={{
         position: 'relative',
-        minHeight: '510vh',
         width: '100vw',
+        minHeight: '510vh',
         backgroundImage: 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")',
         backgroundSize: '200px',
         backgroundPosition: 'center',
@@ -38,7 +38,7 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
           ANCIENT RITES TO<br />CHANNEL, DIVIDE AND FORM
         </div> */}
         <div className="flex flex-col px-1 sm:px-2 items-center sm:items-end mt-4 sm:mt-[2rem] md:mt-[12rem] font-extrabold leading-none w-full" style={{fontFamily: 'Impact, Roobert, Arial Black, sans-serif', letterSpacing: '-0.01em', color: mainTextColor, opacity: 1}}>
-          <span className="font-extrabold text-[clamp(2rem,10vw,5rem)] sm:text-[clamp(2.5rem,12vw,7rem)] md:text-[clamp(2.5rem,14vw,8rem)] lg:text-[clamp(2.5rem,12vw,11rem)] text-center sm:text-right w-full max-w-full break-words">ALIGNMENT</span>
+          <span className="font-extrabold text-[clamp(2.5rem,14vw,6rem)] sm:text-[clamp(2.8rem,16vw,8rem)] md:text-[clamp(3rem,18vw,9rem)] lg:text-[clamp(2.5rem,12vw,11rem)] text-center sm:text-right w-full max-w-full break-words mt-[8rem] sm:mt-0">ALIGNMENT</span>
         </div>
       </div>
 
@@ -51,6 +51,7 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
           autoPlay
           loop
           className="w-full h-auto max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] object-contain"
+          style={{ background: 'transparent' }}
         >
           <source src={cubeVideoWebm} type="video/webm" />
           {/* <source src={cubeVideoMp4} type="video/mp4" /> */}

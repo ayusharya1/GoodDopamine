@@ -79,7 +79,7 @@ export default function AboutUs() {
       <Navigation />
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center relative z-10 px-2 sm:px-4 md:px-8">
+      <div className="flex-1 flex items-center justify-center relative z-10 px-2 sm:px-4 md:px-8 pt-28 md:pt-[5rem] lg:pt-0">
         <div
           className="flex w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-8 lg:px-12 gap-6 sm:gap-8 md:gap-12 items-center flex-col lg:flex-row"
           style={{ height: 'auto', minHeight: '100vh' }}

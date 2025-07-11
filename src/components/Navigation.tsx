@@ -30,14 +30,22 @@ export function Navigation() {
       {/* Top left menu button */}
       {!isMenuOpen && (
         <nav className="fixed top-4 sm:top-6 left-4 sm:left-6 z-50 font-sans">
-          <button
+          {/* <button
             onClick={() => setIsMenuOpen(true)}
             className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base nav-menu-main-btn ml-[7px]"
             style={{ fontFamily: 'Roobert' }}
           >
             <span className="text-lg sm:text-xl">☰</span>
             <span className="hidden sm:inline">Menu</span>
-          </button>
+          </button> */}
+          <button
+                onClick={() => setIsMenuOpen(true)}
+                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base"
+                style={{ fontFamily: 'Roobert' }}
+              >
+                <span className="text-lg sm:text-xl">☰</span>
+                <span className="hidden sm:inline">Menu</span>
+              </button>
         </nav>
       )}
       {/* Top right theme/counter */}
@@ -120,7 +128,13 @@ export function Navigation() {
             <div className="flex justify-between items-center px-4 sm:px-6 md:px-8 pt-6 sm:pt-8">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 mt-[-1.4rem] sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base"
+                className="
+                  flex items-center gap-1 sm:gap-2
+                  bg-blue-900 text-white px-4 sm:px-6 py-2 mt-[-1.4rem] sm:py-3
+                  rounded-full font-medium hover:bg-blue-800 transition-colors shadow
+                  text-sm sm:text-base
+                  lg:relative lg:right-[1.5%]
+                "
                 style={{ fontFamily: 'Roobert' }}
               >
                 <span className="text-lg sm:text-xl">✕</span>
@@ -133,7 +147,7 @@ export function Navigation() {
                 style={{width: '80px', height: 'auto'}}
               />
             </div>
-            <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 pb-6 sm:pb-8 overflow-y-auto flex-1 scrollbar-hide">
+            <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 pb-6 sm:pb-8 overflow-hidden overflow-y-auto flex-1 scrollbar-hide">
               <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-3 sm:p-4 md:p-6 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
               <div className="space-y-3 sm:space-y-4 w-full sm:w-[60%] md:w-[50%]">
                   {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
@@ -252,22 +266,19 @@ export function Navigation() {
         }
         @media (max-width: 450px) {
           .nav-menu-main-btn {
-            padding-left: 0.3rem !important;
-            padding-right: 0.3rem !important;
+  
             font-size: 0.8rem !important;
-            border-radius: 0.7rem !important;
+            
           }
           .nav-menu-btn {
-            padding-left: 0.3rem !important;
-            padding-right: 0.3rem !important;
+            
             font-size: 0.8rem !important;
             border-radius: 0.6rem !important;
           }
         }
         @media (max-width: 360px) {
           .nav-menu-main-btn {
-            padding-left: 0.15rem !important;
-            padding-right: 0.15rem !important;
+           
             font-size: 0.7rem !important;
             border-radius: 0.5rem !important;
           }
