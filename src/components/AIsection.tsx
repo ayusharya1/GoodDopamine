@@ -1,6 +1,6 @@
 import Cocktail from './Cocktail';
 import cubeVideoWebm from '../assets/cubebg.webm';
-import cubeVideoMp4 from '../assets/cubi.mp4';
+import cubeVideoMp4 from '../assets/cubeV.mp4';
 import cubeGif from '../assets/cube.gif';
 import { useEffect, useRef, useState } from 'react';
 
