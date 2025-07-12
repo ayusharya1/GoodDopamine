@@ -43,9 +43,26 @@ const cardPositions = [
 
 const Cocktail = () => {
   const cardRefs = useRef<HTMLDivElement[]>([]);
+  const mobileCardRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    // Desktop card animations
     cardRefs.current.forEach((ref, idx) => {
+      if (!ref) return;
+      gsap.to(ref, {
+        clipPath: targetClipPaths[idx],
+        scrollTrigger: {
+          trigger: ref,
+          start: 'center center',
+          end: 'center center+=300',
+          scrub: true,
+        },
+        ease: 'power1.inOut',
+      });
+    });
+
+    // Mobile card animations
+    mobileCardRefs.current.forEach((ref, idx) => {
       if (!ref) return;
       gsap.to(ref, {
         clipPath: targetClipPaths[idx],
@@ -98,17 +115,24 @@ const Cocktail = () => {
           {unsplashImages.map((img, idx) => (
             <div
               key={idx}
+              ref={el => { if (el) mobileCardRefs.current[idx] = el; }}
               className={
-                "rounded-xl shadow-lg bg-white overflow-hidden w-[95vw] h-[55vh] max-w-none flex-shrink-0" +
+                "rounded-3xl shadow-lg overflow-hidden w-[95vw] h-[55vh] max-w-none flex-shrink-0" +
                 (idx === unsplashImages.length - 1 ? " mt-auto mb-8" : "")
               }
-              style={{ minHeight: '200px', maxHeight: 'none' }}
+              style={{ 
+                minHeight: '200px', 
+                maxHeight: 'none',
+                clipPath: initialClipPaths[idx],
+                transition: 'clip-path 0.8s',
+                border: 'none',
+              }}
             >
               <img
                 src={img}
                 alt={`Card ${idx + 1}`}
-                className="w-full h-full object-cover"
-                style={{}} // No clipPath for mobile
+                className="w-full h-full object-cover rounded-3xl"
+                style={{ clipPath: 'inherit' }}
               />
             </div>
           ))}

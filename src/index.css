@@ -330,6 +330,8 @@ video {
     background-color: transparent !important;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    outline: none !important;
+    border: none !important;
   }
 }
 

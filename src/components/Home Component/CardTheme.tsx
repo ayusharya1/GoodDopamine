@@ -52,7 +52,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
 
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center justify-center rounded-t-[6rem] py-12 md:py-8 sm:py-4 relative"
+      className="min-h-screen w-full flex flex-col items-center justify-center rounded-t-[3rem] py-12 md:py-8 sm:py-4 relative"
       style={{
         background: theme === 'dark'
           ? '#0F0E16'
@@ -91,7 +91,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
       )}
       {/* Grid Background */}
       <div
-        className="absolute rounded-t-[6rem] inset-0 z-0 pointer-events-none"
+        className="absolute rounded-t-[3rem] inset-0 z-0 pointer-events-none"
         style={theme === 'dark'
           ? {
               backgroundColor: '#0F0E16',

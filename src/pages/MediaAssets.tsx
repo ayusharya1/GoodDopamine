@@ -7,7 +7,7 @@ const NUM_STARS = 32;
 
 // List of images from public/images
 const publicImages = [
-'/images/logo.png',
+'/images/logo2.png',
   '/images/Ridan3.png',
   '/images/Ridan5.png',
   '/images/Ridan7.png',

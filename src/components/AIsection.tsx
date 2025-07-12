@@ -1,7 +1,8 @@
 import Cocktail from './Cocktail';
-import cubeVideoWebm from '../assets/cubebg.webm';
 import cubeVideoMp4 from '../assets/cubeV.mp4';
 import cubeGif from '../assets/cube.gif';
+import cubeVideoWebm from '../assets/cubebg.webm'
+import cubeVideoHevc from '../assets/cubebg.mov'
 import { useEffect, useRef, useState } from 'react';
 
 export default function AIsection(props: { theme?: 'light' | 'dark' }) {
@@ -84,31 +85,29 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
       <div className="AIsection-video sticky top-1/2  -translate-y-1/2 flex justify-center items-center z-40 pointer-events-none w-full max-w-[98vw] sm:max-w-[90vw] md:max-w-[600px] mx-auto mt-[7rem] mb-20 sm:mb-24 md:mb-32 lg:mb-0">
         {!videoError ? (
           <video
-            ref={videoRef}
-            muted
-            playsInline
-            preload="auto"
-            autoPlay
-            loop
-            webkit-playsinline="true"
-            x5-playsinline="true"
-            x5-video-player-type="h5"
-            x5-video-player-fullscreen="false"
-            className="w-full h-auto max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] object-contain"
-            style={{ 
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              backgroundImage: 'none',
-              border: 'none',
-              outline: 'none',
-              boxShadow: 'none',
-              WebkitBoxShadow: 'none',
-              MozBoxShadow: 'none'
-            }}
-          >
-            <source src={cubeVideoWebm} type="video/webm" />
-            <source src={cubeVideoMp4} type="video/mp4" />
-          </video>
+  ref={videoRef}
+  muted
+  playsInline
+  autoPlay
+  loop
+  webkit-playsinline="true"
+  x5-playsinline="true"
+  x5-video-player-type="h5"
+  x5-video-player-fullscreen="false"
+  className="w-full h-auto max-h-[70vh] object-contain"
+  style={{
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+    boxShadow: 'none',
+  }}
+>
+  <source src={cubeVideoHevc} type='video/mp4; codecs="hvc1"' />
+  <source src={cubeVideoWebm} type="video/webm" />
+  <source src={cubeVideoMp4} type="video/mp4" />
+</video>
+
         ) : (
           <img
             src={cubeGif}

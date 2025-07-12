@@ -163,7 +163,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
           <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h4 className={`footer-social-title font-medium mb-2 md:mb-2 mt-8 md:mt-[6rem] text-base md:text-lg w-full text-left pl-2 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>Follow us</h4>
             <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
-              <div className="footer-social-item-container lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-2 lg:gap-y-2 xl:gap-x-6 xl:gap-y-2 w-full h-full lg:place-items-center">
+              <div className="footer-social-item-container lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-2 xl:gap-x-6 xl:gap-y-2 w-full h-full lg:place-items-center">
                 {[
                   { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord' },
                   { icon: () => <span className='footer-social-icon text-2xl'>🎵</span>, name: 'Tiktok' },

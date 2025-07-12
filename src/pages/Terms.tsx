@@ -75,8 +75,39 @@ const Terms: React.FC = () => {
             // backgroundColor: theme === 'dark' ? '#0F0E16' : '#0066FD',
           }}
         >
-          <h1 className={`text-[90px] font-normal  text-center absolute bottom-[43%] md:bottom-[43%] lg:bottom-[23%] ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`} style={{fontFamily: 'Roobert, sans-serif'}}>Terms</h1>
-          <p className={`text-lg ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'} pl-3 mt-8  absolute bottom-[7%] text-center`} style={{fontFamily: 'Roobert, sans-serif'}}>Stuff our lawyers told us to tell you. <span className="block">(Except… we can barely afford Mr. ChatGpt to be our lawyer.)</span></p>
+          <h1
+            className={`text-[90px] font-normal text-center ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'}`}
+            style={{
+              fontFamily: 'Roobert, sans-serif',
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '100%',
+              bottom: '43%',
+              padding: '0 1rem',
+              fontSize: 'clamp(2.5rem, 12vw, 5.5rem)',
+              textAlign: 'center',
+            }}
+          >
+            Terms
+          </h1>
+          <p
+            className={`text-lg ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#185B8C]'} text-center`}
+            style={{
+              fontFamily: 'Roobert, sans-serif',
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '90%',
+              bottom: '7%',
+              padding: '0 1rem',
+              fontSize: 'clamp(1rem, 4vw, 1.25rem)',
+              textAlign: 'center',
+              margin: 0,
+            }}
+          >
+            Stuff our lawyers told us to tell you. <span className="block">(Except… we can barely afford Mr. ChatGpt to be our lawyer.)</span>
+          </p>
           
           {/* <p className="text-lg mt-6 text-[#185B8C] text-center" style={{fontFamily: 'Roobert, sans-serif'}}>Stuff our lawyers told us to tell you.</p> */}
         </div>
