@@ -8,6 +8,8 @@ const VIDEO_SRC = nature;
 const ORIGINAL_BTN_TOP = '1.8%';
 const ORIGINAL_BTN_LEFT = '88%';
 
+const TAP_THRESHOLD = 10; // px
+
 const Video: React.FC = () => {
   const { theme } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -20,6 +22,8 @@ const Video: React.FC = () => {
   });
   const [isFollowing, setIsFollowing] = useState(false);
   const [btnScale, setBtnScale] = useState(1);
+  const [isTouching, setIsTouching] = useState(false);
+  const touchStartRef = useRef<{x: number, y: number} | null>(null);
 
   // Animate button position smoothly
   const animateBtnTo = (top: string, left: string) => {
@@ -35,6 +39,47 @@ const Video: React.FC = () => {
       // Animate to cursor position, offset to center the button
       animateBtnTo(`${y - btnSize / 2}px`, `${x - btnSize / 2}px`);
     }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setIsTouching(true);
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      touchStartRef.current = { x, y };
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (containerRef.current) {
+      e.preventDefault(); // Prevent scrolling while following
+      const rect = containerRef.current.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      const btnSize = rect.width * 0.084; // 8.4vw relative to container width
+      animateBtnTo(`${y - btnSize / 2}px`, `${x - btnSize / 2}px`);
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    setIsTouching(false);
+    if (containerRef.current && touchStartRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const touch = e.changedTouches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      const dx = x - touchStartRef.current.x;
+      const dy = y - touchStartRef.current.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < TAP_THRESHOLD) {
+        handlePlayPause(); // treat as tap
+      }
+    }
+    animateBtnTo(ORIGINAL_BTN_TOP, ORIGINAL_BTN_LEFT);
+    touchStartRef.current = null;
   };
 
   const handleMouseEnter = () => {
@@ -56,11 +101,14 @@ const Video: React.FC = () => {
       setShowPreview(false);
       setIsPlaying(true);
       setBtnScale(0.6);
-      videoRef.current?.play();
+      videoRef.current?.play().catch((error) => {
+        console.error('Video play failed:', error);
+        setShowPreview(true);
+        setIsPlaying(false);
+        setBtnScale(1);
+      });
     }
   };
-
- 
 
   return (
     <div
@@ -69,11 +117,14 @@ const Video: React.FC = () => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Play/Pause Button Overlay */}
       <div
         id="video-crsr"
-        className="bg-[#F47CA8] w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-[8.4vw] md:h-[8.4vw] rounded-full flex justify-center items-center absolute z-[999] cursor-pointer shadow-lg transition-transform duration-200"
+        className={`bg-[#F47CA8] w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-[8.4vw] md:h-[8.4vw] rounded-full flex justify-center items-center absolute z-[999] cursor-pointer shadow-lg transition-transform duration-200${isTouching ? ' pointer-events-none' : ''}`}
         style={{
           top: btnPos.top,
           left: btnPos.left,
@@ -100,12 +151,33 @@ const Video: React.FC = () => {
         loop
         src={VIDEO_SRC}
         className="w-full h-full object-cover transition-opacity duration-500 opacity-100"
-        autoPlay
         muted
-        style={{ pointerEvents: 'auto' }}
+        playsInline
+        webkit-playsinline="true"
+        style={{ 
+          pointerEvents: 'auto',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
+        }}
       />
       {isPlaying && !showPreview && (
-        <div className={`absolute top-4 left-1/2 capitalize -translate-x-1/2 z-20 text-xl font-medium bg-black/60 px-10 py-6 md:px-10 md:py-6 lg:px-6 lg:py-4 rounded-full shadow-lg select-none pointer-events-none ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-white'}`} style={{fontFamily: 'Roobert'}}>
+        <div 
+          className={`absolute top-4 left-1/2 capitalize z-[1000] text-xl font-medium bg-black/60 px-10 py-6 md:px-10 md:py-6 lg:px-6 lg:py-4 rounded-full shadow-lg select-none pointer-events-none ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-white'}`} 
+          style={{
+            fontFamily: 'Roobert',
+            WebkitTransform: 'translateX(-50%) translateZ(0)',
+            transform: 'translateX(-50%) translateZ(0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            WebkitUserSelect: 'none',
+            userSelect: 'none',
+            left: '50%',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
           we will reveal when hit 10k downloads
         </div>
       )}

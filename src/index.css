@@ -242,6 +242,107 @@ html.has-scroll-dragging {
   animation: shimmer 2s infinite;
 }
 
+/* Safari-specific video fixes */
+.AIsection-video video {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+  background: transparent !important;
+  background-color: transparent !important;
+  /* Additional WebKit specific fixes */
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Safari mobile video fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .AIsection-video video {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .AIsection-video video {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+/* Additional WebKit specific video fixes */
+.AIsection-video video::-webkit-media-controls {
+  display: none !important;
+}
+
+.AIsection-video video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.AIsection-video video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.AIsection-video video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* Ensure video container also has no background */
+.AIsection-video {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Force transparency on all video elements */
+video {
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+/* WebKit specific video background fixes */
+@supports (-webkit-appearance: none) {
+  video {
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  
+  .AIsection-video video {
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+}
+
+/* Additional Safari/WebKit video fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 1024px) {
+  video {
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+}
+
 /* Enhanced Smooth transitions */
 * {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s

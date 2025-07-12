@@ -96,7 +96,7 @@ const ContactUs = () => {
           <h1 className={"text-3xl sm:text-5xl md:text-6xl lg:text-[6rem] font-medium leading-none mb-4 sm:mb-6 mt-4 sm:mt-8 md:mt-16 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Contact</h1>
           <p className={"text-xl mb-8 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#2563eb]')}>We read every email. Really.</p>
           <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">
-            <div className={"rounded-xl px-6 py-3 text-lg font-medium min-w-[220px] flex items-center border-none " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF]' : 'bg-[#D2E4FF] text-[#054D85]')}>Good Dopamine@gmail.com          </div>
+            <div className={"rounded-xl px-6 py-3 text-lg font-medium min-w-[220px] flex items-center border-none " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF]' : 'bg-[#D2E4FF] text-[#054D85]')}>gooddopamines@gmail.com</div>
             <button
               className={"rounded-xl px-6 py-3 text-lg font-medium flex items-center gap-2 border-none transition " + (theme === 'dark' ? 'bg-[#23244a] text-[#CBCFFF] hover:bg-[#2a2b5a]' : 'bg-[#D2E4FF] text-[#054D85] hover:bg-[#b7d4ff]')}
               onClick={handleCopy}
@@ -142,7 +142,7 @@ const ContactUs = () => {
           <img src="/images/contact.png" alt="Crab" className="w-[60px] sm:w-[90px] md:w-[120px] h-auto mb-4 sm:mb-8 ml-4 sm:ml-12" style={{transform:'rotate(-20deg)'}} />
           {/* FAQ */}
           <div className="w-full h-full rounded-2xl sm:rounded-[4rem] p-4 sm:p-8 md:p-12 pt-0 relative bg-transparent mt-8 sm:mt-[6rem] md:mt-[10rem]" style={{minHeight: 320}}>
-            <h2 className={"text-xl sm:text-2xl md:text-4xl lg:text-[4rem] font-light mb-4 sm:mb-8 leading-none " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Frequently<br />Asked Questions</h2>
+            <h2 className={"text-xl sm:text-2xl md:text-4xl lg:text-[4rem] font-light mb-4 sm:mb-8 leading-none " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')} style={{lineHeight:'4rem'}}>Frequently<br />Asked Questions</h2>
             <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 w-full sm:w-[90%] mt-2 sm:mt-4">
               {faqs.map((faq, i) => (
                 <div key={i} className={"border-4 rounded-xl sm:rounded-[2rem] px-4 sm:px-8 py-3 sm:py-6 text-base sm:text-xl md:text-2xl font-normal flex items-center gap-2 sm:gap-4 shadow-lg relative " + (theme === 'dark' ? 'bg-[#23244a] border-[#CBCFFF] text-[#CBCFFF]' : 'bg-[#D2E4FF] border-[#054D85] text-[#054D85]')} style={{minHeight: '48px'}}>
@@ -164,7 +164,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col w-1/2">
                   <label className={"text-lg mb-2 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>Your email address</label>
-                  <input type="email" placeholder="Good Dopamine@gmail.com" className={"rounded-xl px-2 py-3 text-md border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
+                  <input type="email" placeholder="gooddopamines@gmail.com" className={"rounded-xl px-2 py-3 text-md border-2 focus:outline-none " + (theme === 'dark' ? 'bg-[#181a3a] text-[#CBCFFF] border-[#CBCFFF] placeholder-[#A9CAF5]' : 'bg-[#e0e7ef] text-[#054D85] border-[#054D85]')} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
                 </div>
               </div>
               <div className="flex flex-col">
@@ -193,6 +193,405 @@ const ContactUs = () => {
         </div>
       </div>
       <FooterSection theme={theme} />
+      
+      {/* Responsive styles */}
+      <style>{`
+        @media (max-width: 1024px) {
+          .contact-main-content {
+            flex-direction: column !important;
+            padding: 1rem !important;
+            min-height: auto !important;
+            gap: 2rem !important;
+          }
+          
+          .contact-main-content h1 {
+            font-size: 3.5rem !important;
+            margin-bottom: 1rem !important;
+            margin-top: 1rem !important;
+          }
+          
+          .contact-main-content p {
+            font-size: 1.25rem !important;
+            margin-bottom: 2rem !important;
+          }
+          
+          .contact-main-content .flex {
+            flex-direction: column !important;
+            gap: 1rem !important;
+            width: 100% !important;
+          }
+          
+          .contact-main-content .flex > div {
+            width: 100% !important;
+            min-width: auto !important;
+          }
+          
+          .contact-main-content button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .contact-main-content {
+            padding: 0.75rem !important;
+            gap: 1.5rem !important;
+          }
+          
+          .contact-main-content h1 {
+            font-size: 2.75rem !important;
+            margin-bottom: 0.75rem !important;
+            margin-top: 0.75rem !important;
+          }
+          
+          .contact-main-content p {
+            font-size: 1.125rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .contact-main-content .flex {
+            gap: 0.75rem !important;
+          }
+          
+          /* FAQ Section */
+          .contact-main-content + div {
+            padding: 0 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:first-child {
+            height: 120vh !important;
+            top: 150px !important;
+            border-radius: 2rem 2rem 4rem 4rem !important;
+          }
+          
+          /* Crab and FAQ */
+          .contact-main-content + div > div:nth-child(2) {
+            width: 100% !important;
+            padding: 0 0.75rem !important;
+            margin-top: 0 !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) img {
+            width: 60px !important;
+            margin-bottom: 1rem !important;
+            margin-left: 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) > div {
+            padding: 1rem !important;
+            margin-top: 2rem !important;
+            border-radius: 1.5rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) h2 {
+            font-size: 1.75rem !important;
+            margin-bottom: 1rem !important;
+            line-height: normal !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex {
+            gap: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex > div {
+            padding: 0.75rem !important;
+            font-size: 0.875rem !important;
+            border-radius: 1rem !important;
+            border-width: 3px !important;
+          }
+          
+          /* Form Section */
+          .contact-main-content + div > div:last-child {
+            width: 100% !important;
+            padding: 0 0.75rem !important;
+            margin-top: 0 !important;
+          }
+          
+          .contact-main-content + div > div:last-child > div {
+            padding: 1.5rem !important;
+            border-radius: 1.5rem !important;
+            margin-top: 0 !important;
+          }
+          
+          .contact-main-content + div > div:last-child h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form {
+            gap: 1rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form > div:first-child {
+            flex-direction: column !important;
+            gap: 1rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form > div:first-child > div {
+            width: 100% !important;
+          }
+          
+          .contact-main-content + div > div:last-child input,
+          .contact-main-content + div > div:last-child textarea {
+            padding: 0.75rem !important;
+            font-size: 0.875rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child button {
+            width: 100% !important;
+            padding: 0.75rem !important;
+            font-size: 1rem !important;
+            justify-content: center !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .contact-main-content {
+            padding: 0.5rem !important;
+            gap: 1rem !important;
+          }
+          
+          .contact-main-content h1 {
+            font-size: 2.25rem !important;
+            margin-bottom: 0.5rem !important;
+            margin-top: 0.5rem !important;
+          }
+          
+          .contact-main-content p {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .contact-main-content .flex {
+            gap: 0.5rem !important;
+          }
+          
+          .contact-main-content .flex > div {
+            padding: 0.5rem !important;
+            font-size: 0.875rem !important;
+            min-width: auto !important;
+          }
+          
+          /* FAQ Section */
+          .contact-main-content + div {
+            padding: 0 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:first-child {
+            height: 110vh !important;
+            top: 120px !important;
+            border-radius: 1.5rem 1.5rem 3rem 3rem !important;
+          }
+          
+          /* Crab and FAQ */
+          .contact-main-content + div > div:nth-child(2) {
+            padding: 0 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) img {
+            width: 50px !important;
+            margin-bottom: 0.75rem !important;
+            margin-left: 0.25rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) > div {
+            padding: 0.75rem !important;
+            margin-top: 6.5rem !important;
+            border-radius: 1rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex {
+            gap: 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex > div {
+            padding: 0.5rem !important;
+            font-size: 0.75rem !important;
+            border-radius: 0.75rem !important;
+            border-width: 2px !important;
+            min-height: 40px !important;
+          }
+          
+          /* Form Section */
+          .contact-main-content + div > div:last-child {
+            padding: 0 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child > div {
+            padding: 1rem !important;
+            border-radius: 1rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child h2 {
+            font-size: 1.25rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form {
+            gap: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form > div:first-child {
+            gap: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child input,
+          .contact-main-content + div > div:last-child textarea {
+            padding: 0.5rem !important;
+            font-size: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child textarea {
+            min-height: 80px !important;
+          }
+          
+          .contact-main-content + div > div:last-child button {
+            padding: 0.5rem !important;
+            font-size: 0.875rem !important;
+          }
+        }
+        
+        @media (max-width: 360px) {
+          .contact-main-content {
+            padding: 0.25rem !important;
+            gap: 0.75rem !important;
+          }
+          
+          .contact-main-content h1 {
+            font-size: 1.875rem !important;
+            margin-bottom: 0.375rem !important;
+            margin-top: 0.375rem !important;
+          }
+          
+          .contact-main-content p {
+            font-size: 0.875rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .contact-main-content .flex {
+            gap: 0.375rem !important;
+          }
+          
+          .contact-main-content .flex > div {
+            padding: 0.375rem !important;
+            font-size: 0.75rem !important;
+          }
+          
+          /* FAQ Section */
+          .contact-main-content + div {
+            padding: 0 0.25rem !important;
+          }
+          
+          .contact-main-content + div > div:first-child {
+            height: 115vh !important;
+            top: 100px !important;
+            border-radius: 1rem 1rem 2rem 2rem !important;
+          }
+          
+          /* Crab and FAQ */
+          .contact-main-content + div > div:nth-child(2) {
+            padding: 0 0.25rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) img {
+            width: 40px !important;
+            margin-bottom: 0.5rem !important;
+            margin-left: 0.125rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) > div {
+            padding: 0.5rem !important;
+            margin-top: 4rem !important;
+            border-radius: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) h2 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex {
+            gap: 0.375rem !important;
+          }
+          
+          .contact-main-content + div > div:nth-child(2) .flex > div {
+            padding: 0.375rem !important;
+            font-size: 0.625rem !important;
+            border-radius: 0.5rem !important;
+            border-width: 2px !important;
+            min-height: 32px !important;
+          }
+          
+          /* Form Section */
+          .contact-main-content + div > div:last-child {
+            padding: 0 0.25rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child > div {
+            padding: 0.75rem !important;
+            border-radius: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child h2 {
+            font-size: 1rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form {
+            gap: 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child form > div:first-child {
+            gap: 0.5rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child input,
+          .contact-main-content + div > div:last-child textarea {
+            padding: 0.375rem !important;
+            font-size: 0.625rem !important;
+          }
+          
+          .contact-main-content + div > div:last-child textarea {
+            min-height: 60px !important;
+          }
+          
+          .contact-main-content + div > div:last-child button {
+            padding: 0.375rem !important;
+            font-size: 0.75rem !important;
+          }
+        }
+        
+        /* Footer mobile margin */
+        @media (max-width: 768px) {
+          .footer-section {
+            margin-top: 7rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .footer-section {
+            margin-top: 7rem !important;
+          }
+        }
+        
+        @media (max-width: 360px) {
+          .footer-section {
+            margin-top: 7rem !important;
+          }
+        }
+        
+        /* Laptop view line-height */
+        @media (min-width: 1024px) {
+          .contact-main-content + div > div:nth-child(2) h2 {
+            line-height: 4rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

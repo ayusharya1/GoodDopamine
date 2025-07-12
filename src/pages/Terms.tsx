@@ -66,7 +66,7 @@ const Terms: React.FC = () => {
         <Navigation/>
         {/* Main content */}
         <div
-          className={`group relative flex flex-col mt-16 items-center justify-center min-h-[50vh] w-[80vw] place-self-center rounded-3xl relative z-10 overflow-hidden logbook-main-content ${theme === 'dark' ? 'text-[#C8CCFB]' : ''}`}
+          className={`terms-hero group relative flex flex-col mt-16 items-center justify-center min-h-[50vh] w-[80vw] place-self-center rounded-3xl relative z-10 overflow-hidden logbook-main-content ${theme === 'dark' ? 'text-[#C8CCFB]' : ''}`}
           style={{
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -205,6 +205,54 @@ const Terms: React.FC = () => {
         </div>
         {/* --- LOG GRID SECTION END --- */}
         <FooterSection theme={theme} />
+        
+        {/* Responsive styles */}
+        <style>{`
+          @media (max-width: 768px) {
+            .terms-hero h1 {
+              left: 50% !important;
+              transform: translateX(-50%) !important;
+              text-align: center !important;
+              width: 100% !important;
+              padding: 0 1rem !important;
+            }
+            
+            .terms-hero p {
+              left: 50% !important;
+              transform: translateX(-50%) !important;
+              text-align: center !important;
+              width: 90% !important;
+              padding: 0 1rem !important;
+              margin: 0 !important;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .terms-hero h1 {
+              font-size: 5rem !important;
+              padding: 0 0.75rem !important;
+            }
+            
+            .terms-hero p {
+              font-size: 1rem !important;
+              width: 95% !important;
+              padding: 0 0.5rem !important;
+            }
+          }
+          
+          @media (max-width: 360px) {
+            .terms-hero h1 {
+              font-size: 4.5rem !important;
+              padding: 0 0.5rem !important;
+            }
+            
+            .terms-hero p {
+              font-size: 0.875rem !important;
+              width: 100% !important;
+              padding: 0 0.25rem !important;
+            }
+          }
+        `}</style>
       </div>
     );
 };

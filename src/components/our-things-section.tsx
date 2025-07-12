@@ -262,7 +262,7 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             <div className={`floating-badge absolute top-5 right-5 w-20 h-20 ${isDesktop ? 'group-hover:bg-[#FFEBF2]' : ''} rounded-3xl flex items-center justify-center z-20 border-2 border-blue-200 shadow-md transition-colors duration-300 ${theme === 'dark' ? 'bg-[#CBCFFF]/95' : 'bg-white/95'}`}>
               <span className={`block w-2 h-2 rounded-full transition-all duration-200 ${isDesktop ? 'group-hover:opacity-0 group-hover:scale-[1.8]' : ''} ${theme === 'dark' ? 'bg-[#07002f]' : 'bg-blue-400'}`}></span>
               <svg className={`absolute transition-all duration-200 opacity-0 ${isDesktop ? 'group-hover:opacity-100' : ''}`} width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 20L20 8M12 8h8v8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 20L20 8M12 8h8" stroke="#9D2F55" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
           </a>
@@ -425,9 +425,10 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             max-width: 98vw !important;
             min-width: 0 !important;
             padding: 1rem 1rem 3rem 1rem !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            top: 75% !important;
+            left: 1.5rem !important;
+            bottom: 1.5rem !important;
+            transform: none !important;
+            top: auto !important;
             word-break: break-word !important;
             white-space: normal !important;
             overflow-wrap: anywhere !important;
@@ -443,9 +444,19 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           .right-card-top .right-card-overlay,
           .right-card:last-child .right-card-overlay {
-            top: 65% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            
+            bottom: 1.5rem !important;
+            transform: none !important;
+            top: auto !important;
+            margin-bottom: 0 !important;
+          }
+          
+          /* Specific override for bottom right card */
+          .right-card:last-child .right-card-overlay {
+            left: 1.5rem !important;
+            bottom: 1.5rem !important;
+            transform: none !important;
+            top: auto !important;
             margin-bottom: 0 !important;
           }
         }
@@ -556,14 +567,23 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             max-width: 98vw !important;
             min-width: 0 !important;
             padding: 0.75rem 0.75rem 2.5rem 0.75rem !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            top: 70% !important;
+            left: 1rem !important;
+            bottom: 1rem !important;
+            transform: none !important;
+            top: auto !important;
             border-radius: 1rem !important;
             backdrop-filter: blur(12px) !important;
             word-break: break-word !important;
             white-space: normal !important;
             overflow-wrap: anywhere !important;
+          }
+          
+          /* Specific override for bottom right card */
+          .right-card:last-child .right-card-overlay {
+            left: 1rem !important;
+            bottom: 1rem !important;
+            transform: none !important;
+            top: auto !important;
           }
           
           .right-card-overlay h3 {
@@ -685,14 +705,23 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
             min-width: 0 !important;
             padding: 0.5rem 0.5rem 1.5rem 0.5rem !important;
             margin-bottom:2rem !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            top: 70% !important;
+            left: 0.75rem !important;
+            bottom: 0.75rem !important;
+            transform: none !important;
+            top: auto !important;
             border-radius: 0.75rem !important;
             backdrop-filter: blur(10px) !important;
             word-break: break-word !important;
             white-space: normal !important;
             overflow-wrap: anywhere !important;
+          }
+          
+          /* Specific override for bottom right card */
+          .right-card:last-child .right-card-overlay {
+            left: 0.75rem !important;
+            bottom: 0.75rem !important;
+            transform: none !important;
+            top: auto !important;
           }
           
           .right-card-overlay h3 {
@@ -811,12 +840,21 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           .right-card-overlay {
             max-width: 230px !important;
             padding: 0.375rem !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            top: 70% !important;
+            left: 0.625rem !important;
+            bottom: 0.625rem !important;
+            transform: none !important;
+            top: auto !important;
             border-radius: 0.625rem !important;
             backdrop-filter: blur(8px) !important;
             margin-bottom :1rem !important;
+          }
+          
+          /* Specific override for bottom right card */
+          .right-card:last-child .right-card-overlay {
+            left: 0.625rem !important;
+            bottom: 0.625rem !important;
+            transform: none !important;
+            top: auto !important;
           }
           
           .right-card-overlay h3 {
@@ -838,9 +876,10 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
         }
         @media (max-width: 1024px) {
           .right-card:last-child .right-card-overlay {
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
+            left: 1.5rem !important;
+            bottom: 1.5rem !important;
+            transform: none !important;
+            top: auto !important;
             margin-bottom: 0 !important;
           }
         }

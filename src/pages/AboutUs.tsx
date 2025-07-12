@@ -177,24 +177,21 @@ export default function AboutUs() {
           <p className={` mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>For example, social media algorithms are brilliant at understanding your short-term cravings — but they pull you away from your long-term goals.<br/>We're reversing that.</p>
           <p className={` mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>We are building a <span className='capitalize font-bold'>cognitive alignment engine</span>.<br/>AI that helps you act on what you truly want over time — not what distracts you in the moment.</p>
           <p className={`mb-4 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'} text-base sm:text-lg md:text-xl`}>You could call it a new kind of productivity.<br/>While OpenAI builds assistants to help you do more,<br/><span className='capitalize font-semibold'>we build aligned AI to help you do less — but better.</span><br/>By keeping the noise out and your mind clear.</p>
-          <div className={`flex flex-col sm:flex-col gap-8 mt-8 w-full items-start ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>
-            <div className="flex-1 flex items-center justify-center gap-[1rem]">
-              <div className="flex items-center ">
-                <span className="text-xl mr-2">🟠</span>
-                <span className="font-semibold text-base sm:text-lg md:text-xl">Used by -</span>
+          <div className={`flex flex-col sm:flex-col gap-8 mt-8 w-full pb-8 items-start ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>
+            <div className="flex-1 flex flex-row items-center gap-2 lg:gap-[1rem] w-full">
+              <div className="flex items-center whitespace-nowrap">
+                <span className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl">🟠 Used by -</span>
               </div>
-              <div className="text-center text-base sm:text-lg md:text-xl">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-left md:text-left lg:text-center truncate">
                 Students, creators, knowledge workers, and teams.
               </div>
             </div>
-            <div className="flex-1 flex items-start justify-center gap-[1rem]">
-              <div className="flex items-center justify-center">
-                <span className="text-xl mr-2">⚪</span>
-                <span className="font-semibold text-base sm:text-lg md:text-xl">Built by -</span>
+            <div className="flex-1 flex flex-row items-start gap-2 lg:gap-[1rem] w-full">
+              <div className="flex-shrink-0 flex items-center whitespace-nowrap" style={{ minWidth: 'max-content' }}>
+                <span className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl">⚪ Built by -</span>
               </div>
-              <div className="text-base sm:text-lg md:text-xl">
-                Researchers, designers, and builders who've lived this problem.<br/>
-                We tried everything. Nothing worked. So we built our own.
+              <div className="flex-1 text-sm sm:text-base md:text-lg lg:text-xl text-left md:text-left">
+                Researchers, designers, and builders who've lived this problem. We tried everything. Nothing worked. So we built our own.
               </div>
             </div>
           </div>

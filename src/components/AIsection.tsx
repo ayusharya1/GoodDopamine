@@ -1,14 +1,52 @@
 import Cocktail from './Cocktail';
 import cubeVideoWebm from '../assets/cubebg.webm';
-// import cubeVideoMp4 from '../assets/cubi.mp4';
+import cubeVideoMp4 from '../assets/cubi.mp4';
+import cubeGif from '../assets/cube.gif';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AIsection(props: { theme?: 'light' | 'dark' }) {
   const theme = props.theme || 'light';
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoError, setVideoError] = useState(false);
+  
   // Define background and text color for dark mode
   // const darkBg = 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]';
   const darkBg='bg-[#DFDFF2]';
   const lightBg = 'bg-[#DFDFF2]';
   const mainTextColor = theme === 'dark' ? '#1E3A8A' : '#1E3A8A';
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Force video to load and play
+      video.load();
+      
+      // Handle video errors
+      const handleError = (e: Event) => {
+        console.warn('Video playback error:', e);
+        setVideoError(true);
+        // Try to reload the video
+        video.load();
+      };
+
+      // Handle video load
+      const handleLoadedData = () => {
+        setVideoError(false);
+        video.play().catch((error) => {
+          console.warn('Auto-play failed:', error);
+          // For Safari, we might need to handle this differently
+        });
+      };
+
+      video.addEventListener('error', handleError);
+      video.addEventListener('loadeddata', handleLoadedData);
+
+      return () => {
+        video.removeEventListener('error', handleError);
+        video.removeEventListener('loadeddata', handleLoadedData);
+      };
+    }
+  }, []);
 
   return (
     <div
@@ -44,19 +82,48 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
 
       {/* Sticky Centered Cube Video */}
       <div className="AIsection-video sticky top-1/2  -translate-y-1/2 flex justify-center items-center z-40 pointer-events-none w-full max-w-[98vw] sm:max-w-[90vw] md:max-w-[600px] mx-auto mt-[7rem] mb-20 sm:mb-24 md:mb-32 lg:mb-0">
-        <video
-          muted
-          playsInline
-          preload="auto"
-          autoPlay
-          loop
-          className="w-full h-auto max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] object-contain"
-          style={{ background: 'transparent' }}
-        >
-          <source src={cubeVideoWebm} type="video/webm" />
-          {/* <source src={cubeVideoMp4} type="video/mp4" /> */}
-          
-        </video>
+        {!videoError ? (
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            preload="auto"
+            autoPlay
+            loop
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="false"
+            className="w-full h-auto max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] object-contain"
+            style={{ 
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none',
+              border: 'none',
+              outline: 'none',
+              boxShadow: 'none',
+              WebkitBoxShadow: 'none',
+              MozBoxShadow: 'none'
+            }}
+          >
+            <source src={cubeVideoWebm} type="video/webm" />
+            <source src={cubeVideoMp4} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={cubeGif}
+            alt="Cube Animation"
+            className="w-full h-auto max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] object-contain"
+            style={{ 
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none',
+              border: 'none',
+              outline: 'none',
+              boxShadow: 'none'
+            }}
+          />
+        )}
       </div>
 
       {/* Bottom Right PILLAR Text */}

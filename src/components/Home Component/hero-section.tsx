@@ -173,7 +173,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
                   `flex flex-col items-center justify-center text-center text-base xs:text-lg sm:text-xl md:text-2xl lg:text-lg max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
                   'mt-6 sm:mt-10 md:mt-16 lg:mt-[22rem] ' +
                   (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]') +
-                  ' relative lg:absolute lg:inset-0 lg:items-center lg:justify-center lg:text-left'
+                  ' relative lg:absolute lg:inset-0 lg:items-center lg:justify-center lg:text-left lg:left-[7%]'
                 }
                 style={{
                   animationDelay: "0.8s",

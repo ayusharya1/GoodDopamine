@@ -26,7 +26,6 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
     };
   }, []);
 
-  // Parallax values
   const cloudLeftTop = {
     transform: `translateY(-35%) translateX(${mouse.x * 60}px) translateY(${mouse.y * 20}px)`
   };
@@ -45,19 +44,15 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
     setTimeout(() => setEmail(""), 3000)
   }
 
-  // Generate random stars for dark mode
   const [numStars, setNumStars] = useState(32);
 
   useEffect(() => {
     const updateStarCount = () => {
       if (window.innerWidth <= 768) {
-        // Mobile and tablet: fewer stars
         setNumStars(6);
       } else if (window.innerWidth <= 1024) {
-        // Small laptop: medium stars
         setNumStars(7);
       } else {
-        // Large laptop and desktop: full stars
         setNumStars(7);
       }
     };
@@ -87,7 +82,6 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
         : { background: 'linear-gradient(to bottom, #58B5FF, #99CEFF, #C9E1FF)' }
       }
     >
-      {/* Night mode stars */}
       {theme === 'dark' && (
         <div className="absolute inset-0 z-10 pointer-events-none">
           <style>{`
@@ -116,15 +110,12 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
           ))}
         </div>
       )}
-      {/* Parallax background wrapper */}
       <div className="absolute inset-0 w-full h-full z-0 transition-transform duration-300" style={{...bgParallax, willChange: 'transform'}}></div>
-      {/* Clouds */}
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute right-[75%] top-[16%] w-[500px] h-auto z-30 transition-transform duration-300" style={{...cloudLeftTop, willChange: 'transform'}} />
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute left-0 bottom-[35%] w-[300px] h-auto z-10 transition-transform duration-300" style={{...cloudLeftMid, willChange: 'transform'}} />
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute left-[80%] top-[16%] w-[350px] h-auto z-30 transition-transform duration-300" style={{...cloudRightTop, willChange: 'transform'}} />
       <div className="footer-content max-w-7xl mx-auto relative z-20">
         <div className="flex flex-col xl:flex-row gap-y-6 xl:gap-y-0 gap-x-0 xl:gap-x-8 mb-4 px-2 md:px-4 w-full md:gap-y-8 md:gap-x-0 md:flex-col lg:flex-col xl:gap-y-0 xl:gap-x-8">
-          {/* Newsletter Signup */}
           <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-4 md:p-10 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[60%] justify-between ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h3 className="footer-title text-4xl font-medium text-[#D2E4FF] mb-4 leading-tight">Stay up to date with Good Dopamines</h3>
             <p className="footer-description mb-8 text-lg font-medium leading-relaxed text-[#A6C8F5]">Join our mailing list to be the first to know about new features and releases.</p>
@@ -156,13 +147,11 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
               </div>
             </form>
           </div>
-          {/* Navigation Links + Rooms/Things Combined */}
           <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-1 flex gap-2 h-full shadow-xl w-full md:w-full xl:w-[60%] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#e3f0ff]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
-            {/* Navigation Links */}
             <div className={`flex flex-col gap-1 w-[100%] p-2 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
               {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
                 <a
-                href={item=="Home"?"/":`/${item}`}
+                  href={item=="Home"?"/":`/${item}`}
                   key={item}
                   className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-lg border-2 transition-all duration-200 shadow mb-2 ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-white' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!bg-opacity-100 cursor-pointer'}`}
                 >
@@ -170,26 +159,11 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
                 </a>
               ))}
             </div>
-            {/* Rooms/Things */}
-            {/* <div className={`flex flex-col gap-1 w-[60%] p-2 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
-              {['Rooms', 'A Things'].map((item) => (
-                <button
-                  key={item}
-                  className={`footer-nav-button w-full text-left rounded-lg px-4 py-1 text-lg border-2 transition-all duration-200 shadow mb-2 ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-white' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!bg-opacity-100'}`}
-                >
-                  • {item}
-                </button>
-              ))}
-              <div className="flex justify-center items-end mt-[60%]">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl shadow-lg" style={{ transform: 'rotate(20deg)' }}></div>
-              </div>
-            </div> */}
           </div>
-          {/* Social Media */}
           <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h4 className={`footer-social-title font-medium mb-2 md:mb-2 mt-8 md:mt-[6rem] text-base md:text-lg w-full text-left pl-2 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>Follow us</h4>
             <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
-              <div className="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-1 w-full h-full place-items-center">
+              <div className="footer-social-item-container lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-2 lg:gap-y-1 xl:gap-x-4 xl:gap-y-1 w-full h-full lg:place-items-center">
                 {[
                   { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord' },
                   { icon: () => <span className='footer-social-icon text-2xl'>🎵</span>, name: 'Tiktok' },
@@ -208,7 +182,6 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
             </div>
           </div>
         </div>
-        {/* Footer Bar */}
         <div className="footer-bar flex flex-wrap justify-between items-center text-sm text-[#054d85] bg-[#D2E4FF] rounded-2xl px-10 py-2 border-2 border-[#e3f0ff] shadow-xl w-[98%] place-self-center">
           <span className="font-medium">© Good Dopamine. 2025</span>
           <div className="flex gap-8">
@@ -225,7 +198,6 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
         </div>
       </div>
       
-      {/* Responsive styles for mobile scaling */}
       <style>{`
         .footer-section {
           padding-top: 8rem;
@@ -234,272 +206,296 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
         
         @media (max-width: 1024px) {
           .footer-section {
-            padding-top: 1rem !important;
-            padding-bottom: 1rem !important;
-            min-height: auto !important;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            min-height: auto;
           }
           
           .footer-content {
-            transform: none !important;
+            transform: none;
           }
           
           .footer-title {
-            font-size: 2.25rem !important;
-            margin-bottom: 1rem !important;
-            line-height: 1.2 !important;
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
           }
           
           .footer-description {
-            font-size: 0.875rem !important;
-            margin-bottom: 1.5rem !important;
-            line-height: 1.4 !important;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
           }
           
           .footer-input {
-            font-size: 0.875rem !important;
-            padding: 0.75rem 1rem !important;
+            font-size: 0.875rem;
+            padding: 0.75rem 1rem;
           }
           
           .footer-button {
-            font-size: 0.75rem !important;
-            padding: 0.75rem 1.25rem !important;
-            min-width: 100px !important;
+            font-size: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            min-width: 100px;
           }
           
           .footer-nav-button {
-            font-size: 0.875rem !important;
-            padding: 0.5rem 0.75rem !important;
-            margin-bottom: 0.5rem !important;
+            font-size: 0.875rem;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
           }
           
           .footer-social-title {
-            font-size: 0.875rem !important;
-            margin-bottom: 0.75rem !important;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
           }
           
           .footer-social-item {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 4rem !important;
-            min-height: 4rem !important;
+            width: 100%;
+            height: 100%;
+            min-width: 4rem;
+            min-height: 4rem;
           }
           
           .footer-social-icon {
-            font-size: 1.5rem !important;
+            font-size: 1.5rem;
           }
           
           .footer-social-name {
-            font-size: 0.875rem !important;
+            font-size: 0.875rem;
           }
           
           .footer-bar {
-            font-size: 0.75rem !important;
-            padding: 0.75rem 1.5rem !important;
-            margin-bottom: 1.5rem !important;
+            font-size: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 1.5rem;
           }
         }
         
         @media (max-width: 768px) {
           .footer-section {
-            padding-top: 1.5rem !important;
-            padding-bottom: 5rem !important;
-            min-height: auto !important;
+            padding-top: 1.5rem;
+            padding-bottom: 5rem;
+            min-height: auto;
+            margin-top: 7rem;
           }
           
           .footer-content {
-            transform: none !important;
+            transform: none;
           }
           
           .footer-title {
-            font-size: 1.875rem !important;
-            margin-bottom: 0.75rem !important;
-            line-height: 1.2 !important;
+            font-size: 1.875rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
           }
           
           .footer-description {
-            font-size: 0.75rem !important;
-            margin-bottom: 1.25rem !important;
-            line-height: 1.4 !important;
+            font-size: 0.75rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
           }
           
           .footer-input {
-            font-size: 0.75rem !important;
-            padding: 0.625rem 0.875rem !important;
+            font-size: 0.75rem;
+            padding: 0.625rem 0.875rem;
           }
           
           .footer-button {
-            font-size: 0.625rem !important;
-            padding: 0.625rem 1rem !important;
-            min-width: 80px !important;
+            font-size: 0.625rem;
+            padding: 0.625rem 1rem;
+            min-width: 80px;
           }
           
           .footer-nav-button {
-            font-size: 0.75rem !important;
-            padding: 0.375rem 0.5rem !important;
-            margin-bottom: 0.375rem !important;
+            font-size: 0.75rem;
+            padding: 0.375rem 0.5rem;
+            margin-bottom: 0.375rem;
           }
           
           .footer-social-title {
-            font-size: 0.75rem !important;
-            margin-bottom: 0.5rem !important;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
           }
           
           .footer-social-item {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 3.5rem !important;
-            min-height: 3.5rem !important;
+            width: 100%;
+            height: 100%;
+            min-width: 3rem;
+            min-height: 3rem;
           }
           
           .footer-social-icon {
-            font-size: 1.25rem !important;
+            font-size: 1.25rem;
           }
           
           .footer-social-name {
-            font-size: 0.75rem !important;
+            font-size: 0.75rem;
+          }
+          
+          .footer-social-item-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(4rem, 1fr));
+            gap: 0.2rem;
+            -webkit-overflow-scrolling: touch;
           }
           
           .footer-bar {
-            font-size: 0.625rem !important;
-            padding: 0.625rem 1.25rem !important;
-            margin-bottom: 1rem !important;
+            font-size: 0.625rem;
+            padding: 0.625rem 1.25rem;
+            margin-bottom: 1rem;
           }
         }
         
         @media (max-width: 480px) {
           .footer-section {
-            padding-top: 5rem !important;
-            padding-bottom: 6rem !important;
-            min-height: auto !important;
+            padding-top: 5rem;
+            padding-bottom: 6rem;
+            min-height: auto;
+            margin-top: 7rem;
           }
           
           .footer-content {
-            transform: none !important;
+            transform: none;
           }
           
           .footer-title {
-            font-size: 1.5rem !important;
-            margin-bottom: 0.5rem !important;
-            line-height: 1.2 !important;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
           }
           
           .footer-description {
-            font-size: 0.625rem !important;
-            margin-bottom: 1rem !important;
-            line-height: 1.4 !important;
+            font-size: 0.625rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
           }
           
           .footer-input {
-            font-size: 0.625rem !important;
-            padding: 0.5rem 0.75rem !important;
+            font-size: 0.625rem;
+            padding: 0.5rem 0.75rem;
           }
           
           .footer-button {
-            font-size: 0.5rem !important;
-            padding: 0.5rem 0.75rem !important;
-            min-width: 60px !important;
+            font-size: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            min-width: 60px;
           }
           
           .footer-nav-button {
-            font-size: 0.625rem !important;
-            padding: 0.25rem 0.375rem !important;
-            margin-bottom: 0.25rem !important;
+            font-size: 0.625rem;
+            padding: 0.25rem 0.375rem;
+            margin-bottom: 0.25rem;
           }
           
           .footer-social-title {
-            font-size: 0.625rem !important;
-            margin-bottom: 0.375rem !important;
+            font-size: 0.625rem;
+            margin-bottom: 0.375rem;
           }
           
           .footer-social-item {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 3rem !important;
-            min-height: 3rem !important;
+            width: 100%;
+            height: 100%;
+            min-width: 2.5rem;
+            min-height: 2.5rem;
           }
           
           .footer-social-icon {
-            font-size: 1rem !important;
+            font-size: 1rem;
           }
           
           .footer-social-name {
-            font-size: 0.625rem !important;
+            font-size: 0.625rem;
+          }
+          
+          .footer-social-item-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(4rem, 1fr));
+            gap: 0.2rem;
+            -webkit-overflow-scrolling: touch;
           }
           
           .footer-bar {
-            font-size: 0.5rem !important;
-            padding: 0.5rem 1rem !important;
-            margin-bottom: 0.75rem !important;
+            font-size: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.75rem;
           }
         }
         
         @media (max-width: 360px) {
           .footer-section {
-            padding-top: 0.75rem !important;
-            padding-bottom: 8.5rem !important;
-            min-height: auto !important;
+            padding-top: 0.75rem;
+            padding-bottom: 8.5rem;
+            min-height: auto;
+            margin-top: 7rem;
           }
           
           .footer-content {
-            transform: none !important;
+            transform: none;
           }
           
           .footer-title {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.375rem !important;
-            line-height: 1.2 !important;
+            font-size: 1.25rem;
+            margin-bottom: 0.375rem;
+            line-height: 1.2;
           }
           
           .footer-description {
-            font-size: 0.5rem !important;
-            margin-bottom: 0.75rem !important;
-            line-height: 1.4 !important;
+            font-size: 0.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
           }
           
           .footer-input {
-            font-size: 0.5rem !important;
-            padding: 0.375rem 0.625rem !important;
+            font-size: 0.5rem;
+            padding: 0.375rem 0.625rem;
           }
           
           .footer-button {
-            font-size: 0.375rem !important;
-            padding: 0.375rem 0.5rem !important;
-            min-width: 50px !important;
+            font-size: 0.375rem;
+            padding: 0.375rem 0.5rem;
+            min-width: 50px;
           }
           
           .footer-nav-button {
-            font-size: 0.5rem !important;
-            padding: 0.125rem 0.25rem !important;
-            margin-bottom: 0.125rem !important;
+            font-size: 0.5rem;
+            padding: 0.125rem 0.25rem;
+            margin-bottom: 0.125rem;
           }
           
           .footer-social-title {
-            font-size: 0.5rem !important;
-            margin-bottom: 0.25rem !important;
+            font-size: 0.5rem;
+            margin-bottom: 0.25rem;
           }
           
           .footer-social-item {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 2.5rem !important;
-            min-height: 2.5rem !important;
+            width: 100%;
+            height: 100%;
+            min-width: 2rem;
+            min-height: 2rem;
           }
           
           .footer-social-icon {
-            font-size: 0.875rem !important;
+            font-size: 0.875rem;
           }
           
           .footer-social-name {
-            font-size: 0.5rem !important;
+            font-size: 0.5rem;
+          }
+          
+          .footer-social-item-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(4rem, 1fr));
+            gap: 0.2rem;
+            -webkit-overflow-scrolling: touch;
           }
           
           .footer-bar {
-            font-size: 0.375rem !important;
-            padding: 0.375rem 0.75rem !important;
-            margin-bottom: 0.5rem !important;
+            font-size: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            margin-bottom: 0.5rem;
           }
         }
       `}</style>
     </section>
   )
-} 
+}

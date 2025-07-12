@@ -40,7 +40,7 @@ export function Navigation() {
           </button> */}
           <button
                 onClick={() => setIsMenuOpen(true)}
-                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-colors shadow text-sm sm:text-base"
+                className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-all duration-300 ease-in-out shadow text-sm sm:text-base lg:relative lg:right-[1.5%]"
                 style={{ fontFamily: 'Roobert' }}
               >
                 <span className="text-lg sm:text-xl">☰</span>
@@ -131,7 +131,7 @@ export function Navigation() {
                 className="
                   flex items-center gap-1 sm:gap-2
                   bg-blue-900 text-white px-4 sm:px-6 py-2 mt-[-1.4rem] sm:py-3
-                  rounded-full font-medium hover:bg-blue-800 transition-colors shadow
+                  rounded-full font-medium hover:bg-blue-800 transition-all duration-300 ease-in-out shadow
                   text-sm sm:text-base
                   lg:relative lg:right-[1.5%]
                 "
