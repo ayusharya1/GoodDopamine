@@ -272,7 +272,7 @@ export function Navigation() {
           }
           .nav-menu-btn {
             
-            font-size: 1.125rem !important;
+            
             border-radius: 0.6rem !important;
           }
         }
@@ -285,7 +285,7 @@ export function Navigation() {
           .nav-menu-btn {
             padding-left: 0.15rem !important;
             padding-right: 0.15rem !important;
-            font-size: 0.7rem !important;
+            
             border-radius: 0.4rem !important;
           }
         }

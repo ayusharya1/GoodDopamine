@@ -199,7 +199,7 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
             </div>
           </div>
         </div>
-        <div className="footer-bar flex flex-wrap justify-between items-center text-sm text-[#054d85] bg-[#D2E4FF] rounded-2xl px-10 py-2 border-2 border-[#e3f0ff] shadow-xl w-[98%] place-self-center">
+        <div className="footer-bar flex flex-col sm:flex-row flex-wrap justify-between items-center text-sm text-[#054d85] bg-[#D2E4FF] rounded-2xl px-10 py-2 border-2 border-[#e3f0ff] shadow-xl w-[98%] place-self-center gap-[1rem]">
           <span className="font-light text-xs" >© Good Dopamine. 2025</span>
           <div className="flex gap-8">
             {['Terms', 'Privacy', 'Media'].map((link) => (
