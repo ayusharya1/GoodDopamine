@@ -115,7 +115,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
       {/* Section Title */}
       <h2
         className={
-          `our-things-title  capitalize text-left w-[90%] mx-auto mt-10 px-2  relative z-20 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-900'} text-[clamp(2.2rem,6vw,4.6rem)] md:text-[3.5rem] sm:text-[1.6rem] font-normal leading-[1.15]`
+          `our-things-title  capitalize text-left w-[92%] mx-auto mt-10 px-2  relative z-20 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-900'} text-[clamp(2.2rem,6vw,4.6rem)] md:text-[3.5rem] sm:text-[1.6rem] font-normal leading-[1.15]`
         }
         style={{
           fontFamily: 'Roobert, sans-serif',
@@ -124,6 +124,20 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
       >
         Fixing your Relationship <br /> with Tech
       </h2>
+      <style>{`
+        @media (max-width: 480px) {
+          .our-things-title {
+            font-size: 1.75rem !important;
+            font-weight: 500 !important;
+            margin-bottom: 1.5rem !important;
+            text-align: left !important;
+            line-height: 1.1 !important;
+            align-self: flex-start !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
+        }
+      `}</style>
 
       <OurThingsSection theme={theme}/>
       

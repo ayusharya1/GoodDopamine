@@ -70,7 +70,7 @@ export default function AIsection(props: { theme?: 'light' | 'dark' }) {
         style={{fontFamily: 'Impact, Roobert, Arial Black, sans-serif', letterSpacing: '0.06em', color: mainTextColor, opacity: 1}}
       >
         <div className="flex flex-col px-1 sm:px-[1vw] pt-2 sm:pt-[2vw]">
-          <span className="font-extrabold text-[clamp(3.2rem,16vw,11rem)] sm:text-[clamp(4rem,18vw,11rem)] md:text-[clamp(5rem,20vw,11rem)] lg:text-[clamp(2.5rem,12vw,11rem)]">AI</span>
+          <span className="font-extrabold text-[clamp(3.2rem,16vw,11rem)] sm:text-[clamp(4rem,18vw,11rem)] md:text-[clamp(5rem,20vw,11rem)] lg:text-[clamp(5rem,18vw,11rem)] lg:tracking-widest">AI</span>
           <span className="font-mono font-normal mt-1 text-[clamp(1.6rem,6vw,3rem)] sm:text-[clamp(2rem,8vw,3rem)] md:text-[clamp(2.4rem,10vw,3rem)] lg:text-[clamp(1.2rem,4vw,3rem)]" style={{fontWeight: 400, letterSpacing: '-0.05em', color: mainTextColor}}>Built to serve your long-term goals</span>
         </div>
         {/* <div className="font-mono font-normal text-[14px] mt-4 text-[#1E3A8A] text-center" style={{fontWeight: 400, fontSize: 14, marginTop: 8, letterSpacing: 0}}>

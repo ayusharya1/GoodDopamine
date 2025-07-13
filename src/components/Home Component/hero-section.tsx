@@ -137,11 +137,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
         >
           <h1
             className={
-              `text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-light mt-5 leading-tight ` +
+              `text-5xl font-bold sm:text-3xl md:text-3xl lg:text-5xl font-light mt-16 sm:mt-5 leading-tight ` +
               (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]')
             }
           >
-            <span className="inline-block animate-fade-in-up absolute left-[25%] sm:left-[30%] md:left-[30%]" style={{ animationDelay: "0.2s" }}>
+            <span className="inline-block animate-fade-in-up absolute left-[15%] sm:left-[30%] md:left-[30%]" style={{ animationDelay: "0.2s" }}>
               Hello!
             </span>
             <br />
@@ -165,25 +165,24 @@ export function HeroSection({ theme }: HeroSectionProps) {
                 alt="Things Logo"
                 width={1200}
                 height={480}
-                style={{ width: "100%", height: "auto", display: "block", marginTop:'-1rem'}}
-                className="things-logo relative z-10 drop-shadow-xl"
+                style={{ height: "auto", display: "block"}}
+                className="things-logo relative z-10 drop-shadow-xl -mt-4 lg:-mt-8 w-[160%] sm:w-[100%] mx-auto sm:mx-0 mt-8 sm:mt-0 scale-150 sm:scale-100"
               />
               <p
                 className={
-                  `flex flex-col items-center justify-center text-center text-base xs:text-lg sm:text-xl md:text-2xl lg:text-lg max-w-[95vw] xs:max-w-[90vw] sm:max-w-xl md:max-w-2xl lg:max-w-xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
-                  'mt-6 sm:mt-10 md:mt-16 lg:mt-[22rem] ' +
+                  `flex flex-col items-center justify-center text-center text-base xs:text-xl sm:text-xl md:text-2xl lg:text-base w-full max-w-none sm:max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in-up ` +
+                  '-mt-6 sm:mt-10 md:mt-16 lg:mt-[22rem] ' +
                   (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#064D85]') +
-                  ' relative lg:absolute lg:inset-0 lg:items-center lg:justify-center lg:text-left lg:left-[7%]'
+                  ' relative lg:absolute lg:inset-0 lg:items-center lg:justify-center lg:text-center lg:left-[0%]'
                 }
                 style={{
                   animationDelay: "0.8s",
                   zIndex: 20,
-                  width: '100%',
                   marginTop: undefined,
                   marginRight: undefined
                 }}
               >
-                In a world where everyone around you (people, businesses, and governments) is constantly trying to keep you hooked, we're here to set you free.
+                In a world where everyone around us (may it be people, businesses, and governments) is constantly trying to keep us all hooked, we're here to set you free.
                 <br className="hidden md:block" />
                 F*ck bad dopamines: scrolls, shorts, misaligned AI.
                 {/* <span className="text-pink-600 font-bold">weird {">"} normal</span>. */}
@@ -319,6 +318,15 @@ export function HeroSection({ theme }: HeroSectionProps) {
             max-width: 260px;
           }
           
+          /* Force paragraph width on mobile */
+          .things-logo-container p {
+            width: 100vw !important;
+            max-width: none !important;
+            padding: 0 0.5rem !important;
+            margin-left: calc(-50vw + 50%) !important;
+            margin-right: calc(-50vw + 50%) !important;
+          }
+          
           .realistic-cloud {
             transform: scale(0.4);
           }
@@ -341,11 +349,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
           }
           
           .mobile-cloud-bottom-left {
-            bottom: 20% !important;
-            left: 1% !important;
-            height: clamp(70px, 10vw, 140px) !important;
-            width: clamp(120px, 20vw, 240px) !important;
-            max-width: clamp(120px, 20vw, 240px) !important;
+            bottom: 10% !important;
           }
         }
 

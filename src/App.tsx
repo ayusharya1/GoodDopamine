@@ -9,12 +9,14 @@ import Logbook from "./pages/Logbook"
 import Terms from "./pages/Terms"
 import Privacy from "./pages/Privacy"
 import MediaAssets from "./pages/MediaAssets"
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="App min-h-screen" style={{ fontFamily: 'Roobert, sans-serif' }}>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -43,8 +43,8 @@ export function Navigation() {
                 className="flex items-center gap-1 sm:gap-2 bg-blue-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-blue-800 transition-all duration-300 ease-in-out shadow text-sm sm:text-base lg:relative lg:right-[1.5%]"
                 style={{ fontFamily: 'Roobert' }}
               >
-                <span className="text-lg sm:text-xl">☰</span>
-                <span className="hidden sm:inline">Menu</span>
+                <span className="text-xl sm:text-lg">☰</span>
+                <span className="hidden text-[0.96rem] sm:inline">Menu</span>
               </button>
         </nav>
       )}
@@ -129,7 +129,7 @@ export function Navigation() {
               <button
                 onClick={() => setIsMenuOpen(false)}
                 className="
-                  flex items-center gap-1 sm:gap-2
+                  flex items-center gap-2 sm:gap-2
                   bg-blue-900 text-white px-4 sm:px-6 py-2 mt-[-1.4rem] sm:py-3
                   rounded-full font-medium hover:bg-blue-800 transition-all duration-300 ease-in-out shadow
                   text-sm sm:text-base
@@ -137,8 +137,8 @@ export function Navigation() {
                 "
                 style={{ fontFamily: 'Roobert' }}
               >
-                <span className="text-lg sm:text-xl">✕</span>
-                <span className="hidden sm:inline">Close</span>
+                <span className="text-xl sm:text-lg">✕</span>
+                <span className="hidden text-[0.96rem] sm:inline">Close</span>
               </button>
               <img 
                 src="/images/logo2.png" 
@@ -148,13 +148,13 @@ export function Navigation() {
               />
             </div>
             <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 pb-6 sm:pb-8 overflow-hidden overflow-y-auto flex-1 scrollbar-hide">
-              <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-3 sm:p-4 md:p-6 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
-              <div className="space-y-3 sm:space-y-4 w-full sm:w-[60%] md:w-[50%]">
+              <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-2 sm:p-1 md:p-2 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
+              <div className="space-y-2 sm:space-y-1 w-full sm:w-[60%] md:w-[50%]">
                   {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
                     <div key={item} className="relative w-full">
                       <Link
                         to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                        className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} nav-menu-btn rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-base sm:text-lg font-medium shadow-sm transition-all duration-200 w-full`}
+                        className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} nav-menu-btn rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-lg sm:text-lg font-medium shadow-sm transition-all duration-200 w-full`}
                         style={{ textDecoration: 'none' }}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -172,9 +172,9 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-              <div className="text-blue-900 text-lg sm:text-xl font-medium mb-2">Our Products</div>
-              <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-3 sm:p-4 md:p-6 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
-                <div className="space-y-3 sm:space-y-4 w-full sm:w-[60%] md:w-[50%]">
+              <div className="text-blue-900 text-2xl sm:text-xl font-medium mb-2">Our Products</div>
+              <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-2 sm:p-2 md:p-2 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
+                <div className="space-y-2 sm:space-y-1 w-full sm:w-[60%] md:w-[50%]">
                   {[
                     { label: 'Ridan', url: 'https://www.ridan.ai/' },
                     { label: 'Ridan For Research', url: 'https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0' }
@@ -183,7 +183,7 @@ export function Navigation() {
                       href={url}
                       target="_blank"
                       key={label}
-                      className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} our-product-btn group rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-base sm:text-lg font-medium shadow-sm hover:bg-[#F68CA7]`}
+                      className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} our-product-btn group rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-lg sm:text-lg font-medium shadow-sm hover:bg-[#F68CA7]`}
                     >
                       <span className="mr-2 sm:mr-3 text-xl sm:text-2xl">•</span>
                       {label}
@@ -191,19 +191,19 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-              <div className="text-blue-900 text-lg sm:text-xl font-medium mb-3 sm:mb-4">Follow us</div>
-              <div className="flex gap-2 sm:gap-3 flex-wrap">
+              <div className="text-blue-900 text-2xl sm:text-xl font-medium mb-3 sm:mb-4">Follow us</div>
+              <div className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-3">
                 {[
-                  { icon: () => <span className='text-xl sm:text-2xl'>🕹️</span>, name: 'Discord' },
-                  { icon: () => <span className='text-xl sm:text-2xl'>🎵</span>, name: 'Tiktok' },
-                  { icon: () => <span className='text-xl sm:text-2xl'>📸</span>, name: 'Instagram' },
-                  { icon: () => <span className='text-xl sm:text-2xl'>𝕏</span>, name: 'X/Twitter' },
-                  { icon: () => <span className='text-xl sm:text-2xl'>▶️</span>, name: 'Youtube' },
-                  { icon: () => <span className='text-xl sm:text-2xl'>#</span>, name: 'Threads' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>🕹️</span>, name: 'Discord' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>🎵</span>, name: 'Tiktok' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>📸</span>, name: 'Instagram' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>𝕏</span>, name: 'X/Twitter' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>▶️</span>, name: 'Youtube' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>#</span>, name: 'Threads' },
                 ].map((social, idx) => (
-                  <div key={idx} className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} rounded-xl flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3 w-20 sm:w-28 shadow-sm`}>
+                  <div key={idx} className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} rounded-xl flex flex-col items-center justify-center px-4 sm:px-4 py-3 sm:py-3 w-[calc(33.333%-0.5rem)] sm:w-28 shadow-sm`}>
                     <social.icon />
-                    <span className="text-xs mt-1 text-blue-900">{social.name}</span>
+                    <span className="text-sm mt-1 text-blue-900">{social.name}</span>
                   </div>
                 ))}
               </div>
@@ -260,7 +260,7 @@ export function Navigation() {
           .nav-menu-btn {
             padding-left: 0.5rem !important;
             padding-right: 0.5rem !important;
-            font-size: 0.9rem !important;
+            font-size: 1.125rem !important;
             border-radius: 0.8rem !important;
           }
         }
@@ -272,7 +272,7 @@ export function Navigation() {
           }
           .nav-menu-btn {
             
-            font-size: 0.8rem !important;
+            font-size: 1.125rem !important;
             border-radius: 0.6rem !important;
           }
         }

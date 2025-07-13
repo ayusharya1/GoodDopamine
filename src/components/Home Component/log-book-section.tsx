@@ -110,7 +110,7 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
           Log Book
         </h2>
         <button
-            className={`about-button px-5 py-4 rounded-xl text-md font-medium flex items-center justify-center gap-3 transition-all duration-300 group ${theme === 'dark' ? 'bg-[#CACEFE] text-[#030303]' : 'bg-[#0a5485] text-white'}`}
+            className={`about-button px-5 py-4 rounded-xl text-md font-medium flex items-center justify-center gap-3 transition-all duration-300 group hidden md:flex ${theme === 'dark' ? 'bg-[#CACEFE] text-[#030303]' : 'bg-[#0a5485] text-white'}`}
             style={{ fontFamily: 'Roobert' }}
           >
             View all Logs
@@ -192,6 +192,24 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
           </Link>
         ))}
         
+      </div>
+      
+      {/* Mobile View Button - appears after cards */}
+      <div className="flex justify-center mt-8 md:hidden">
+        <button
+            className={`about-button px-5 py-4 rounded-xl text-md font-medium flex items-center justify-center gap-3 transition-all duration-300 group ${theme === 'dark' ? 'bg-[#CACEFE] text-[#030303]' : 'bg-[#0a5485] text-white'}`}
+            style={{ fontFamily: 'Roobert' }}
+          >
+            View all Logs
+            <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                <span className={`inline-block w-[4px] h-[4px] rounded-full ${theme === 'dark' ? 'bg-[#030303]' : 'bg-white'}`}></span>
+              </span>
+              <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                <span className="text-black text-xl">→</span>
+              </span>
+            </span>
+          </button>
       </div>
       
       {/* Responsive styles */}
@@ -663,6 +681,13 @@ export default function LogBookSection({ theme = 'light' }: { theme?: 'light' | 
           
           .card-meta {
             font-size: 0.625rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .log-title {
+            text-align: left !important;
+            align-self: flex-start !important;
+            width: 100%;
           }
         }
       `}</style>

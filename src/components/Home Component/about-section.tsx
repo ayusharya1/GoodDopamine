@@ -120,10 +120,10 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
       {/* Main content with improved arrangement */}
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center justify-center px-6 min-h-[60vh] about-content">
         <p
-          className={`about-text text-center text-xl md:text-2xl lg:px-[2rem] lg:text-5xl font-normal leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
+          className={`about-text text-center text-2xl md:text-2xl lg:px-[2rem] lg:text-5xl font-normal leading-tight ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}
           style={{ letterSpacing: '-0.03em', lineHeight: 1.2 ,fontFamily:'Roobert'}}
         >
-          We make the software 
+          We make software 
           <span className="inline-block align-middle mx-2" style={{fontSize: '1.2em'}}>
             <span role="img" aria-label="Globe">💻</span>
           </span>
@@ -137,6 +137,13 @@ export function AboutSection({ theme = 'light' }: { theme?: 'light' | 'dark' }) 
           </span>
           inner superhuman shine
         </p>
+        <style>{`
+          @media (max-width: 480px) {
+            .about-text {
+              font-size: 1.5rem !important;
+            }
+          }
+        `}</style>
         
         {/* Enhanced button */}
         <div className="flex justify-center mt-10 about-button-container">

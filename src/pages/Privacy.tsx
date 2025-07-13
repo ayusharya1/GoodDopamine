@@ -83,7 +83,7 @@ const Privacy: React.FC = () => {
               left: '50%',
               transform: 'translateX(-50%)',
               width: '100%',
-              bottom: '43%',
+              bottom: window.innerWidth >= 1024 ? '29%' : '43%',
               padding: '0 1rem',
               fontSize: 'clamp(2.5rem, 12vw, 5rem)',
               textAlign: 'center',

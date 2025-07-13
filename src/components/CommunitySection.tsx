@@ -79,7 +79,7 @@ export default function CommunitySection() {
               <div key={s.name} className="flex flex-col items-center justify-between bg-[#D2E4FF] rounded-2xl sm:rounded-[1.5rem] hover:bg-[#F177A4] border-2 border-[#054D85] shadow-md md:shadow-lg relative w-full max-w-[98vw] md:max-w-[400px] lg:max-w-[200px] h-[140px] xs:h-[160px] sm:h-[180px] md:h-[220px] lg:h-[180px] mx-auto lg:mx-2 mb-4 lg:mb-0 group transition-all duration-300 lg:scale-[1.15]">
                 {/* Dot/Arrow in top-right */}
                 <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-3 h-3 bg-[#054D85] rounded-full group-hover:bg-transparent transition-all duration-200 ease-in-out flex items-center justify-center">
-                  <span className="block w-3 h-3 rounded-full transition-all duration-200 group-hover:opacity-0 group-hover:scale-[1.8] bg-[#054D85]"></span>
+                  <span className="block w-3 h-3 rounded-full transition-all duration-200 group-hover:opacity-0  bg-[#054D85]"></span>
                   <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 20L20 8M12 8h8v8" stroke="#054D85" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>

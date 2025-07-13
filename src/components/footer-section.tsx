@@ -116,24 +116,24 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
       <img src={cloudUrl} alt="cloud" className="hidden md:block absolute left-[80%] top-[16%] w-[350px] h-auto z-30 transition-transform duration-300" style={{...cloudRightTop, willChange: 'transform'}} />
       <div className="footer-content max-w-7xl mx-auto relative z-20">
         <div className="flex flex-col xl:flex-row gap-y-6 xl:gap-y-0 gap-x-0 xl:gap-x-8 mb-4 px-2 md:px-4 w-full md:gap-y-8 md:gap-x-0 md:flex-col lg:flex-col xl:gap-y-0 xl:gap-x-8">
-          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-4 md:p-10 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[60%] justify-between ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
-            <h3 className="footer-title text-4xl font-medium text-[#D2E4FF] mb-4 leading-tight">Stay up to date with Good Dopamines</h3>
-            <p className="footer-description mb-8 text-lg font-medium leading-relaxed text-[#A6C8F5]">Join our mailing list to be the first to know about new features and releases.</p>
+          <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-4 md:p-10 flex flex-col h-full shadow-xl w-full md:w-full  justify-between ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
+            <h3 className="footer-title text-2xl font-base text-[#D2E4FF] mb-1 leading-tight lg:w-[60%]">Stay up to date with Good Dopamines</h3>
+            <p className="footer-description mb-8 text-sm font-light leading-relaxed text-[#A6C8F5] lg:w-[50%]">Join our mailing list to be the first to know about new features and releases.</p>
             <form className="w-full flex justify-start items-center" onSubmit={handleSubmit}>
-              <div className="flex w-full items-center bg-[#D2E4FF] rounded-2xl border-4 border-[#b7d4ff] p-2">
-                <input
-                  type="email"
-                  placeholder="Good@stuff"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  className="footer-input flex-1 bg-transparent text-[#000] placeholder-[#85A9D6] text-lg px-4 py-3 rounded-2xl focus:outline-none border-none"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="footer-button text-[#000] font-medium text-sm px-6 py-3 rounded-2xl flex items-center justify-center transition-all duration-200 shadow group"
-                  style={{ minWidth: '145px', background: 'linear-gradient(135deg, #f59abc, #f56197)' }}
-                >
+                             <div className="flex w-full items-center bg-[#D2E4FF] rounded-2xl border-4 border-[#b7d4ff] p-1 gap-2">
+                  <input
+                    type="email"
+                    placeholder="Good@stuff"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="footer-input flex-1 bg-transparent text-[#000] placeholder-[#85A9D6] text-sm px-2 py-1 rounded-2xl focus:outline-none border-none"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="footer-button text-[#000] font-medium text-sm px-2 py-3 rounded-2xl flex items-center justify-center transition-all duration-200 shadow group"
+                    style={{ minWidth: '105px', background: 'linear-gradient(135deg, #f59abc, #f56197)' }}
+                  >
                   Sign up
                   <span className="relative ml-2" style={{ width: '1em', display: 'inline-block' }}>
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
@@ -148,22 +148,30 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
             </form>
           </div>
           <div className={`rounded-3xl border-[6px] border-[#D2E4FF] p-1 flex gap-2 h-full shadow-xl w-full md:w-full xl:w-[60%] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#e3f0ff]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
-            <div className={`flex flex-col gap-1 w-[100%] p-2 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
+            <div className={`flex flex-col w-[100%] p-1 px-1 rounded-lg ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#085494]'}`}>
               {['Home', 'About', 'Logbook', 'Contact'].map((item) => (
                 <a
                   href={item=="Home"?"/":`/${item}`}
                   key={item}
-                  className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-lg border-2 transition-all duration-200 shadow mb-2 ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-white' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!bg-opacity-100 cursor-pointer'}`}
+                  className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-[1.06rem] border-2 transition-all duration-200 shadow mb-1 group ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-black' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!text-black cursor-pointer flex items-center'}`}
                 >
-                  • {item}
+                  <span className="relative mr-2" style={{ width: '1em', display: 'inline-block' }}>
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
+                      <span className="inline-block w-[4px] h-[4px] rounded-full bg-current"></span>
+                    </span>
+                    <span className="absolute left-0 top-[-2px] -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
+                      <span className="text-black text-xl">→</span>
+                    </span>
+                  </span>
+                  {item}
                 </a>
               ))}
             </div>
           </div>
-          <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[50%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
+          <div className={`rounded-3xl py-2 px-2 md:py-4 md:px-3 flex flex-col h-full shadow-xl w-full md:w-full xl:w-[70%] items-center justify-center ${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#D2E4FF]'}`} style={{minHeight: window.innerWidth > 1024 ? '365px' : '220px'}}>
             <h4 className={`footer-social-title font-medium mb-2 md:mb-2 mt-8 md:mt-[6rem] text-base md:text-lg w-full text-left pl-2 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]'}`}>Follow us</h4>
-            <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-4 py-1 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
-              <div className="footer-social-item-container lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-2 xl:gap-x-6 xl:gap-y-2 w-full h-full lg:place-items-center">
+            <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-2 md:px-2 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
+            <div className="footer-social-item-container pt-1 pb-1  lg:pb-0 lg:pt-0 lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-2 xl:gap-x-3 xl:gap-y-2 w-full h-full lg:place-items-center">
                 {[
                   { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord' },
                   { icon: () => <span className='footer-social-icon text-2xl'>🎵</span>, name: 'Tiktok' },
@@ -172,10 +180,19 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
                   { icon: () => <span className='footer-social-icon text-2xl'>▶️</span>, name: 'Youtube' },
                   { icon: () => <span className='footer-social-icon text-2xl'>#</span>, name: 'Threads' },
                 ].map((social, idx) => (
-                  <div key={idx} className="footer-social-item bg-[#D2E4FF] rounded-2xl flex flex-col items-center justify-center aspect-square w-10 h-10 md:w-[5.5rem] md:h-[5.5rem] shadow-sm border-2 border-[#e3f0ff] relative transition-all duration-200 cursor-pointer hover:scale-105">
-                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-1 h-1 md:w-2 md:h-2 bg-[#085494] rounded-full"></div>
+                  <div
+                    key={idx}
+                    className="footer-social-item bg-[#D2E4FF] rounded-2xl flex flex-col items-center justify-center aspect-square w-10 h-10 md:w-[5.5rem] md:h-[5.5rem] shadow-sm border-2 border-[#e3f0ff] relative transition-all duration-200 cursor-pointer lg:scale-105 group hover:!bg-[#F5699C]"
+                  >
+                    {/* Dot/Arrow in top-right */}
+                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-2 h-2 md:w-3 md:h-3 flex items-center justify-center">
+                      <span className="block w-1 h-1 rounded-full transition-all duration-200 group-hover:opacity-0 bg-[#054D85]"></span>
+                      <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 20L20 8M12 8h8v8" stroke="#085494" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
                     <social.icon />
-                    <span className="footer-social-name text-xs mt-1 md:mt-2 text-[#054D85] text-center w-full font-medium">{social.name}</span>
+                    <span className="footer-social-name text-xs mt-1 md:mt-2 text-[#054D85] text-center w-full font-medium group-hover:text-black">{social.name}</span>
                   </div>
                 ))}
               </div>
@@ -183,13 +200,13 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
           </div>
         </div>
         <div className="footer-bar flex flex-wrap justify-between items-center text-sm text-[#054d85] bg-[#D2E4FF] rounded-2xl px-10 py-2 border-2 border-[#e3f0ff] shadow-xl w-[98%] place-self-center">
-          <span className="font-medium">© Good Dopamine. 2025</span>
+          <span className="font-light text-xs" >© Good Dopamine. 2025</span>
           <div className="flex gap-8">
             {['Terms', 'Privacy', 'Media'].map((link) => (
               <a
                 key={link}
                 href={`/${link}`}
-                className="hover:text-[#054D85] font-medium transition-all duration-200"
+                className="hover:text-[#054D85] font-light text-xs  transition-all duration-200"
               >
                 {link}
               </a>

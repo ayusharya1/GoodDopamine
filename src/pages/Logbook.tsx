@@ -137,7 +137,7 @@ const Logbook: React.FC = () => {
         >
           {/* Logs Heading and Filter Bar */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-1 mt-4 sm:mt-[2rem]">
-            <h2 className="text-2xl sm:text-4xl md:text-[68px] font-bold text-[#2A4B7A] ml-2 sm:ml-[2rem] leading-none md:mb-0" style={{fontFamily: 'Roobert, sans-serif', color: theme === 'dark' ? '#C8CCFB' : '#2A4B7A'}}>Logs</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-[68px] font-bold text-[#2A4B7A] ml-2 sm:ml-[2rem] leading-none md:mb-[2rem]" style={{fontFamily: 'Roobert, sans-serif', color: theme === 'dark' ? '#C8CCFB' : '#2A4B7A'}}>Logs</h2>
           </div>
           {/* Log Cards Grid */}
           <section
