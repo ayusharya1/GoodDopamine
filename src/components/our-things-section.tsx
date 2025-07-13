@@ -453,8 +453,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           /* Specific override for bottom right card */
           .right-card:last-child .right-card-overlay {
-            left: 1.5rem !important;
-            bottom: 1.5rem !important;
+            
+            bottom: 0.5rem !important;
             transform: none !important;
             top: auto !important;
             margin-bottom: 0 !important;
@@ -580,8 +580,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           /* Specific override for bottom right card */
           .right-card:last-child .right-card-overlay {
-            left: 1rem !important;
-            bottom: 1rem !important;
+            
+            bottom: 0.5rem !important;
             transform: none !important;
             top: auto !important;
           }
@@ -718,8 +718,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           /* Specific override for bottom right card */
           .right-card:last-child .right-card-overlay {
-            left: 0.75rem !important;
-            bottom: 0.75rem !important;
+            
+            bottom: 0.3rem !important;
             transform: none !important;
             top: auto !important;
           }
@@ -851,8 +851,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
           
           /* Specific override for bottom right card */
           .right-card:last-child .right-card-overlay {
-            left: 0.625rem !important;
-            bottom: 0.625rem !important;
+            
+            bottom: 0.1rem !important;
             transform: none !important;
             top: auto !important;
           }
@@ -876,8 +876,8 @@ export function OurThingsSection({ id, theme }: { id?: string, theme?: 'light' |
         }
         @media (max-width: 1024px) {
           .right-card:last-child .right-card-overlay {
-            left: 1.5rem !important;
-            bottom: 1.5rem !important;
+            
+            bottom: 0.7rem !important;
             transform: none !important;
             top: auto !important;
             margin-bottom: 0 !important;
