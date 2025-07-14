@@ -207,7 +207,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             Scroll
           </span>
           <div className="flex items-center justify-center w-[40%] mx-auto" style={{marginLeft: '4.8rem'}}>
-            <svg className={`scroll-arrow stroke-white group-hover:stroke-black ${theme === 'dark' ? 'stroke-black' : 'stroke-white'}`} width="42" height="80" viewBox="0 0 32 60">
+            <svg className={`scroll-arrow  group-hover:stroke-black ${theme === 'dark' ? 'stroke-black' : 'stroke-white'}`} width="42" height="80" viewBox="0 0 32 60">
               <polyline
                 points="16,4 16,52"
                 className="arrow-shaft"
