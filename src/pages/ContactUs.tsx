@@ -127,10 +127,11 @@ const ContactUs = () => {
       </div>
       {/* Form and FAQ Section with log-book style dark theme */}
       <div className="relative w-full flex flex-col lg:flex-row items-stretch justify-between px-2 pt-4 pb-24 z-10" style={{minHeight:'600px'}}>
-        {/* Grid background: full width, fills parent */}
+        {/* Grid background: full width, fixed height - matching log-book section */}
         <div
-          className="absolute inset-0 z-0 pointer-events-none rounded-t-[4rem] rounded-b-[0rem] sm:rounded-b-[0rem] md:rounded-b-[0rem] lg:rounded-b-[7rem]"
+          className="absolute left-0 top-[200px] w-full z-0 pointer-events-none rounded-t-[4rem] rounded-b-[0rem] sm:rounded-b-[0rem] md:rounded-b-[0rem] lg:rounded-b-[2rem]"
           style={{
+            height: '163vh',
             backgroundColor: theme === 'dark' ? '#0F0E16' : '#B7D4FF',
             backgroundImage: 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")',
             backgroundSize: '200px',
@@ -221,7 +222,7 @@ const ContactUs = () => {
         </div>
       </div>
       {/* Add margin before FooterSection */}
-      <div className="w-full" style={{marginTop: '5rem'}}></div>
+      <div className="w-full" style={{marginTop: '6rem'}}></div>
       <FooterSection theme={theme} />
       
       {/* Responsive styles */}
@@ -289,7 +290,7 @@ const ContactUs = () => {
           }
           
           .contact-main-content + div > div:first-child {
-            height: 120vh !important;
+            height: 150vh !important;
             top: 150px !important;
             border-radius: 2rem 2rem 4rem 4rem !important;
           }
@@ -408,7 +409,7 @@ const ContactUs = () => {
           }
           
           .contact-main-content + div > div:first-child {
-            height: 145vh !important;
+            height: 155vh !important;
             top: 120px !important;
             border-radius: 1.5rem 1.5rem 3rem 3rem !important;
           }
@@ -518,7 +519,7 @@ const ContactUs = () => {
           }
           
           .contact-main-content + div > div:first-child {
-            height: 150vh !important;
+            height: 158vh !important;
             top: 100px !important;
             border-radius: 1rem 1rem 2rem 2rem !important;
           }
