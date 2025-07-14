@@ -38,7 +38,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
   return (
     <section
       ref={heroRef}
-      className={`min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 ${theme === 'dark' ? 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]' : 'bg-gradient-to-b from-[#5BB6FF] to-[#8EC5FF]'}`}
+      className={`relative min-h-screen overflow-hidden flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 ${theme === 'dark' ? 'bg-gradient-to-b from-[#4952b0] via-[#181a3a] to-[#23244a]' : 'bg-gradient-to-b from-[#5BB6FF] to-[#8EC5FF]'}`}
       data-scroll-section
     >
       {/* Realistic Floating Clouds */}
@@ -192,25 +192,64 @@ export function HeroSection({ theme }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* {showScrollBtn && (
-        <button
-          className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 w-16 h-16 sm:w-24 sm:h-24 bg-blue-900 rounded-xl sm:rounded-2xl flex flex-col items-center justify-end shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer z-20 group hover:bg-[#ff5fa2]"
-          onClick={() => {
-            const el = document.getElementById('our-things-section');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-          aria-label="Scroll to next section"
-        >
-          <div className="flex-1 flex items-center justify-center w-full">
-            
-            <svg className="w-6 h-6 sm:w-10 sm:h-10 text-white transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  
+      <button
+        className={`hidden sm:flex absolute bottom-4 sm:bottom-10 right-4 sm:right-8 w-22 h-22 sm:w-[7.5rem] sm:h-[7.5rem] ${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#054d85]'} rounded-2xl sm:rounded-4xl flex items-center justify-center shadow-xl transition-all duration-300 cursor-pointer z-20 group hover:bg-[#ff5fa2] hover:text-black`}
+        onClick={() => {
+          const el = document.getElementById('card-theme-section');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
+        aria-label="Scroll to next section"
+        style={{borderRadius:'1.6rem'}}
+      >
+        <div className="relative flex items-center justify-center w-full h-full">
+          <span className={`absolute left-3 bottom-3 sm:left-4 sm:bottom-4 font-light text-sm sm:text-xl select-none pointer-events-none group-hover:text-black ${theme === 'dark' ? 'text-black' : 'text-white'}`}>
+            Scroll
+          </span>
+          <div className="flex items-center justify-center w-[40%] mx-auto" style={{marginLeft: '4.8rem'}}>
+            <svg className={`scroll-arrow stroke-white group-hover:stroke-black ${theme === 'dark' ? 'stroke-black' : 'stroke-white'}`} width="42" height="80" viewBox="0 0 32 60">
+              <polyline
+                points="16,4 16,52"
+                className="arrow-shaft"
+                fill="none"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <polyline
+                points="10,44 16,54 22,44"
+                className="arrow-head"
+                fill="none"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
-          <span className="mb-2 sm:mb-4 text-white font-medium text-sm sm:text-lg">Scroll</span>
-        </button>
-      )} */}
-
+        </div>
+        <style>{`
+          .scroll-arrow {
+            display: block;
+            margin: 0 auto;
+          }
+          .arrow-shaft, .arrow-head {
+            stroke-dasharray: 44;
+            stroke-dashoffset: 44;
+            opacity: 0;
+            animation: arrow-draw 1.9s infinite;
+            animation-delay: 0.8s;
+          }
+          .arrow-head {
+            animation-delay: 1s;
+          }
+          @keyframes arrow-draw {
+            0% { stroke-dashoffset: 44; opacity: 0; }
+            40% { opacity: 1; }
+            80% { stroke-dashoffset: 0; opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0; }
+          }
+        `}</style>
+      </button>
       <style>{`
         .cloud-simple {
           position: absolute;

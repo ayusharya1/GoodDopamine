@@ -117,6 +117,7 @@ const CardTheme = ({  theme }: { id?: string, theme?: 'light' | 'dark' }) => {
         className={
           `our-things-title  capitalize text-left w-[92%] mx-auto mt-10 px-2  relative z-20 ${theme === 'dark' ? 'text-[#CBCFFF]' : 'text-blue-900'} text-[clamp(2.2rem,6vw,4.6rem)] md:text-[3.5rem] sm:text-[1.6rem] font-normal leading-[1.15]`
         }
+        id='card-theme-section'
         style={{
           fontFamily: 'Roobert, sans-serif',
           letterSpacing: '-0.04em',
