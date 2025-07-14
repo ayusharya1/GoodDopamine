@@ -3,11 +3,25 @@ import { FooterSection } from '../components/footer-section';
 import { Navigation } from '../components/Navigation';
 import { useTheme } from '../components/theme-provider';
 
+// 1. Update faqs array
 const faqs = [
-  'How does Good Dopamine help?',
-  'How can I install the Ridan extension?',
-  'Is Ridan free to use?',
-  "What's the catch?",
+  {
+    question: 'What’s the meaning of Ridan?',
+    answer: 'Resist Interesting yet Damaging Act or Notion. And for the 998th time, it is not the name of a girl I like. Or maybe...'
+  },
+  {
+    question: 'Is it free?',
+    answer: "Yes, we operate on a freemium model. Most features are free, but some come with a premium subscription. More than just unlocking extra features, going premium is about supporting our fight for the cause. If you're a premium user, you're the reason hundreds of others can access Ridan for free. So, thank you."
+  },
+  {
+    question: 'Why does the app need so many permissions? Is it safe?',
+    answer: "Absolutely. We don’t store any personal data. We only request device-specific permissions to block exactly what you ask us to. If you don’t use a feature, we won’t ask for the respective permission. We get that you’re concerned about your data. If at any point you want us to delete it, just let us know. And if you're ever unsure, you can uninstall the app anytime. No worries at all."
+  },
+  {
+    question: 'You guys are blocking social media, but I found you on social media. Irony...',
+    answer: "Lol, that means it's working! Our goal is to help you—but to do that, we need to reach you first, right? If your screen time is under control, you probably won’t see us again. We hope so. But if you do, well... maybe it’s time to block us—or block your addiction using us. Haha."
+  },
+ 
 ];
 
 const ContactUs = () => {
@@ -19,9 +33,10 @@ const ContactUs = () => {
     subject: '',
     message: ''
   });
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   // Generate random stars for dark mode (matching log-book section)
-  const numStars = 12;
+  const numStars = 10;
   const stars = useMemo(() => Array.from({ length: numStars }, () => {
     const left = Math.random() * 100;
     const top = Math.random() * 70;
@@ -112,29 +127,18 @@ const ContactUs = () => {
       </div>
       {/* Form and FAQ Section with log-book style dark theme */}
       <div className="relative w-full flex flex-col lg:flex-row items-stretch justify-between px-2 pt-4 pb-24 z-10" style={{minHeight:'600px'}}>
-        {/* Grid background: full width, fixed height - matching log-book section */}
+        {/* Grid background: full width, fills parent */}
         <div
-          className="absolute left-0 top-[200px] w-full z-0 pointer-events-none rounded-t-[4rem] rounded-b-[7rem]"
-          style={theme === 'dark'
-            ? {
-                height: '135vh',
-                backgroundColor: '#0F0E16',
-                backgroundImage: 'url(https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png)',
-                backgroundSize: '200px',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'repeat',
-                opacity: 1,
-                backgroundBlendMode: 'normal',
-              }
-            : {
-                height: '135vh',
-                backgroundColor: '#B7D4FF',
-                backgroundImage: 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")',
-                backgroundSize: '200px',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'repeat',
-              }
-          }
+          className="absolute inset-0 z-0 pointer-events-none rounded-t-[4rem] rounded-b-[0rem] sm:rounded-b-[0rem] md:rounded-b-[0rem] lg:rounded-b-[7rem]"
+          style={{
+            backgroundColor: theme === 'dark' ? '#0F0E16' : '#B7D4FF',
+            backgroundImage: 'url("https://cdn.prod.website-files.com/66ea3a5528a044beafcf913e/671af6a311542774d2562292_Repeating%20Grid%20Image_day.png")',
+            backgroundSize: '200px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'repeat',
+            opacity: theme === 'dark' ? 1 : undefined,
+            backgroundBlendMode: theme === 'dark' ? 'normal' : undefined,
+          }}
         />
         {/* Left: Crab and FAQ */}
         <div className="w-full lg:w-1/2 flex flex-col justify-start items-start pt-4 sm:pt-8 relative z-10 px-2 sm:px-4 md:px-8">
@@ -144,11 +148,35 @@ const ContactUs = () => {
           <div className="w-full h-full rounded-2xl sm:rounded-[4rem] p-4 sm:p-8 md:p-12 pt-0 relative bg-transparent mt-8 sm:mt-[6rem] md:mt-[10rem]" style={{minHeight: 320}}>
             <h2 className={"text-xl sm:text-2xl md:text-4xl lg:text-[4rem] font-light mb-4 sm:mb-8 leading-none " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')} style={{lineHeight:'4rem'}}>Frequently<br />Asked Questions</h2>
             <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 w-full sm:w-[90%] mt-2 sm:mt-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className={"border-4 rounded-xl sm:rounded-[2rem] px-4 sm:px-8 py-3 sm:py-6 text-base sm:text-xl md:text-2xl font-normal flex items-center gap-2 sm:gap-4 shadow-lg relative " + (theme === 'dark' ? 'bg-[#23244a] border-[#CBCFFF] text-[#CBCFFF]' : 'bg-[#D2E4FF] border-[#054D85] text-[#054D85]')} style={{minHeight: '48px'}}>
-                  <span className={"text-xl sm:text-2xl md:text-3xl font-bold mr-2 sm:mr-4 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>•</span> {faq}
-                </div>
-              ))}
+              {faqs.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i} className={
+                    "faq-laptop-width border-4 rounded-xl sm:rounded-[2rem] px-4 sm:px-8 py-3 sm:py-6 text-base sm:text-xl md:text-2xl font-normal flex flex-col shadow-lg relative transition-all duration-200 " +
+                    (theme === 'dark' ? 'bg-[#23244a] border-[#CBCFFF] text-[#CBCFFF]' : 'bg-[#D2E4FF] border-[#054D85] text-[#054D85]')
+                  } style={{minHeight: '48px', cursor: 'pointer', overflow: 'hidden'}} onClick={() => setOpenFaq(isOpen ? null : i)}>
+                    <div className="flex items-center gap-2 sm:gap-4 w-full">
+                      <span className={"text-lg sm:text-xl md:text-xl font-bold mr-2 sm:mr-4 transition-transform duration-200 " + (theme === 'dark' ? 'text-[#CBCFFF]' : 'text-[#054D85]')}>
+                        {isOpen ? '–' : '•'}
+                      </span>
+                      <span className="flex-1 break-words text-left">{faq.question}</span>
+                    </div>
+                    <div className={`faq-answer transition-all duration-300 overflow-hidden text-base sm:text-lg md:text-xl font-light mt-2 sm:mt-3 ${isOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'} ${theme === 'dark' ? 'text-[#A9CAF5]' : 'text-[#085494]'}`}
+                      style={{
+                        paddingLeft: isOpen ? '2.5rem' : 0,
+                        paddingRight: '0.5rem',
+                        maxHeight: isOpen ? '300px' : '0',
+                        transition: 'all 0.3s cubic-bezier(.4,0,.2,1)',
+                        wordBreak: 'break-word',
+                        whiteSpace: 'normal',
+                        overflowWrap: 'anywhere',
+                      }}
+                    >
+                      {faq.answer}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -192,6 +220,8 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      {/* Add margin before FooterSection */}
+      <div className="w-full" style={{marginTop: '5rem'}}></div>
       <FooterSection theme={theme} />
       
       {/* Responsive styles */}
@@ -378,7 +408,7 @@ const ContactUs = () => {
           }
           
           .contact-main-content + div > div:first-child {
-            height: 110vh !important;
+            height: 145vh !important;
             top: 120px !important;
             border-radius: 1.5rem 1.5rem 3rem 3rem !important;
           }
@@ -488,7 +518,7 @@ const ContactUs = () => {
           }
           
           .contact-main-content + div > div:first-child {
-            height: 115vh !important;
+            height: 150vh !important;
             top: 100px !important;
             border-radius: 1rem 1rem 2rem 2rem !important;
           }
@@ -589,6 +619,14 @@ const ContactUs = () => {
         @media (min-width: 1024px) {
           .contact-main-content + div > div:nth-child(2) h2 {
             line-height: 4rem !important;
+          }
+        }
+        @media (min-width: 1025px) {
+          .faq-laptop-width {
+            width: 100% !important;
+            max-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
           }
         }
       `}</style>

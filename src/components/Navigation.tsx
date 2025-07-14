@@ -176,36 +176,55 @@ export function Navigation() {
               <div className={`${theme === 'dark' ? 'bg-[#07002F]' : 'bg-[#0a5485]'} rounded-2xl p-2 sm:p-2 md:p-2 max-w-xl w-full mb-6 sm:mb-8 shadow-lg`}>
                 <div className="space-y-2 sm:space-y-1 w-full sm:w-[60%] md:w-[50%]">
                   {[
-                    { label: 'Ridan', url: 'https://www.ridan.ai/' },
-                    { label: 'Ridan For Research', url: 'https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0' }
-                  ].map(({ label, url }) => (
-                    <a
-                      href={url}
-                      target="_blank"
-                      key={label}
-                      className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} our-product-btn group rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-lg sm:text-lg font-medium shadow-sm hover:bg-[#F68CA7]`}
-                    >
-                      <span className="mr-2 sm:mr-3 text-xl sm:text-2xl">•</span>
-                      {label}
-                    </a>
+                    { label: 'Ridan', url: 'https://www.ridan.ai/', desc: '→ Stop Scrolling .Start Doing.' },
+                    { label: 'Ridan For Research', url: 'https://api.whatsapp.com/send/?phone=8249069736&text=Hi%2C+I+am+a+researcher.+I+want+to+partner+with+Ridan.&type=phone_number&app_absent=0', desc: '→ Partner with us for research' }
+                  ].map(({ label, url, desc }) => (
+                    <div key={label} className="relative w-full">
+                      <a
+                        href={url}
+                        target="_blank"
+                        className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} our-product-btn group rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center text-blue-900 text-lg sm:text-lg font-medium shadow-sm hover:bg-[#F68CA7]`}
+                      >
+                        <span className="mr-2 sm:mr-3 text-xl sm:text-2xl">•</span>
+                        {label}
+                      </a>
+                      {/* Hover description text */}
+                      <span className="our-product-desc absolute top-1/2 left-full ml-4 -translate-y-1/2 px-2 py-1 rounded text-xs sm:text-sm font-mono bg-transparent text-[#fff] whitespace-nowrap pointer-events-none transition-opacity duration-200" style={{opacity: 0}}>
+                        {desc}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
               <div className="text-blue-900 text-2xl sm:text-xl font-medium mb-3 sm:mb-4">Follow us</div>
               <div className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-3">
                 {[
-                  { icon: () => <span className='text-2xl sm:text-2xl'>🕹️</span>, name: 'Discord' },
-                  { icon: () => <span className='text-2xl sm:text-2xl'>🎵</span>, name: 'Tiktok' },
-                  { icon: () => <span className='text-2xl sm:text-2xl'>📸</span>, name: 'Instagram' },
-                  { icon: () => <span className='text-2xl sm:text-2xl'>𝕏</span>, name: 'X/Twitter' },
-                  { icon: () => <span className='text-2xl sm:text-2xl'>▶️</span>, name: 'Youtube' },
-                  { icon: () => <span className='text-2xl sm:text-2xl'>#</span>, name: 'Threads' },
-                ].map((social, idx) => (
-                  <div key={idx} className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} rounded-xl flex flex-col items-center justify-center px-4 sm:px-4 py-3 sm:py-3 w-[calc(33.333%-0.5rem)] sm:w-28 shadow-sm`}>
-                    <social.icon />
-                    <span className="text-sm mt-1 text-blue-900">{social.name}</span>
-                  </div>
-                ))}
+                  { icon: () => <span className='text-2xl sm:text-2xl'>🕹️</span>, name: 'Discord', link: 'https://discord.com' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>🎵</span>, name: 'Tiktok', link: 'https://tiktok.com' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>📸</span>, name: 'Instagram', link: 'https://instagram.com' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>𝕏</span>, name: 'X/Twitter', link: 'https://twitter.com' },
+                  { icon: () => <span className='text-2xl sm:text-2xl'>▶️</span>, name: 'Youtube', link: 'https://www.youtube.com/shorts/LBLJPkiZgRU' },
+                  { icon: () => (
+    <svg className='text-2xl sm:text-2xl' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+      <path d="M7.75 9.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M7.75 7.75V7.76" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 12.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 12.5C12 11.2574 13.0074 10.25 14.25 10.25C15.4926 10.25 16.5 11.2574 16.5 12.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ), name: 'LinkedIn', link: 'https://www.linkedin.com/in/SasOnTheMove' },
+].map((social, idx) => (
+  <a
+    key={idx}
+    href={social.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`${theme === 'dark' ? 'bg-[#CBCFFF]' : 'bg-[#cbe2fa]'} rounded-xl flex flex-col items-center justify-center px-4 sm:px-4 py-3 sm:py-3 w-[calc(33.333%-0.5rem)] sm:w-28 shadow-sm no-underline`}
+  >
+    <social.icon />
+    <span className="text-sm mt-1 text-blue-900">{social.name}</span>
+  </a>
+))}
               </div>
             </div>
           </div>
@@ -338,6 +357,11 @@ export function Navigation() {
         }
         .theme-toggle-star.delay-500 {
           transition-delay: 0.5s;
+        }
+        .our-product-btn:hover + .our-product-desc {
+          opacity: 1 !important;
+          background: transparent;
+          color: #fff;
         }
       `}</style>
     </>

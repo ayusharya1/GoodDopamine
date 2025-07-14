@@ -173,27 +173,42 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
             <div className={`flex-1 w-full flex items-center justify-center rounded-2xl px-1 md:px-2 ${theme === 'dark' ? 'bg-[#07002F] text-[#085494]' : 'bg-[#085494]'}`}>
             <div className="footer-social-item-container pt-1 pb-1  lg:pb-0 lg:pt-0 lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-2 xl:gap-x-3 xl:gap-y-2 w-full h-full lg:place-items-center">
                 {[
-                  { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord' },
-                  { icon: () => <span className='footer-social-icon text-2xl'>🎵</span>, name: 'Tiktok' },
-                  { icon: () => <span className='footer-social-icon text-2xl'>📸</span>, name: 'Instagram' },
-                  { icon: () => <span className='footer-social-icon text-2xl'>𝕏</span>, name: 'X/Twitter' },
-                  { icon: () => <span className='footer-social-icon text-2xl'>▶️</span>, name: 'Youtube' },
-                  { icon: () => <span className='footer-social-icon text-2xl'>#</span>, name: 'Threads' },
+                  { icon: () => <span className='footer-social-icon text-2xl'>🕹️</span>, name: 'Discord', link: 'https://discord.com' },
+                  { icon: () => <span className='footer-social-icon text-2xl'>🎵</span>, name: 'Tiktok', link: 'https://tiktok.com' },
+                  { icon: () => <span className='footer-social-icon text-2xl'>📸</span>, name: 'Instagram', link: 'https://instagram.com' },
+                  { icon: () => <span className='footer-social-icon text-2xl'>𝕏</span>, name: 'X/Twitter', link: 'https://twitter.com' },
+                  { icon: () => <span className='footer-social-icon text-2xl'>▶️</span>, name: 'Youtube', link: 'https://www.youtube.com/shorts/LBLJPkiZgRU' },
+                  { icon: () => (
+                    <svg className='footer-social-icon text-2xl' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+                      <path d="M7.75 9.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M7.75 7.75V7.76" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 12.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M12 12.5C12 11.2574 13.0074 10.25 14.25 10.25C15.4926 10.25 16.5 11.2574 16.5 12.5V16.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ), name: 'LinkedIn', link: 'https://www.linkedin.com/in/SasOnTheMove' },
                 ].map((social, idx) => (
-                  <div
+                  <a
                     key={idx}
-                    className="footer-social-item bg-[#D2E4FF] rounded-2xl flex flex-col items-center justify-center aspect-square w-10 h-10 md:w-[5.5rem] md:h-[5.5rem] shadow-sm border-2 border-[#e3f0ff] relative transition-all duration-200 cursor-pointer lg:scale-105 group hover:!bg-[#F5699C]"
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="no-underline"
                   >
-                    {/* Dot/Arrow in top-right */}
-                    <div className="absolute top-1 right-1 md:top-2 md:right-2 w-2 h-2 md:w-3 md:h-3 flex items-center justify-center">
-                      <span className="block w-1 h-1 rounded-full transition-all duration-200 group-hover:opacity-0 bg-[#054D85]"></span>
-                      <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 20L20 8M12 8h8v8" stroke="#085494" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                    <div
+                      className="footer-social-item bg-[#D2E4FF] rounded-2xl flex flex-col items-center justify-center aspect-square w-10 h-10 md:w-[5.5rem] md:h-[5.5rem] shadow-sm border-2 border-[#e3f0ff] relative transition-all duration-200 cursor-pointer lg:scale-105 group hover:!bg-[#F5699C]"
+                    >
+                      {/* Dot/Arrow in top-right */}
+                      <div className="absolute top-1 right-1 md:top-2 md:right-2 w-2 h-2 md:w-3 md:h-3 flex items-center justify-center">
+                        <span className="block w-1 h-1 rounded-full transition-all duration-200 group-hover:opacity-0 bg-[#054D85]"></span>
+                        <svg className="absolute transition-all duration-200 opacity-0 group-hover:opacity-100" width="18" height="18" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8 20L20 8M12 8h8v8" stroke="#085494" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <social.icon />
+                      <span className="footer-social-name text-xs mt-1 md:mt-2 text-[#054D85] text-center w-full font-medium group-hover:text-black">{social.name}</span>
                     </div>
-                    <social.icon />
-                    <span className="footer-social-name text-xs mt-1 md:mt-2 text-[#054D85] text-center w-full font-medium group-hover:text-black">{social.name}</span>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
