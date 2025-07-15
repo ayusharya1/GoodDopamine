@@ -153,11 +153,11 @@ export function FooterSection({ theme = 'light' }: FooterSectionProps) {
                 <a
                   href={item=="Home"?"/":`/${item}`}
                   key={item}
-                  className={`footer-nav-button w-full text-left rounded-lg px-6 py-1 text-[1.06rem] border-2 transition-all duration-200 shadow mb-1 group ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-black' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!text-black cursor-pointer flex items-center'}`}
+                  className={`footer-nav-button flex items-center w-full rounded-lg px-6 py-1 text-[1.06rem] border-2 transition-all duration-200 shadow mb-1 group ${theme === 'dark' ? 'bg-[#CBCFFF] text-[#07002F] border-[#07002F] hover:!bg-[#F5699C] hover:!text-black' : 'bg-[#D2E4FF] text-[#054D85] border-[#e3f0ff] hover:!bg-[#F5699C] hover:!text-black cursor-pointer'}`}
                 >
                   <span className="relative mr-2" style={{ width: '1em', display: 'inline-block' }}>
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex justify-center">
-                      <span className="inline-block w-[4px] h-[4px] rounded-full bg-current"></span>
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 opacity-100 w-full flex items-center justify-center">
+                      <span className="inline-block w-[4px] h-[4px] rounded-full" style={{ backgroundColor: theme === 'dark' ? '#07002F' : '#054D85' }}></span>
                     </span>
                     <span className="absolute left-0 top-[-2px] -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-100 opacity-0 w-full flex justify-center">
                       <span className="text-black text-xl">→</span>
